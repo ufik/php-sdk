@@ -1,3 +1,5 @@
 /.metadata
 /.settings
 /vendor
+/.project
+/.buildpath
