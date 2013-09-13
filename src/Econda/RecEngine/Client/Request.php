@@ -15,11 +15,15 @@ use Econda\RecEngine\Client\Request\Context;
 class Request
 {
 	/**
-	 * 
+	 * Request context (recommendations for...)
 	 * @var Context
 	 */
 	protected $context;
 	
+	/**
+	 * Widget id from cross sell management interface
+	 * @var int
+	 */
 	protected $widgetId;
 	
 	/**
@@ -38,11 +42,13 @@ class Request
 	 * True to get widget details in crosssell response
 	 * @var bool
 	 */
-	protected $widgetDetails = true;
+	protected $includeWidgetDetails = true;
 	
+	/**
+	 * Constructor
+	 */
 	public function __construct()
 	{
-		$this->context = [];
 	}
 	
 	/**
@@ -64,11 +70,22 @@ class Request
 		return $this->context;
 	}
 	
+	/**
+	 * Get current widget id
+	 * @return int
+	 */
 	public function getWidgetId()
 	{
 		return $this->widgetId;
 	}
 	
+	/**
+	 * Set widget id as defined in cross sell management interface
+	 * 
+	 * @param numeric $widgetId
+	 * @throws InvalidArgumentException
+	 * @return \Econda\RecEngine\Client\Request
+	 */
 	public function setWidgetId($widgetId)
 	{
 		if(!is_numeric($widgetId)) {
@@ -123,6 +140,26 @@ class Request
 			throw new InvalidArgumentException("Value is not an integer.");
 		}
 		$this->chunkSize = (int) $chunkSize;
+		return $this;
+	}
+	
+	/**
+	 * True if we'll include widget details in response
+	 * @return boolean
+	 */
+	public function getIncludeWidgetDetails()
+	{
+		return $this->includeWidgetDetails;
+	}
+	
+	/**
+	 * Set to false to exclude widget details from server response
+	 * @param boolean $includeWidgetDetails
+	 * @return \Econda\RecEngine\Client\Request
+	 */
+	public function setIncludeWidgetDetails($includeWidgetDetails)
+	{
+		$this->includeWidgetDetails = $includeWidgetDetails;
 		return $this;
 	}
 }
