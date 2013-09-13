@@ -2,19 +2,17 @@
 namespace Econda\RecEngine;
 
 use Econda\RecEngine\Config\ConfigAwareTrait;
-
 use Econda\RecEngine\Client\Request;
 use Econda\RecEngine\Exception\InvalidArgumentException;
 use Econda\RecEngine\Config\ConfigInterface;
 use Econda\RecEngine\Config\ArrayConfig;
-use Econda\RecEngine\Config\ConfigAwareTrait;
 
 /**
  * Client to request recommendations from econda recommendation engine.
  */
 class Client
 {
-	use ConfigAwareTrait;
+	use \Econda\RecEngine\Config\ConfigAwareTrait;
 	
 	/**
 	 * request object or null if not initialized
