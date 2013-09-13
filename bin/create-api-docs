@@ -1,0 +1,7 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $DIR
+cd ..
+pwd
+php ./vendor/phpdocumentor/phpdocumentor/bin/phpdoc.php -d ./src -t ./docs
