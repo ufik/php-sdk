@@ -9,11 +9,14 @@
  */
 namespace Econda\RecEngine\Client;
 
+use Econda\RecEngine\Base\StandardConstructorTrait;
 use Econda\RecEngine\Exception\InvalidArgumentException;
 use Econda\RecEngine\Client\Request\Context;
 
 class Request
 {
+    use StandardConstructorTrait;
+
 	/**
 	 * Request context (recommendations for...)
 	 * @var Context
@@ -53,12 +56,25 @@ class Request
 	/**
 	 * Constructor
 	 */
-	public function __construct()
+	public function __construct($data = null)
 	{
+        if($data) {
+            $this->initPropertiesFromArray($data);
+        }
+        $this->context = new Context();
 	}
-	
+
+    /**
+     * Request type, always 'cs'
+     * @return string
+     */
+    public function getType()
+    {
+        return 'cs';
+    }
+
 	/**
-	 * Context to get recommendations for
+	 * Context to get recommendations for.
 	 * @param Context $context
      * @return $this
      */

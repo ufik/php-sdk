@@ -13,6 +13,7 @@ use Econda\RecEngine\Exception\InvalidArgumentException;
 
 /**
  * Configuration for cross sell related functions
+ * @package Econda\RecEngine
  */
 class ArrayConfig implements ConfigInterface
 {
@@ -21,15 +22,17 @@ class ArrayConfig implements ConfigInterface
 	 * @var string
 	 */
 	protected $accountId;
-	
-	/**
-	 * Constructor
-	 * @param array $interable accepts an array ['propertyName' => 'value']
-	 */
+
+    /**
+     * Constructor
+     * @param null $arr
+     * @throws \Econda\RecEngine\Exception\InvalidArgumentException
+     * @internal param array $interable accepts an array ['propertyName' => 'value']
+     */
 	public function __construct($arr=null)
 	{
 		if($arr != null) {
-			if(!empty($arr['accountId'])) {
+			if(empty($arr['accountId'])) {
 				throw new InvalidArgumentException("Missing array key 'accountId' or empty value in config.");
 			}
 			$this->setAccountId($arr['accountId']);
