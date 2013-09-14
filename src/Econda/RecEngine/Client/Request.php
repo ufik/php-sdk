@@ -43,7 +43,13 @@ class Request
 	 * @var bool
 	 */
 	protected $includeWidgetDetails = true;
-	
+
+    /**
+     * Array of product ids to exclude from response data
+     * @var array
+     */
+    protected $excludeProductIds = [];
+
 	/**
 	 * Constructor
 	 */
@@ -54,7 +60,8 @@ class Request
 	/**
 	 * Context to get recommendations for
 	 * @param Context $context
-	 */
+     * @return $this
+     */
 	public function setContext(Context $context)
 	{
 		$this->context = $context;
@@ -162,4 +169,27 @@ class Request
 		$this->includeWidgetDetails = $includeWidgetDetails;
 		return $this;
 	}
+
+    /**
+     * Set product ids to exclude from response data
+     * @param array|string $productIds
+     * @return $this
+     */
+    public function setExcludeProductIds($productIds)
+    {
+        if(!is_array($productIds)) {
+            $productIds = [$productIds];
+        }
+        $this->excludeProductIds = $productIds;
+        return $this;
+    }
+
+    /**
+     * Get array of product ids to exclude from response data
+     * @return array
+     */
+    public function getExcludeProductIds()
+    {
+        return $this->excludeProductIds;
+    }
 }

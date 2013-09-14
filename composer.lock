@@ -1413,20 +1413,17 @@
         },
         {
             "name": "phpdocumentor/unified-asset-installer",
-            "version": "1.1.2",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/UnifiedAssetInstaller.git",
-                "reference": "241fb036268cd9da7d76da3db66e3eda66259c52"
+                "reference": "769daf20345494ae00f166a9a649086545c0cd79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/UnifiedAssetInstaller/zipball/241fb036268cd9da7d76da3db66e3eda66259c52",
-                "reference": "241fb036268cd9da7d76da3db66e3eda66259c52",
+                "url": "https://api.github.com/repos/phpDocumentor/UnifiedAssetInstaller/zipball/769daf20345494ae00f166a9a649086545c0cd79",
+                "reference": "769daf20345494ae00f166a9a649086545c0cd79",
                 "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "1.0.0"
             },
             "require-dev": {
                 "composer/composer": "~1.0@dev",
@@ -1456,7 +1453,7 @@
                 "plugins",
                 "templates"
             ],
-            "time": "2013-09-09 06:13:02"
+            "time": "2013-08-02 06:40:32"
         },
         {
             "name": "phpoption/phpoption",

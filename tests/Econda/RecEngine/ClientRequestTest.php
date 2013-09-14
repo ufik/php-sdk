@@ -26,6 +26,13 @@ class ClientRequestTest extends PHPUnit_Framework_TestCase
 		$req = new \Econda\RecEngine\Client\Request();
 		$this->_testBooleanGetSet($req, 'includeWidgetDetails', true);
 	}
-	
 
+    public function testGetSetExcludeProductIds()
+    {
+        $req = new \Econda\RecEngine\Client\Request();
+        $this->assertEquals([], $req->getExcludeProductIds());
+        $this->assertSame($req, $req->setExcludeProductIds('ABC'));
+        $this->assertEquals(['ABC'], $req->getExcludeProductIds());
+        $this->assertEquals(['A1','A2'], $req->setExcludeProductIds(['A1','A2'])->getExcludeProductIds());
+    }
 }

@@ -14,7 +14,13 @@ trait StandardGetterSetterTrait
 		$this->_testGetter($obj, $propertyName, $defaultValue);
 		$this->_testBooleanSetter($obj, $propertyName, $defaultValue);
 	}
-	
+
+    protected function _testStringGetSet($obj, $propertyName, $defaultValue)
+    {
+        $this->_testGetter($obj, $propertyName, $defaultValue);
+        $this->_testStringSetter($obj, $propertyName, $defaultValue);
+    }
+
 	protected function _testGetter($obj, $propertyName, $defaultValue)
 	{
 		$setterName = 'set' . ucfirst($propertyName);
@@ -29,7 +35,15 @@ trait StandardGetterSetterTrait
 				123
 			);
 	}
-	
+
+    protected function _testStringSetter($obj, $propertyName)
+    {
+        $setterName = 'set' . ucfirst($propertyName);
+
+        $this->assertTrue(method_exists($obj, $setterName), 'No setter for ' . $propertyName);
+        $this->assertSame($obj, $obj->$setterName(true));
+    }
+
 	protected function _testBooleanSetter($obj, $propertyName)
 	{
 		$setterName = 'set' . ucfirst($propertyName);

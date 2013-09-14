@@ -8,6 +8,7 @@
  * @license MIT License
  */
 namespace Econda\RecEngine\Client\Request;
+use Econda\RecEngine\Client\Request\Context\Category;
 
 /**
  * Context for recommendations, e.g. current product(s), category(ies), recipient id, ...
@@ -29,7 +30,13 @@ class Context
 	 * @var array
 	 */
 	protected $productIds;
-	
+
+    /**
+     * Array of context categories
+     * @var array
+     */
+    protected $categories;
+
 	/**
 	 * Array of produc ids from best product cookie
 	 * @var array
@@ -47,15 +54,15 @@ class Context
 	 */
 	public function __construct()
 	{
-		$this->bestProductsIds = $this->getBestProductIds();
-		$this->visitorId = $this->getVisitorId();
+		$this->bestProductsIds = $this->initBestProductIds();
+		$this->visitorId = $this->initVisitorId();
 	}
 	
 	/**
 	 * Read visitor id from cookie if available
 	 * @return Ambigous <NULL, unknown>
 	 */
-	protected function getVisitorId()
+	protected function initVisitorId()
 	{
 		$vid = null;
 		if (!empty($_COOKIE[self::COOKIE_NAME_VISITOR_ID])) {
@@ -68,7 +75,7 @@ class Context
 	 * Product ids from emos_best_products cookie or emty array if no cookie is available
 	 * @return array:
 	 */
-	protected function getBestProductIds()
+	protected function initBestProductIds()
 	{
 		$autoContextResult = [];
 		if (!empty($_COOKIE[self::COOKIE_NAME_BEST_PRODUCTS])) {
@@ -76,4 +83,58 @@ class Context
 		}
 		return $autoContextResult;
 	}
+
+    /**
+     * Get visitor id
+     * @return string
+     */
+    public function getVisitorId()
+    {
+        return $this->visitorId;
+    }
+
+    /**
+     * Normally it makes no sense to set the visitor id. We'll read it in constructor from cookie
+     * @param $visitorId
+     * @return $this
+     */
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+        return $this;
+    }
+
+    /**
+     * Get best product ids
+     * @return array
+     */
+    public function getBestProductIds()
+    {
+        return $this->bestProductsIds;
+    }
+
+    /**
+     * Normally it makes no sense to set this property, we'll read it in constructor from cookie data
+     * @param array $productIds
+     * @return $this
+     */
+    public function setBestProductIds($productIds)
+    {
+        if(!is_array($productIds)) {
+            $productIds = [$productIds];
+        }
+        $this->bestProductsIds = $productIds;
+        return $this;
+    }
+
+    public function setCategory(Category $category)
+    {
+        $this->categories = [$category];
+        return $this;
+    }
+
+    public function getCategories()
+    {
+        return $this->categories;
+    }
 }
