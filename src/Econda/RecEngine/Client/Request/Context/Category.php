@@ -1,15 +1,24 @@
 <?php
 /**
-  * User: christoph.luetjen
-  */
-
+ * econda recommendations client library
+ *
+ * @copyright Copyright econda GmbH
+ * @link http://www.econda.de
+ * @package Econda/RecEngine
+ * @license MIT License
+ */
 namespace Econda\RecEngine\Client\Request\Context;
 
+use Econda\RecEngine\Base\StandardConstructorTrait;
 use Econda\RecEngine\Exception\InvalidArgumentException;
 
+/**
+ * Class Category specifies a category to get recommendations for
+ * @package Econda\RecEngine
+ */
 class Category
 {
-    use \Econda\Base\StandardConstructorTrait;
+    use StandardConstructorTrait;
 
     /**
      * @var string
@@ -38,7 +47,11 @@ class Category
     public function __construct($data=null)
     {
         if($data) {
-            $this->initPropertiesFromArray($data);
+            if(isset($data['delimiter'])) {
+                $this->setPathFromString($data['path'], $data['delimiter']);
+            } else {
+                $this->initPropertiesFromArray($data);
+            }
         }
     }
 
@@ -92,5 +105,6 @@ class Category
     public function setVariant($variant)
     {
         $this->variant = $variant;
+        return $this;
     }
 }

@@ -8,6 +8,8 @@
  * @license MIT License
  */
 namespace Econda\RecEngine\Client\Request;
+
+use Econda\RecEngine\Base\StandardConstructorTrait;
 use Econda\RecEngine\Client\Request\Context\Category;
 
 /**
@@ -15,6 +17,8 @@ use Econda\RecEngine\Client\Request\Context\Category;
  */
 class Context
 {
+    use StandardConstructorTrait;
+
 	/**
 	 * Name of visitor id cookie
 	 */
@@ -52,10 +56,14 @@ class Context
 	/**
 	 * Constructor
 	 */
-	public function __construct()
+	public function __construct($data = null)
 	{
 		$this->bestProductsIds = $this->initBestProductIds();
 		$this->visitorId = $this->initVisitorId();
+
+        if($data) {
+            $this->initPropertiesFromArray($data);
+        }
 	}
 	
 	/**
@@ -127,14 +135,43 @@ class Context
         return $this;
     }
 
+    /**
+     * Set category to get recommendation for
+     * @param Category $category
+     * @return $this
+     */
     public function setCategory(Category $category)
     {
         $this->categories = [$category];
         return $this;
     }
 
+    /**
+     * @return array array of path parts
+     */
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * @param $productIds
+     * @return $this
+     */
+    public function setProductIds($productIds)
+    {
+        if(!is_array($productIds)) {
+            $productIds = [$productIds];
+        }
+        $this->productIds = $productIds;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getProductIds()
+    {
+        return $this->productIds;
     }
 }

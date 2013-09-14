@@ -35,4 +35,11 @@ class ClientRequestTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(['ABC'], $req->getExcludeProductIds());
         $this->assertEquals(['A1','A2'], $req->setExcludeProductIds(['A1','A2'])->getExcludeProductIds());
     }
+
+    public function testGetSetContext()
+    {
+        $req = new \Econda\RecEngine\Client\Request();
+        $req->setContext((new \Econda\RecEngine\Client\Request\Context(['productIds' => 'ABC'])));
+        $this->assertEquals('ABC', $req->getContext()->getProductIds()[0]);
+    }
 }

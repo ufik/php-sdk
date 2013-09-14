@@ -1,11 +1,11 @@
 <?php
-namespace Econda\Base;
+namespace Econda\RecEngine\Base;
 
 /**
   * User: christoph.luetjen
   */
 
-class StandardConstructorTrait
+trait StandardConstructorTrait
 {
     protected function initPropertiesFromArray($data)
     {
@@ -13,7 +13,7 @@ class StandardConstructorTrait
             throw new InvalidArgumentException("Constructor expects an array of properties with their values.");
         }
         foreach($data as $key => $value) {
-            $setterName = 'get' . ucfirst($key);
+            $setterName = 'set' . ucfirst($key);
             if(!method_exists($this, $setterName)) {
                 throw new InvalidArgumentException("No property exists with name: " . $key);
             }
