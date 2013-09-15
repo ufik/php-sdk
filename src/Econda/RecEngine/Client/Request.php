@@ -105,7 +105,7 @@ class Request
 	/**
 	 * Set widget id as defined in cross sell management interface
 	 * 
-	 * @param numeric $widgetId
+	 * @param int $widgetId
 	 * @throws InvalidArgumentException
 	 * @return \Econda\RecEngine\Client\Request
 	 */
@@ -159,7 +159,7 @@ class Request
 	 */
 	public function setChunkSize($chunkSize)
 	{
-		if(!is_numeric($chunkSize)) {
+		if(!is_numeric($chunkSize) && $chunkSize != null) {
 			throw new InvalidArgumentException("Value is not an integer.");
 		}
 		$this->chunkSize = (int) $chunkSize;
