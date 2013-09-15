@@ -21,55 +21,7 @@
     <script src="../js/jquery.smooth-scroll.js"></script>
     <script src="../js/prism.min.js"></script>
     <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
-        <script type="text/javascript">
-        function loadExternalCodeSnippets() {
-            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-                var src = pre.getAttribute('data-src');
-                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                var language = 'php';
-
-                var code = document.createElement('code');
-                code.className = 'language-' + language;
-
-                pre.textContent = '';
-
-                code.textContent = 'Loading…';
-
-                pre.appendChild(code);
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('GET', src, true);
-
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
-
-                        if (xhr.status < 400 && xhr.responseText) {
-                            code.textContent = xhr.responseText;
-
-                            Prism.highlightElement(code);
-                        }
-                        else if (xhr.status >= 400) {
-                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
-                        }
-                        else {
-                            code.textContent = '✖ Error: File does not exist or is empty';
-                        }
-                    }
-                };
-
-                xhr.send(null);
-            });
-        }
-
-        $(document).ready(function(){
-            loadExternalCodeSnippets();
-        });
-        $('#source-view').on('shown', function () {
-            loadExternalCodeSnippets();
-        })
-    </script>
-
+    
     <link rel="shortcut icon" href="../images/favicon.ico"/>
     <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
     <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
@@ -139,37 +91,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1942245932"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-75031212"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1942245932" class="accordion-body collapse in">
+            <div id="namespace-75031212" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-473545049"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1225435121"></a>
                                 <a href="../namespaces/Econda.html" style="margin-left: 30px; padding-left: 0">Econda</a>
             </div>
-            <div id="namespace-473545049" class="accordion-body collapse ">
+            <div id="namespace-1225435121" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-107937722"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1703981496"></a>
                                 <a href="../namespaces/Econda.RecEngine.html" style="margin-left: 30px; padding-left: 0">RecEngine</a>
             </div>
-            <div id="namespace-107937722" class="accordion-body collapse ">
+            <div id="namespace-1703981496" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1842440493"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1340305124"></a>
                                 <a href="../namespaces/Econda.RecEngine.Base.html" style="margin-left: 30px; padding-left: 0">Base</a>
             </div>
-            <div id="namespace-1842440493" class="accordion-body collapse ">
+            <div id="namespace-1340305124" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -184,28 +136,28 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1706741437"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2084033184"></a>
                                 <a href="../namespaces/Econda.RecEngine.Client.html" style="margin-left: 30px; padding-left: 0">Client</a>
             </div>
-            <div id="namespace-1706741437" class="accordion-body collapse ">
+            <div id="namespace-2084033184" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2170454"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-794592865"></a>
                                 <a href="../namespaces/Econda.RecEngine.Client.Request.html" style="margin-left: 30px; padding-left: 0">Request</a>
             </div>
-            <div id="namespace-2170454" class="accordion-body collapse ">
+            <div id="namespace-794592865" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1834567979"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1049781467"></a>
                                 <a href="../namespaces/Econda.RecEngine.Client.Request.Context.html" style="margin-left: 30px; padding-left: 0">Context</a>
             </div>
-            <div id="namespace-1834567979" class="accordion-body collapse ">
+            <div id="namespace-1049781467" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -239,19 +191,19 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1969638361"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1474876653"></a>
                                 <a href="../namespaces/Econda.RecEngine.Widget.html" style="margin-left: 30px; padding-left: 0">Widget</a>
             </div>
-            <div id="namespace-1969638361" class="accordion-body collapse ">
+            <div id="namespace-1474876653" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-536697756"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-544576088"></a>
                                 <a href="../namespaces/Econda.RecEngine.Widget.Renderer.html" style="margin-left: 30px; padding-left: 0">Renderer</a>
             </div>
-            <div id="namespace-536697756" class="accordion-body collapse ">
+            <div id="namespace-544576088" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -267,10 +219,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-908840437"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-434595568"></a>
                                 <a href="../namespaces/Econda.RecEngine.Widget.Model.html" style="margin-left: 30px; padding-left: 0">Model</a>
             </div>
-            <div id="namespace-908840437" class="accordion-body collapse ">
+            <div id="namespace-434595568" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -293,10 +245,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1674915813"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-651506323"></a>
                                 <a href="../namespaces/Econda.RecEngine.Config.html" style="margin-left: 30px; padding-left: 0">Config</a>
             </div>
-            <div id="namespace-1674915813" class="accordion-body collapse ">
+            <div id="namespace-651506323" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -313,10 +265,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-223945044"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1360105667"></a>
                                 <a href="../namespaces/Econda.RecEngine.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
             </div>
-            <div id="namespace-223945044" class="accordion-body collapse ">
+            <div id="namespace-1360105667" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -342,19 +294,19 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1580274411"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1015473596"></a>
                                 <a href="../namespaces/Econda.ProductFeed.html" style="margin-left: 30px; padding-left: 0">ProductFeed</a>
             </div>
-            <div id="namespace-1580274411" class="accordion-body collapse ">
+            <div id="namespace-1015473596" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1146107776"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-271633333"></a>
                                 <a href="../namespaces/Econda.ProductFeed.Description.html" style="margin-left: 30px; padding-left: 0">Description</a>
             </div>
-            <div id="namespace-1146107776" class="accordion-body collapse ">
+            <div id="namespace-271633333" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -399,58 +351,41 @@
     <section class="row-fluid">
         <div class="span10 offset2">
             <div class="row-fluid">
-                <div class="span8 content file">
+                <div class="span8 content namespace">
                     <nav>
-                                                                    </nav>
+                                                <a href="../namespaces/Econda.RecEngine.Client.Request.html">\Econda\RecEngine\Client\Request</a>
+                                            </nav>
+                    <h1><small>\Econda\RecEngine\Client\Request</small>Context</h1>
 
-                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
-                    <h1><small>RecEngine/Exception</small>InvalidArgumentException.php</h1>
-                    <p><em>econda recommendations client library</em></p>
                     
-
-
                     
                     
                                         <h2>Classes</h2>
                     <table class="table table-hover">
                                             <tr>
-                            <td><a href="../classes/Econda.RecEngine.Exception.InvalidArgumentException.html">InvalidArgumentException</a></td>
-                            <td><em></em></td>
+                            <td><a href="../classes/Econda.RecEngine.Client.Request.Context.Category.html">Category</a></td>
+                            <td><em>Class Category specifies a category to get recommendations for</em></td>
                         </tr>
                                         </table>
                                     </div>
 
                 <aside class="span4 detailsbar">
                     <dl>
-                                                    <dt>Package</dt>
-                            <dd><div class="namespace-wrapper">Econda/RecEngine</div></dd>
-                        
-                                                                                    <dt>See also</dt>
-                                                                                        <dd><a href="http://www.econda.de"><div class="namespace-wrapper">http://www.econda.de</div></a></dd>
-                                                    
+                        <dt>Namespace hierarchy</dt>
+                        <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                    <div class="namespace-wrapper"><a href="../namespaces/default.html">\</a></div>
+                                                            
+                                    <div class="namespace-wrapper"><a href="../namespaces/Econda.html">\Econda</a></div>
+                                                            
+                                    <div class="namespace-wrapper"><a href="../namespaces/Econda.RecEngine.html">\Econda\RecEngine</a></div>
+                                                            
+                                    <div class="namespace-wrapper"><a href="../namespaces/Econda.RecEngine.Client.html">\Econda\RecEngine\Client</a></div>
+                                                            
+                                    <div class="namespace-wrapper"><a href="../namespaces/Econda.RecEngine.Client.Request.html">\Econda\RecEngine\Client\Request</a></div>
+                                                                                        <div class="namespace-wrapper">\Econda\RecEngine\Client\Request\Context</div>
+                        </dd>
                     </dl>
-                    <h2>Tags</h2>
-                    <table class="table table-condensed">
-                                                    <tr>
-                                <th>
-                                    copyright
-                                </th>
-                                <td>
-                                                                            <p>Copyright econda GmbH</p>
-
-                                                                    </td>
-                            </tr>
-                                                    <tr>
-                                <th>
-                                    license
-                                </th>
-                                <td>
-                                                                            <p>MIT License</p>
-
-                                                                    </td>
-                            </tr>
-                                            </table>
-
                 </aside>
             </div>
 
@@ -458,16 +393,6 @@
             
         </div>
     </section>
-
-    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="source-view-label"></h3>
-        </div>
-        <div class="modal-body">
-            <pre data-src="../files/RecEngine/Exception/InvalidArgumentException.php.txt" class="language-php line-numbers"></pre>
-        </div>
-    </div>
 
     <footer class="row-fluid">
         <section class="span10 offset2">

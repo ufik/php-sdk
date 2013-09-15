@@ -9,17 +9,24 @@
  */
 namespace Econda\RecEngine\Client;
 
+use Econda\RecEngine\Base\StandardConstructorTrait;
 use Econda\RecEngine\Exception\InvalidArgumentException;
 use Econda\RecEngine\Client\Request\Context;
 
 class Request
 {
+    use StandardConstructorTrait;
+
 	/**
-	 * 
+	 * Request context (recommendations for...)
 	 * @var Context
 	 */
 	protected $context;
 	
+	/**
+	 * Widget id from cross sell management interface
+	 * @var int
+	 */
 	protected $widgetId;
 	
 	/**
@@ -38,17 +45,39 @@ class Request
 	 * True to get widget details in crosssell response
 	 * @var bool
 	 */
-	protected $widgetDetails = true;
-	
-	public function __construct()
-	{
-		$this->context = [];
-	}
-	
+	protected $includeWidgetDetails = true;
+
+    /**
+     * Array of product ids to exclude from response data
+     * @var array
+     */
+    protected $excludeProductIds = [];
+
 	/**
-	 * Context to get recommendations for
-	 * @param Context $context
+	 * Constructor
 	 */
+	public function __construct($data = null)
+	{
+        if($data) {
+            $this->initPropertiesFromArray($data);
+        }
+        $this->context = new Context();
+	}
+
+    /**
+     * Request type, always 'cs'
+     * @return string
+     */
+    public function getType()
+    {
+        return 'cs';
+    }
+
+	/**
+	 * Context to get recommendations for.
+	 * @param Context $context
+     * @return $this
+     */
 	public function setContext(Context $context)
 	{
 		$this->context = $context;
@@ -64,11 +93,22 @@ class Request
 		return $this->context;
 	}
 	
+	/**
+	 * Get current widget id
+	 * @return int
+	 */
 	public function getWidgetId()
 	{
 		return $this->widgetId;
 	}
 	
+	/**
+	 * Set widget id as defined in cross sell management interface
+	 * 
+	 * @param numeric $widgetId
+	 * @throws InvalidArgumentException
+	 * @return \Econda\RecEngine\Client\Request
+	 */
 	public function setWidgetId($widgetId)
 	{
 		if(!is_numeric($widgetId)) {
@@ -125,4 +165,47 @@ class Request
 		$this->chunkSize = (int) $chunkSize;
 		return $this;
 	}
+	
+	/**
+	 * True if we'll include widget details in response
+	 * @return boolean
+	 */
+	public function getIncludeWidgetDetails()
+	{
+		return $this->includeWidgetDetails;
+	}
+	
+	/**
+	 * Set to false to exclude widget details from server response
+	 * @param boolean $includeWidgetDetails
+	 * @return \Econda\RecEngine\Client\Request
+	 */
+	public function setIncludeWidgetDetails($includeWidgetDetails)
+	{
+		$this->includeWidgetDetails = $includeWidgetDetails;
+		return $this;
+	}
+
+    /**
+     * Set product ids to exclude from response data
+     * @param array|string $productIds
+     * @return $this
+     */
+    public function setExcludeProductIds($productIds)
+    {
+        if(!is_array($productIds)) {
+            $productIds = [$productIds];
+        }
+        $this->excludeProductIds = $productIds;
+        return $this;
+    }
+
+    /**
+     * Get array of product ids to exclude from response data
+     * @return array
+     */
+    public function getExcludeProductIds()
+    {
+        return $this->excludeProductIds;
+    }
 }

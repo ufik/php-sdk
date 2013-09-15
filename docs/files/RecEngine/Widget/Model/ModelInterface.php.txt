@@ -30,5 +30,11 @@ interface ModelInterface
 	 * True if this widget should not be displayed if there are no products to show
 	 * @return true
 	 */
-	public function getDisableOnEmpty();
+	public function getDisableIfEmpty();
+
+    /**
+     * Get index of first product result, starting with 0.
+     * @return int
+     */
+    public function getStartIndex();
 }

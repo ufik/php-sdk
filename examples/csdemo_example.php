@@ -14,3 +14,24 @@ $client = new \Econda\RecEngine\Client([
 $client->getRequest()->setWidgetId(6);
 $response = $client->execute();
 
+echo "RESPONSE =>\n";
+echo "Title: " . $response->getTitle() . "\n";
+foreach($response->getProducts() as $data) {
+    echo "- " . $data['id'] . ': ' . $data['price'] . "\n";
+}
+
+$firstProductId = $response->getProducts()[0]['id'];
+
+// get recommendations for a given product
+$client->setRequest(new \Econda\RecEngine\Client\Request([
+    'widgetId' => 7,
+    'context' => new \Econda\RecEngine\Client\Request\Context([
+        'productIds' => $firstProductId
+    ])
+]));
+$response = $client->execute();
+echo "RECOMMENDATIONS FOR =>" . $firstProductId ."\n";
+echo "Title: " . $response->getTitle() . "\n";
+foreach($response->getProducts() as $data) {
+    echo "- " . $data['id'] . ': ' . $data['price'] . "\n";
+}

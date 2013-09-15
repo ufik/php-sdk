@@ -2,12 +2,124 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Econda/RecEngine/ClientTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/csdemo_example.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/test.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Econda/RecEngine/Config/ArrayConfig.php" afterPath="$PROJECT_DIR$/src/Econda/RecEngine/Config/ArrayConfig.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/AbstractField.html" afterPath="$PROJECT_DIR$/docs/classes/AbstractField.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/Catalog/FieldDefinition/AbstractField.php.txt" afterPath="$PROJECT_DIR$/docs/files/Catalog/FieldDefinition/AbstractField.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine/Widget/Renderer/AbstractRenderer.php.txt" afterPath="$PROJECT_DIR$/docs/files/RecEngine/Widget/Renderer/AbstractRenderer.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine/Config/ArrayConfig.php.txt" afterPath="$PROJECT_DIR$/docs/files/RecEngine/Config/ArrayConfig.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/Catalog.CatalogInfo.php.html" afterPath="$PROJECT_DIR$/docs/files/Catalog.CatalogInfo.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/Catalog.FieldDefinition.AbstractField.php.html" afterPath="$PROJECT_DIR$/docs/files/Catalog.FieldDefinition.AbstractField.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/Catalog.FieldDefinition.ImageField.php.html" afterPath="$PROJECT_DIR$/docs/files/Catalog.FieldDefinition.ImageField.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/Catalog.FieldDefinition.NumericField.php.html" afterPath="$PROJECT_DIR$/docs/files/Catalog.FieldDefinition.NumericField.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/Catalog.FieldDefinition.TextField.php.html" afterPath="$PROJECT_DIR$/docs/files/Catalog.FieldDefinition.TextField.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/Catalog.FieldDefinition.UriField.php.html" afterPath="$PROJECT_DIR$/docs/files/Catalog.FieldDefinition.UriField.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/CatalogApi.Client.php.html" afterPath="$PROJECT_DIR$/docs/files/CatalogApi.Client.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/CatalogInfo.html" afterPath="$PROJECT_DIR$/docs/classes/CatalogInfo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/Catalog/CatalogInfo.php.txt" afterPath="$PROJECT_DIR$/docs/files/Catalog/CatalogInfo.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Client.html" afterPath="$PROJECT_DIR$/docs/classes/Client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/CatalogApi/Client.php.txt" afterPath="$PROJECT_DIR$/docs/files/CatalogApi/Client.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine/Client.php.txt" afterPath="$PROJECT_DIR$/docs/files/RecEngine/Client.php.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Econda/RecEngine/Client.php" afterPath="$PROJECT_DIR$/src/Econda/RecEngine/Client.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Econda/RecEngine/Client/Request.php" afterPath="$PROJECT_DIR$/src/Econda/RecEngine/Client/Request.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine/Config/ConfigAwareTrait.php.txt" afterPath="$PROJECT_DIR$/docs/files/RecEngine/Config/ConfigAwareTrait.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine/Config/ConfigInterface.php.txt" afterPath="$PROJECT_DIR$/docs/files/RecEngine/Config/ConfigInterface.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine/Client/Request/Context.php.txt" afterPath="$PROJECT_DIR$/docs/files/RecEngine/Client/Request/Context.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/ProductFeed/Description/DataSource.php.txt" afterPath="$PROJECT_DIR$/docs/files/ProductFeed/Description/DataSource.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/ProductFeed/Description.php.txt" afterPath="$PROJECT_DIR$/docs/files/ProductFeed/Description.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Econda.ProductFeed.Description.DataSource.html" afterPath="$PROJECT_DIR$/docs/classes/Econda.ProductFeed.Description.DataSource.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Econda.ProductFeed.Description.html" afterPath="$PROJECT_DIR$/docs/classes/Econda.ProductFeed.Description.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/namespaces/Econda.ProductFeed.Description.html" afterPath="$PROJECT_DIR$/docs/namespaces/Econda.ProductFeed.Description.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/namespaces/Econda.ProductFeed.html" afterPath="$PROJECT_DIR$/docs/namespaces/Econda.ProductFeed.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Client.Request.Context.html" afterPath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Client.Request.Context.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Client.Request.html" afterPath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Client.Request.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.Client.Request.html" afterPath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.Client.Request.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Client.Response.html" afterPath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Client.Response.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Client.html" afterPath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.Client.html" afterPath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.Client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Config.ArrayConfig.html" afterPath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Config.ArrayConfig.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Config.ConfigAwareTrait.html" afterPath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Config.ConfigAwareTrait.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Config.ConfigInterface.html" afterPath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Config.ConfigInterface.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.Config.html" afterPath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.Config.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Exception.InvalidArgumentException.html" afterPath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Exception.InvalidArgumentException.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Exception.RuntimeException.html" afterPath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Exception.RuntimeException.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.Exception.html" afterPath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.Exception.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Widget.Model.ModelInterface.html" afterPath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Widget.Model.ModelInterface.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.Widget.Model.html" afterPath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.Widget.Model.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Widget.Renderer.AbstractRenderer.html" afterPath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Widget.Renderer.AbstractRenderer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Widget.Renderer.HtmlRenderer.html" afterPath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Widget.Renderer.HtmlRenderer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.Widget.Renderer.html" afterPath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.Widget.Renderer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Widget.html" afterPath="$PROJECT_DIR$/docs/classes/Econda.RecEngine.Widget.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.Widget.html" afterPath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.Widget.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.html" afterPath="$PROJECT_DIR$/docs/namespaces/Econda.RecEngine.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/namespaces/Econda.html" afterPath="$PROJECT_DIR$/docs/namespaces/Econda.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine/Widget/Renderer/HtmlRenderer.php.txt" afterPath="$PROJECT_DIR$/docs/files/RecEngine/Widget/Renderer/HtmlRenderer.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/Catalog/FieldDefinition/ImageField.php.txt" afterPath="$PROJECT_DIR$/docs/files/Catalog/FieldDefinition/ImageField.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine/Exception/InvalidArgumentException.php.txt" afterPath="$PROJECT_DIR$/docs/files/RecEngine/Exception/InvalidArgumentException.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine/Widget/Model.php.txt" afterPath="$PROJECT_DIR$/docs/files/RecEngine/Widget/Model.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine/Widget/Model/ModelInterface.php.txt" afterPath="$PROJECT_DIR$/docs/files/RecEngine/Widget/Model/ModelInterface.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Econda/RecEngine/Widget/Model/ModelInterface.php" afterPath="$PROJECT_DIR$/src/Econda/RecEngine/Widget/Model/ModelInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/Catalog/FieldDefinition/NumericField.php.txt" afterPath="$PROJECT_DIR$/docs/files/Catalog/FieldDefinition/NumericField.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/ProductFeed.Description.DataSource.php.html" afterPath="$PROJECT_DIR$/docs/files/ProductFeed.Description.DataSource.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/ProductFeed.Description.php.html" afterPath="$PROJECT_DIR$/docs/files/ProductFeed.Description.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/css/phpdocumentor-clean-icons/Read Me.txt" afterPath="$PROJECT_DIR$/docs/css/phpdocumentor-clean-icons/Read Me.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine.Client.Request.Context.php.html" afterPath="$PROJECT_DIR$/docs/files/RecEngine.Client.Request.Context.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine.Client.Request.php.html" afterPath="$PROJECT_DIR$/docs/files/RecEngine.Client.Request.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine.Client.Response.php.html" afterPath="$PROJECT_DIR$/docs/files/RecEngine.Client.Response.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine.Client.php.html" afterPath="$PROJECT_DIR$/docs/files/RecEngine.Client.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine.Config.ArrayConfig.php.html" afterPath="$PROJECT_DIR$/docs/files/RecEngine.Config.ArrayConfig.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine.Config.ConfigAwareTrait.php.html" afterPath="$PROJECT_DIR$/docs/files/RecEngine.Config.ConfigAwareTrait.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine.Config.ConfigInterface.php.html" afterPath="$PROJECT_DIR$/docs/files/RecEngine.Config.ConfigInterface.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine.Exception.InvalidArgumentException.php.html" afterPath="$PROJECT_DIR$/docs/files/RecEngine.Exception.InvalidArgumentException.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine.Exception.RuntimeException.php.html" afterPath="$PROJECT_DIR$/docs/files/RecEngine.Exception.RuntimeException.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine.Widget.Model.ModelInterface.php.html" afterPath="$PROJECT_DIR$/docs/files/RecEngine.Widget.Model.ModelInterface.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine.Widget.Model.php.html" afterPath="$PROJECT_DIR$/docs/files/RecEngine.Widget.Model.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine.Widget.Renderer.AbstractRenderer.php.html" afterPath="$PROJECT_DIR$/docs/files/RecEngine.Widget.Renderer.AbstractRenderer.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine.Widget.Renderer.HtmlRenderer.php.html" afterPath="$PROJECT_DIR$/docs/files/RecEngine.Widget.Renderer.HtmlRenderer.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine.Widget.php.html" afterPath="$PROJECT_DIR$/docs/files/RecEngine.Widget.php.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine/Client/Request.php.txt" afterPath="$PROJECT_DIR$/docs/files/RecEngine/Client/Request.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine/Client/Response.php.txt" afterPath="$PROJECT_DIR$/docs/files/RecEngine/Client/Response.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Econda/RecEngine/Client/Response.php" afterPath="$PROJECT_DIR$/src/Econda/RecEngine/Client/Response.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine/Exception/RuntimeException.php.txt" afterPath="$PROJECT_DIR$/docs/files/RecEngine/Exception/RuntimeException.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/Catalog/FieldDefinition/TextField.php.txt" afterPath="$PROJECT_DIR$/docs/files/Catalog/FieldDefinition/TextField.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/Catalog/FieldDefinition/UriField.php.txt" afterPath="$PROJECT_DIR$/docs/files/Catalog/FieldDefinition/UriField.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/files/RecEngine/Widget.php.txt" afterPath="$PROJECT_DIR$/docs/files/RecEngine/Widget.php.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/graphs/class.html" afterPath="$PROJECT_DIR$/docs/graphs/class.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/graphs/classes.svg" afterPath="$PROJECT_DIR$/docs/graphs/classes.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/create-api-docs" afterPath="$PROJECT_DIR$/bin/create-api-docs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/csdemo_example.php" afterPath="$PROJECT_DIR$/examples/csdemo_example.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/images/custom-icons.svg" afterPath="$PROJECT_DIR$/docs/images/custom-icons.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/namespaces/default.html" afterPath="$PROJECT_DIR$/docs/namespaces/default.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/reports/deprecated.html" afterPath="$PROJECT_DIR$/docs/reports/deprecated.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/reports/errors.html" afterPath="$PROJECT_DIR$/docs/reports/errors.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/images/icon-class.svg" afterPath="$PROJECT_DIR$/docs/images/icon-class.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/images/icon-interface.svg" afterPath="$PROJECT_DIR$/docs/images/icon-interface.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/images/icon-trait.svg" afterPath="$PROJECT_DIR$/docs/images/icon-trait.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index.html" afterPath="$PROJECT_DIR$/docs/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/js/jquery.dotdotdot-1.5.9.js" afterPath="$PROJECT_DIR$/docs/js/jquery.dotdotdot-1.5.9.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/js/jquery.dotdotdot-1.5.9.min.js" afterPath="$PROJECT_DIR$/docs/js/jquery.dotdotdot-1.5.9.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/css/jquery.iviewer.css" afterPath="$PROJECT_DIR$/docs/css/jquery.iviewer.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/js/jquery.iviewer.js" afterPath="$PROJECT_DIR$/docs/js/jquery.iviewer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/js/jquery.iviewer.min.js" afterPath="$PROJECT_DIR$/docs/js/jquery.iviewer.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/js/jquery.smooth-scroll.js" afterPath="$PROJECT_DIR$/docs/js/jquery.smooth-scroll.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/css/phpdocumentor-clean-icons/lte-ie7.js" afterPath="$PROJECT_DIR$/docs/css/phpdocumentor-clean-icons/lte-ie7.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/reports/markers.html" afterPath="$PROJECT_DIR$/docs/reports/markers.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/phpdoc-cache-79/phpdoc-cache-file_05fed3488d50f3de3927cf904cf05a14.dat" afterPath="$PROJECT_DIR$/docs/phpdoc-cache-79/phpdoc-cache-file_05fed3488d50f3de3927cf904cf05a14.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/phpdoc-cache-e6/phpdoc-cache-file_0835ed2b22695da4087f5da2c0112970.dat" afterPath="$PROJECT_DIR$/docs/phpdoc-cache-e6/phpdoc-cache-file_0835ed2b22695da4087f5da2c0112970.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/phpdoc-cache-8b/phpdoc-cache-file_1639eb31c6a0c9c4d2b1f8ca812d17aa.dat" afterPath="$PROJECT_DIR$/docs/phpdoc-cache-8b/phpdoc-cache-file_1639eb31c6a0c9c4d2b1f8ca812d17aa.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/phpdoc-cache-2b/phpdoc-cache-file_27f9aed1b9024b549f3c253094d5cc8f.dat" afterPath="$PROJECT_DIR$/docs/phpdoc-cache-2b/phpdoc-cache-file_27f9aed1b9024b549f3c253094d5cc8f.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/phpdoc-cache-79/phpdoc-cache-file_3c92c5a643129ac94ada7183fb411a01.dat" afterPath="$PROJECT_DIR$/docs/phpdoc-cache-79/phpdoc-cache-file_3c92c5a643129ac94ada7183fb411a01.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/phpdoc-cache-88/phpdoc-cache-file_4238f94b97f2c50067124549caffc593.dat" afterPath="$PROJECT_DIR$/docs/phpdoc-cache-88/phpdoc-cache-file_4238f94b97f2c50067124549caffc593.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/phpdoc-cache-e1/phpdoc-cache-file_4af6b863f8bc83be2acf2b7facd7c4d7.dat" afterPath="$PROJECT_DIR$/docs/phpdoc-cache-e1/phpdoc-cache-file_4af6b863f8bc83be2acf2b7facd7c4d7.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/phpdoc-cache-7a/phpdoc-cache-file_64ecdd896191981cf20ccdcd44a185c9.dat" afterPath="$PROJECT_DIR$/docs/phpdoc-cache-7a/phpdoc-cache-file_64ecdd896191981cf20ccdcd44a185c9.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/phpdoc-cache-26/phpdoc-cache-file_71f806e94eae2e1e72ff4fc9bcb596ff.dat" afterPath="$PROJECT_DIR$/docs/phpdoc-cache-26/phpdoc-cache-file_71f806e94eae2e1e72ff4fc9bcb596ff.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/phpdoc-cache-59/phpdoc-cache-file_731a1f0d9cbeaaa3ce6dbfb7efba9172.dat" afterPath="$PROJECT_DIR$/docs/phpdoc-cache-59/phpdoc-cache-file_731a1f0d9cbeaaa3ce6dbfb7efba9172.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/phpdoc-cache-8d/phpdoc-cache-file_7d3eef6c02efb96cc313066d4bd5733c.dat" afterPath="$PROJECT_DIR$/docs/phpdoc-cache-8d/phpdoc-cache-file_7d3eef6c02efb96cc313066d4bd5733c.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/phpdoc-cache-11/phpdoc-cache-file_de14dd5257eaa1b19f4e7f6b0207a2cd.dat" afterPath="$PROJECT_DIR$/docs/phpdoc-cache-11/phpdoc-cache-file_de14dd5257eaa1b19f4e7f6b0207a2cd.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/phpdoc-cache-dc/phpdoc-cache-file_f980e1b1afd46b6145bcc947b6f38f66.dat" afterPath="$PROJECT_DIR$/docs/phpdoc-cache-dc/phpdoc-cache-file_f980e1b1afd46b6145bcc947b6f38f66.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.dev.svg" afterPath="$PROJECT_DIR$/docs/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.dev.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.svg" afterPath="$PROJECT_DIR$/docs/css/phpdocumentor-clean-icons/fonts/phpdocumentor-clean-icons.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/css/prism.css" afterPath="$PROJECT_DIR$/docs/css/prism.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/js/prism.min.js" afterPath="$PROJECT_DIR$/docs/js/prism.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/css/phpdocumentor-clean-icons/style.css" afterPath="$PROJECT_DIR$/docs/css/phpdocumentor-clean-icons/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/css/template.css" afterPath="$PROJECT_DIR$/docs/css/template.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="recommendations.iws" />
@@ -24,8 +136,10 @@
     <file path="/bootstrap.php" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379191477281" ignored="false" />
     <file path="/test.php" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379191633536" ignored="false" />
     <file path="/ClientTest.php" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379194459024" ignored="false" />
-    <file path="/Client.php" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379202044967" ignored="false" />
-    <file path="/csdemo_example.php" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379201130231" ignored="false" />
+    <file path="/Client.php" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379204366985" ignored="false" />
+    <file path="/csdemo_example.php" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379204892836" ignored="false" />
+    <file path="/ModelInterface.php" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379203604389" ignored="false" />
+    <file path="/Response.php" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379203985078" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +171,7 @@
       <file leaf-file-name="Request.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Econda/RecEngine/Client/Request.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="5" selection-start="1567" selection-end="1567" vertical-scroll-proportion="36.5">
+            <state line="84" column="5" selection-start="1567" selection-end="1567" vertical-scroll-proportion="1.1923077">
               <folding>
                 <element signature="e#213#264#0" expanded="true" />
               </folding>
@@ -65,10 +179,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Client.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Econda/RecEngine/Client.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="9" selection-start="2550" selection-end="2550" vertical-scroll-proportion="-0.18827508">
+            <state line="128" column="5" selection-start="3117" selection-end="3117" vertical-scroll-proportion="-38.03846">
               <folding>
                 <element signature="e#206#243#0" expanded="true" />
               </folding>
@@ -76,10 +190,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="csdemo_example.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Response.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Econda/RecEngine/Client/Response.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="21" selection-start="749" selection-end="749" vertical-scroll-proportion="-18.307692">
+              <folding>
+                <element signature="e#213#264#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModelInterface.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Econda/RecEngine/Widget/Model/ModelInterface.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="4" selection-start="506" selection-end="506" vertical-scroll-proportion="-13.076923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="csdemo_example.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/examples/csdemo_example.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="338" selection-end="338" vertical-scroll-proportion="-10.461538">
+            <state line="36" column="1" selection-start="1048" selection-end="1048" vertical-scroll-proportion="0.6899662">
               <folding />
             </state>
           </provider>
@@ -112,15 +246,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientRequestTest.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Econda/RecEngine/ClientRequestTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="58" selection-start="38" selection-end="64" vertical-scroll-proportion="-0.65384614">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -139,9 +264,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/tests/Econda/Test/StandardGetterSetterTrait.php" />
-        <option value="$PROJECT_DIR$/src/Econda/Base/StandardConstructorTrait.php" />
-        <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/tests/test.php" />
         <option value="$PROJECT_DIR$/tests/bootstrap.php" />
         <option value="$PROJECT_DIR$/src/Econda/RecEngine/Base/StandardConstructorTrait.php" />
@@ -152,9 +274,12 @@
         <option value="$PROJECT_DIR$/tests/Econda/RecEngine/ClientTest.php" />
         <option value="$PROJECT_DIR$/src/Econda/RecEngine/Config/ArrayConfig.php" />
         <option value="$PROJECT_DIR$/examples/data_client.php" />
-        <option value="$PROJECT_DIR$/examples/csdemo_example.php" />
         <option value="$PROJECT_DIR$/src/Econda/RecEngine/Client/Request.php" />
+        <option value="$PROJECT_DIR$/bin/create-api-docs" />
+        <option value="$PROJECT_DIR$/src/Econda/RecEngine/Widget/Model/ModelInterface.php" />
+        <option value="$PROJECT_DIR$/src/Econda/RecEngine/Client/Response.php" />
         <option value="$PROJECT_DIR$/src/Econda/RecEngine/Client.php" />
+        <option value="$PROJECT_DIR$/examples/csdemo_example.php" />
       </list>
     </option>
   </component>
@@ -566,33 +691,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Econda/RecEngine/Base/StandardConstructorTrait.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="39" selection-start="616" selection-end="616" vertical-scroll-proportion="-12.423077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Econda/RecEngine/Client/Request/Context/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="0" selection-start="1741" selection-end="1741" vertical-scroll-proportion="-19.076923">
-          <folding>
-            <element signature="e#6#176#0" expanded="true" />
-            <element signature="e#229#280#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Econda/RecEngine/Client/Request/Context.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="26" selection-start="739" selection-end="739" vertical-scroll-proportion="54.153847">
-          <folding>
-            <element signature="e#6#176#0" expanded="true" />
-            <element signature="e#221#272#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Econda/RecEngine/ClientRequestTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="58" selection-start="38" selection-end="64" vertical-scroll-proportion="-0.65384614">
@@ -656,13 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/csdemo_example.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="338" selection-end="338" vertical-scroll-proportion="-10.461538">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Econda/RecEngine/ClientContextTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="5" selection-start="324" selection-end="324" vertical-scroll-proportion="-7.1923075">
@@ -670,9 +761,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bin/create-api-docs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="11" selection-start="11" selection-end="11" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Econda/RecEngine/Widget/Model/ModelInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="4" selection-start="506" selection-end="506" vertical-scroll-proportion="-13.076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Econda/RecEngine/Client/Request.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="5" selection-start="1567" selection-end="1567" vertical-scroll-proportion="36.5">
+        <state line="84" column="5" selection-start="1567" selection-end="1567" vertical-scroll-proportion="1.1923077">
+          <folding>
+            <element signature="e#213#264#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Econda/RecEngine/Client/Response.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="21" selection-start="749" selection-end="749" vertical-scroll-proportion="-18.307692">
           <folding>
             <element signature="e#213#264#0" expanded="true" />
           </folding>
@@ -681,10 +795,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Econda/RecEngine/Client.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="9" selection-start="2550" selection-end="2550" vertical-scroll-proportion="-0.18827508">
+        <state line="128" column="5" selection-start="3117" selection-end="3117" vertical-scroll-proportion="-38.03846">
           <folding>
             <element signature="e#206#243#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/csdemo_example.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="1" selection-start="1048" selection-end="1048" vertical-scroll-proportion="0.6899662">
+          <folding />
         </state>
       </provider>
     </entry>

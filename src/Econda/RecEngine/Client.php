@@ -105,11 +105,27 @@ class Client
 
         if($httpResponse->isSuccessful()) {
             $responseData = $httpResponse->json();
-            var_dump($responseData);
+            $this->response = $this->getResponseFromHttpResponse($responseData);
         }
 
-        $this->response = null;
         return $this->response;
+    }
+
+    protected function getResponseFromHttpResponse($responseData)
+    {
+        $response = new Response();
+
+        if(isset($responseData['start'])) {
+            $response->setStartIndex($responseData['start']);
+        }
+        if(isset($responseData['title'])) {
+            $response->setTitle($responseData['title']);
+        }
+        if(isset($responseData['items'])) {
+            $response->setProducts($responseData['items']);
+        }
+
+        return $response;
     }
 
     /**
