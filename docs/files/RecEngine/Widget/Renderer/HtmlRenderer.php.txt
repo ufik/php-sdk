@@ -88,18 +88,25 @@ class HtmlRenderer extends AbstractRenderer
 		}
 		
 		if($this->template) {
-			return $this->template;
+			$phtml = $this->template;
 		} else {
 			$path = $this->templatePath;
 			if(!file_exists($path)) {
 				throw new RuntimeException('Template file does not exist: ' . $path);
 			}
-			return include $path;
+            $phtml = file_get_contents($path);
 		}
+        return eval('?>' . $phtml);
 	}
-	
-	public function __call($methodName)
+
+    /**
+     * Redirects functions calls to assigned model
+     * @param $methodName
+     * @param $arguments
+     * @return mixed
+     */
+    public function __call($methodName, $arguments)
 	{
-		return $this->model->$methodName();
+        return call_user_func_array([$this->model, $methodName], $arguments);
 	}
 }

@@ -1,6 +1,8 @@
 <?php
 namespace Econda\RecEngine\Base;
 
+use Econda\RecEngine\Exception\InvalidArgumentException;
+
 /**
   * User: christoph.luetjen
   */
@@ -15,7 +17,7 @@ trait StandardConstructorTrait
         foreach($data as $key => $value) {
             $setterName = 'set' . ucfirst($key);
             if(!method_exists($this, $setterName)) {
-                throw new InvalidArgumentException("No property exists with name: " . $key);
+                throw new InvalidArgumentException("No setter found for property with name: " . $key);
             }
             $this->$setterName($value);
         }
