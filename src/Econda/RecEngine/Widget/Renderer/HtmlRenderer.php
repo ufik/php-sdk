@@ -107,6 +107,6 @@ class HtmlRenderer extends AbstractRenderer
      */
     public function __call($methodName, $arguments)
 	{
-        return call_user_func_array([$this->model, $methodName], $arguments);
+        return call_user_func_array(array($this->model, $methodName), $arguments);
 	}
 }

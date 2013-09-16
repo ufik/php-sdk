@@ -9,7 +9,6 @@
  */
 namespace Econda\RecEngine\Client\Request;
 
-use Econda\RecEngine\Base\StandardConstructorTrait;
 use Econda\RecEngine\Client\Request\Context\Category;
 
 /**
@@ -17,8 +16,6 @@ use Econda\RecEngine\Client\Request\Context\Category;
  */
 class Context
 {
-    use StandardConstructorTrait;
-
 	/**
 	 * Name of visitor id cookie
 	 */
@@ -66,6 +63,20 @@ class Context
         }
 	}
 	
+	protected function initPropertiesFromArray($data)
+	{
+		if(!is_array($data)) {
+			throw new InvalidArgumentException("Constructor expects an array of properties with their values.");
+		}
+		foreach($data as $key => $value) {
+			$setterName = 'set' . ucfirst($key);
+			if(!method_exists($this, $setterName)) {
+				throw new InvalidArgumentException("No setter found for property with name: " . $key);
+			}
+			$this->$setterName($value);
+		}
+	}
+	
 	/**
 	 * Read visitor id from cookie if available
 	 * @return Ambigous <NULL, unknown>
@@ -85,7 +96,7 @@ class Context
 	 */
 	protected function initBestProductIds()
 	{
-		$autoContextResult = [];
+		$autoContextResult = array();
 		if (!empty($_COOKIE[self::COOKIE_NAME_BEST_PRODUCTS])) {
 			$autoContextResult = explode(":", $_COOKIE[self::COOKIE_NAME_BEST_PRODUCTS]);
 		}
@@ -129,7 +140,7 @@ class Context
     public function setBestProductIds($productIds)
     {
         if(!is_array($productIds)) {
-            $productIds = [$productIds];
+            $productIds = array($productIds);
         }
         $this->bestProductsIds = $productIds;
         return $this;
@@ -142,7 +153,7 @@ class Context
      */
     public function setCategory(Category $category)
     {
-        $this->categories = [$category];
+        $this->categories = array($category);
         return $this;
     }
 
@@ -161,7 +172,7 @@ class Context
     public function setProductIds($productIds)
     {
         if(!is_array($productIds)) {
-            $productIds = [$productIds];
+            $productIds = array($productIds);
         }
         $this->productIds = $productIds;
         return $this;

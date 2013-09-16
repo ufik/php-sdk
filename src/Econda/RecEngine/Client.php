@@ -13,6 +13,9 @@ use Econda\RecEngine\Client\Response;
 use Econda\RecEngine\Client\Request;
 use Econda\RecEngine\Exception\RuntimeException;
 use Econda\RecEngine\Client\Request\Context;
+use Econda\RecEngine\Exception\InvalidArgumentException;
+use Econda\RecEngine\Config\ConfigInterface;
+use Econda\RecEngine\Config\ArrayConfig;
 
 /**
  * Client to request recommendations from econda recommendation engine.
@@ -172,7 +175,7 @@ class Client
         $request = $this->getRequest();
         $context = $request->getContext();
 
-        $params = [];
+        $params = array();
 
         $params['aid'] = $config->getAccountId();
 

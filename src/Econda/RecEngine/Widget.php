@@ -9,7 +9,6 @@
  */
 namespace Econda\RecEngine;
 
-use Econda\RecEngine\Base\StandardConstructorTrait;
 use Econda\RecEngine\Client\Request;
 use Econda\RecEngine\Config\ArrayConfig;
 use Econda\RecEngine\Exception\InvalidArgumentException;
@@ -20,8 +19,6 @@ use Econda\RecEngine\Widget\Renderer\HtmlRenderer;
 
 class Widget
 {
-    use StandardConstructorTrait;
-	
 	/**
 	 * Widget ID as defined in cross sell management interface
 	 * @var int
@@ -87,6 +84,21 @@ class Widget
 		}
 		
 		$this->context = new Context();
+	}
+	
+	
+	protected function initPropertiesFromArray($data)
+	{
+		if(!is_array($data)) {
+			throw new InvalidArgumentException("Constructor expects an array of properties with their values.");
+		}
+		foreach($data as $key => $value) {
+			$setterName = 'set' . ucfirst($key);
+			if(!method_exists($this, $setterName)) {
+				throw new InvalidArgumentException("No setter found for property with name: " . $key);
+			}
+			$this->$setterName($value);
+		}
 	}
 
 	/**

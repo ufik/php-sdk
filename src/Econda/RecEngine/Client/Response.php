@@ -9,16 +9,13 @@
  */
 namespace Econda\RecEngine\Client;
 
-use Econda\RecEngine\Base\StandardConstructorTrait;
 use Econda\RecEngine\Widget\Model\ModelInterface;
 
 class Response implements ModelInterface
 {
-    use StandardConstructorTrait;
-
 	protected $title;
 
-    protected $products = [];
+    protected $products = array();
 
     protected $disableIfEmpty = true;
 
@@ -29,6 +26,20 @@ class Response implements ModelInterface
         if($data) {
             $this->initPropertiesFromArray($data);
         }
+    }
+    
+    protected function initPropertiesFromArray($data)
+    {
+    	if(!is_array($data)) {
+    		throw new InvalidArgumentException("Constructor expects an array of properties with their values.");
+    	}
+    	foreach($data as $key => $value) {
+    		$setterName = 'set' . ucfirst($key);
+    		if(!method_exists($this, $setterName)) {
+    			throw new InvalidArgumentException("No setter found for property with name: " . $key);
+    		}
+    		$this->$setterName($value);
+    	}
     }
 
     public function setTitle($title)

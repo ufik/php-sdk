@@ -3,7 +3,7 @@
   * User: christoph.luetjen
   */
 
-$serviceConfig = ['accountId' => 'YOUR ECONDA CROSS SELL ACCOUNT ID'];
+$serviceConfig = array('accountId' => 'YOUR ECONDA CROSS SELL ACCOUNT ID');
 
 // initialize client
 $recClient = new \Econda\RecEngine\Client($serviceConfig);
@@ -11,7 +11,7 @@ $recClient = new \Econda\RecEngine\Client($serviceConfig);
 // setup request
 // context defines for which products/categories/... we want to get recommendations
 $context = new \Econda\RecEngine\Client\Request\Context();
-$context->setProductIds(['SKU1', 'SKU2']);
+$context->setProductIds(array('SKU1', 'SKU2'));
 
 $recClient->getRequest()
     ->setWidgetId(123)
@@ -24,9 +24,11 @@ $response = $recClient->execute();
 // --------------
 // if you prefer a more compact style...
 
-$recClient = new \Econda\RecEngine\Client(['accountId' => 'YOUR ECONDA CROSS SELL ACCOUNT ID']);
+$recClient = new \Econda\RecEngine\Client(array('accountId' => 'YOUR ECONDA CROSS SELL ACCOUNT ID'));
 $recClient->getRequest()
     ->setWidgetId(123)
-    ->setContext(new \Econda\RecEngine\Client\Request\Context(['productIds' => ['SKU1', 'SKU2']]));
+    ->setContext(new \Econda\RecEngine\Client\Request\Context(array(
+    		'productIds' => array('SKU1', 'SKU2'))
+    	));
 $response = $recClient->execute();
 

@@ -9,14 +9,11 @@
  */
 namespace Econda\RecEngine\Client;
 
-use Econda\RecEngine\Base\StandardConstructorTrait;
 use Econda\RecEngine\Exception\InvalidArgumentException;
 use Econda\RecEngine\Client\Request\Context;
 
 class Request
 {
-    use StandardConstructorTrait;
-
 	/**
 	 * Request context (recommendations for...)
 	 * @var Context
@@ -51,7 +48,7 @@ class Request
      * Array of product ids to exclude from response data
      * @var array
      */
-    protected $excludeProductIds = [];
+    protected $excludeProductIds = array();
 
 	/**
 	 * Constructor
@@ -62,6 +59,20 @@ class Request
             $this->initPropertiesFromArray($data);
         }
         $this->context = new Context();
+	}
+	
+	protected function initPropertiesFromArray($data)
+	{
+		if(!is_array($data)) {
+			throw new InvalidArgumentException("Constructor expects an array of properties with their values.");
+		}
+		foreach($data as $key => $value) {
+			$setterName = 'set' . ucfirst($key);
+			if(!method_exists($this, $setterName)) {
+				throw new InvalidArgumentException("No setter found for property with name: " . $key);
+			}
+			$this->$setterName($value);
+		}
 	}
 
     /**
@@ -194,7 +205,7 @@ class Request
     public function setExcludeProductIds($productIds)
     {
         if(!is_array($productIds)) {
-            $productIds = [$productIds];
+            $productIds = array($productIds);
         }
         $this->excludeProductIds = $productIds;
         return $this;
