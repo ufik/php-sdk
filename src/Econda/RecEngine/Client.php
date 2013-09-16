@@ -10,7 +10,6 @@
 namespace Econda\RecEngine;
 
 use Econda\RecEngine\Client\Response;
-use Econda\RecEngine\Config\ConfigAwareTrait;
 use Econda\RecEngine\Client\Request;
 use Econda\RecEngine\Exception\RuntimeException;
 use Econda\RecEngine\Client\Request\Context;
@@ -20,10 +19,14 @@ use Econda\RecEngine\Client\Request\Context;
  */
 class Client
 {
-	use \Econda\RecEngine\Config\ConfigAwareTrait;
-
     const REC_SERVICE_BASE_URI = 'http://widgets.crosssell.info';
 
+    /**
+     * Configuration
+     * @var \Econda\RecEngine\Config\ConfigInterface
+     */
+    protected $config;
+    
 	/**
 	 * request object or null if not initialized
 	 * 
@@ -52,6 +55,36 @@ class Client
 		}
 		
 		$this->request = new Request();
+	}
+	
+	/**
+	 * Set configuration
+	 *
+	 * @param mixed $config ConfigInterface or array
+	 * @throws InvalidArgumentException
+	 * @return Client
+	 */
+	public function setConfig($config)
+	{
+		switch(true) {
+			case is_array($config):
+				$this->config = new ArrayConfig($config);
+				break;
+			case ($config instanceof ConfigInterface):
+				$this->config = $config;
+				break;
+			default:
+				throw new InvalidArgumentException('Got invalid configuration data in constructor.');
+		}
+		return $this;
+	}
+	
+	/**
+	 * @return ConfigInterface
+	 */
+	public function getConfig()
+	{
+		return $this->config;
 	}
 	
 	/**

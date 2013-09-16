@@ -12,7 +12,6 @@ namespace Econda\RecEngine;
 use Econda\RecEngine\Base\StandardConstructorTrait;
 use Econda\RecEngine\Client\Request;
 use Econda\RecEngine\Config\ArrayConfig;
-use Econda\RecEngine\Config\ConfigAwareTrait;
 use Econda\RecEngine\Exception\InvalidArgumentException;
 use Econda\RecEngine\Widget\Model\ModelInterface;
 use Econda\RecEngine\Widget\Renderer\AbstractRenderer;
@@ -21,7 +20,6 @@ use Econda\RecEngine\Widget\Renderer\HtmlRenderer;
 
 class Widget
 {
-	use ConfigAwareTrait;
     use StandardConstructorTrait;
 	
 	/**
@@ -29,6 +27,12 @@ class Widget
 	 * @var int
 	 */
 	protected $id;
+	
+	/**
+	 * Configuration
+	 * @var \Econda\RecEngine\Config\ConfigInterface
+	 */
+	protected $config;
 	
 	/**
 	 * @var Context
@@ -85,6 +89,36 @@ class Widget
 		$this->context = new Context();
 	}
 
+	/**
+	 * Set configuration
+	 *
+	 * @param mixed $config ConfigInterface or array
+	 * @throws InvalidArgumentException
+	 * @return Widget
+	 */
+	public function setConfig($config)
+	{
+		switch(true) {
+			case is_array($config):
+				$this->config = new ArrayConfig($config);
+				break;
+			case ($config instanceof ConfigInterface):
+				$this->config = $config;
+				break;
+			default:
+				throw new InvalidArgumentException('Got invalid configuration data in constructor.');
+		}
+		return $this;
+	}
+	
+	/**
+	 * @return ConfigInterface
+	 */
+	public function getConfig()
+	{
+		return $this->config;
+	}
+	
     public function getId()
     {
         return $this->id;
