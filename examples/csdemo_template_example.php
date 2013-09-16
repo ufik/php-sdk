@@ -14,8 +14,8 @@ echo $widget->render();
 $widget = new \Econda\RecEngine\Widget\Widget(array(
 		'accountId' => '00000cec-d98025a8-912b-46a4-a57d-7a691ba7a376-1',
 		'id' => 6,
-		'context' => new \Econda\RecEngine\Client\Request\Context\Context(array(
-				'category' => new \Econda\RecEngine\Client\Request\Context\Category(array(
+		'context' => new \Econda\RecEngine\Context\Context(array(
+				'category' => new \Econda\RecEngine\Context\Category(array(
 						'type' => 'productcategory',
 						'id' =>  '0000001574herren-schuhe-offene-schuhe'
 					))

@@ -22,7 +22,7 @@ $firstProductId = $response->getProducts()[0]['id'];
 // get recommendations for a given product
 $client->setRequest(new \Econda\RecEngine\Client\Request\RequestModel(array(
     'widgetId' => 7,
-    'context' => new \Econda\RecEngine\Client\Request\Context\Context(array(
+    'context' => new \Econda\RecEngine\Context\Context(array(
         'productIds' => $firstProductId
     ))
 )));

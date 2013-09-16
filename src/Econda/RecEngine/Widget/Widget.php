@@ -15,8 +15,8 @@ use Econda\RecEngine\Config\ArrayConfig;
 use Econda\RecEngine\Exception\InvalidArgumentException;
 use Econda\RecEngine\Widget\Model\ModelInterface;
 use Econda\RecEngine\Widget\Renderer\AbstractRenderer;
-use Econda\RecEngine\Client\Request\Context\Context;
 use Econda\RecEngine\Widget\Renderer\HtmlRenderer;
+use Econda\RecEngine\Context\Context;
 
 class Widget
 {
@@ -81,7 +81,13 @@ class Widget
 	
 	public function __construct($config = null)
 	{
+		$this->context = new Context();
+		
 		if($config) {
+			if(is_object($config) && get_class($config) == 'stdClass') {
+				$config = get_object_vars($config);
+			}
+				
 			$this->config = new ArrayConfig();
             if(isset($config['accountId'])) {
                 $this->config->setAccountId($config['accountId']);
@@ -89,8 +95,6 @@ class Widget
             }
             $this->initPropertiesFromArray($config);
 		}
-		
-		$this->context = new Context();
 	}
 	
 	
@@ -171,12 +175,38 @@ class Widget
         return $this->context;
     }
 
-    public function setContext(Context $context)
+    public function setContext($context)
     {
+    	if($context instanceof Context == false) {
+    		$context = new Context($context);
+    	}
         $this->context = $context;
         return $this;
     }
 
+    public function setStartIndex($startIndex)
+    {
+    	if(!is_numeric($startIndex)) {
+    		throw new InvalidArgumentException("Start index must be a number.");
+    	}
+    	$this->startIndex = $startIndex;
+    	return $this;
+    }
+    
+    public function getStartIndex()
+    {
+    	return $this->startIndex;
+    }
+    
+    public function setChunkSize($chunkSize)
+    {
+    	if($chunkSize != null && is_numeric($chunkSize) == false) {
+    		throw new InvalidArgumentException("Chunk size must be a number or null.");
+    	}
+    	$this->chunkSize = $chunkSize;
+    	return $this;
+    }
+    
     public function getModel()
     {
         return $this->model;

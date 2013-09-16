@@ -7,9 +7,10 @@
  * @package Econda/RecEngine
  * @license MIT License
  */
-namespace Econda\RecEngine\Client\Request\Context;
+namespace Econda\RecEngine\Context;
 
-use Econda\RecEngine\Client\Request\Context\Category;
+use Econda\RecEngine\Context\Category;
+use Econda\RecEngine\Exception\InvalidArgumentException;
 
 /**
  * Context for recommendations, e.g. current product(s), category(ies), recipient id, ...
@@ -66,7 +67,11 @@ class Context
 	protected function initPropertiesFromArray($data)
 	{
 		if(!is_array($data)) {
-			throw new InvalidArgumentException("Constructor expects an array of properties with their values.");
+			if(get_class($data) == 'stdClass') {
+				$data = get_object_vars($data);
+			} else {
+				throw new InvalidArgumentException("Constructor expects an array of properties with their values.");
+			}
 		}
 		foreach($data as $key => $value) {
 			$setterName = 'set' . ucfirst($key);
@@ -151,8 +156,11 @@ class Context
      * @param Category $category
      * @return $this
      */
-    public function setCategory(Category $category)
+    public function setCategory($category)
     {
+    	if($category instanceof Category == false) {
+    		$category = new Category($category);
+    	}
         $this->categories = array($category);
         return $this;
     }

@@ -7,7 +7,7 @@
  * @package Econda/RecEngine
  * @license MIT License
  */
-namespace Econda\RecEngine\Client\Request\Context;
+namespace Econda\RecEngine\Context;
 
 use Econda\RecEngine\Exception\InvalidArgumentException;
 
@@ -44,6 +44,10 @@ class Category
     public function __construct($data=null)
     {
         if($data) {
+        	if(get_class($data) == 'stdClass') {
+        		$data = get_object_vars($data);
+        	}
+        	
             if(isset($data['delimiter'])) {
                 $this->setPathFromString($data['path'], $data['delimiter']);
             } else {

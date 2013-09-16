@@ -12,7 +12,7 @@ namespace Econda\RecEngine\Client;
 use Econda\RecEngine\Client\Response\ResponseModel;
 use Econda\RecEngine\Client\Request\RequestModel;
 use Econda\RecEngine\Exception\RuntimeException;
-use Econda\RecEngine\Client\Request\Context;
+use Econda\RecEngine\Context;
 use Econda\RecEngine\Exception\InvalidArgumentException;
 use Econda\RecEngine\Config\ConfigInterface;
 use Econda\RecEngine\Config\ArrayConfig;
@@ -250,7 +250,11 @@ class Client
     	}
     	$text.= "PARAMS:\n";
     	foreach($info['fields'] as $field => $value) {
-    		$text.= $field . ': ' . $value . "\n";
+    		if(is_array($value)) {
+    			$text.= $field . ': (Array) ' . implode(', ', $value) . "\n";
+    		} else {
+    			$text.= $field . ': ' . $value . "\n";
+    		}
     	}
     	
     	return ($asString? $text : $info);

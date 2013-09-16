@@ -10,7 +10,7 @@
 namespace Econda\RecEngine\Client\Request;
 
 use Econda\RecEngine\Exception\InvalidArgumentException;
-use Econda\RecEngine\Client\Request\Context\Context;
+use Econda\RecEngine\Context\Context;
 
 class RequestModel
 {
