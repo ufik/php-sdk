@@ -7,12 +7,12 @@
  * @package Econda/RecEngine
  * @license MIT License
  */
-namespace Econda\RecEngine\Client;
+namespace Econda\RecEngine\Client\Request;
 
 use Econda\RecEngine\Exception\InvalidArgumentException;
-use Econda\RecEngine\Client\Request\Context;
+use Econda\RecEngine\Client\Request\Context\Context;
 
-class Request
+class RequestModel
 {
 	/**
 	 * Request context (recommendations for...)

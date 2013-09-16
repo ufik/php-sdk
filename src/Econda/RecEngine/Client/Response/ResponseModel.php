@@ -7,11 +7,11 @@
  * @package Econda/RecEngine
  * @license MIT License
  */
-namespace Econda\RecEngine\Client;
+namespace Econda\RecEngine\Client\Response;
 
 use Econda\RecEngine\Widget\Model\ModelInterface;
 
-class Response implements ModelInterface
+class ResponseModel implements ModelInterface
 {
 	protected $title;
 
@@ -70,7 +70,7 @@ class Response implements ModelInterface
         return $this;
     }
 
-    public function getDisableifEmpty()
+    public function getDisableIfEmpty()
     {
         return $this->disableIfEmpty;
     }

@@ -3,7 +3,7 @@ chdir(dirname(__DIR__));
 
 require 'vendor/autoload.php';
 
-$client = new \Econda\RecEngine\Client(array(
+$client = new \Econda\RecEngine\Client\Client(array(
     'accountId' => '00000cec-d98025a8-912b-46a4-a57d-7a691ba7a376-1'
 ));
 
@@ -20,9 +20,9 @@ foreach($response->getProducts() as $data) {
 $firstProductId = $response->getProducts()[0]['id'];
 
 // get recommendations for a given product
-$client->setRequest(new \Econda\RecEngine\Client\Request(array(
+$client->setRequest(new \Econda\RecEngine\Client\Request\RequestModel(array(
     'widgetId' => 7,
-    'context' => new \Econda\RecEngine\Client\Request\Context(array(
+    'context' => new \Econda\RecEngine\Client\Request\Context\Context(array(
         'productIds' => $firstProductId
     ))
 )));

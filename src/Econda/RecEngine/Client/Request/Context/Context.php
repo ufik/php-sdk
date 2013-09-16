@@ -7,7 +7,7 @@
  * @package Econda/RecEngine
  * @license MIT License
  */
-namespace Econda\RecEngine\Client\Request;
+namespace Econda\RecEngine\Client\Request\Context;
 
 use Econda\RecEngine\Client\Request\Context\Category;
 

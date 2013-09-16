@@ -7,10 +7,10 @@
  * @package Econda/RecEngine
  * @license MIT License
  */
-namespace Econda\RecEngine;
+namespace Econda\RecEngine\Client;
 
-use Econda\RecEngine\Client\Response;
-use Econda\RecEngine\Client\Request;
+use Econda\RecEngine\Client\Response\ResponseModel;
+use Econda\RecEngine\Client\Request\RequestModel;
 use Econda\RecEngine\Exception\RuntimeException;
 use Econda\RecEngine\Client\Request\Context;
 use Econda\RecEngine\Exception\InvalidArgumentException;
@@ -38,10 +38,16 @@ class Client
 	protected $request;
 
     /**
-     * @var
+     * @var object
      */
     protected $httpClient;
 
+    /**
+     * Last send http request
+     * @var object
+     */
+    protected $lastHttpRequest;
+    
     /**
      * @var Response
      */
@@ -57,7 +63,7 @@ class Client
 			$this->setConfig($config);
 		}
 		
-		$this->request = new Request();
+		$this->request = new RequestModel();
 	}
 	
 	/**
@@ -106,7 +112,7 @@ class Client
 	 * @param Client\Request $request
 	 * @return \Econda\RecEngine\Client
 	 */
-	public function setRequest(Client\Request $request)
+	public function setRequest(RequestModel $request)
 	{
 		$this->request = $request;
 		return $this;
@@ -144,12 +150,14 @@ class Client
             $this->response = $this->getResponseFromHttpResponse($responseData);
         }
 
+        $this->lastHttpRequest = $httpRequest;
+        
         return $this->response;
     }
 
     protected function getResponseFromHttpResponse($responseData)
     {
-        $response = new Response();
+        $response = new ResponseModel();
 
         if(isset($responseData['start'])) {
             $response->setStartIndex($responseData['start']);
@@ -219,5 +227,32 @@ class Client
     public function getResponse()
     {
         return $this->response;
+    }
+    
+    /**
+     * Just a debug function. Retuns info to last send http request
+     * @param string $asString
+     * @return Ambigous <string, multitype:NULL >
+     */
+    public function getLastRequestInfo($asString=false)
+    {
+    	$req = $this->lastHttpRequest;
+    	
+    	$info = array();
+    	$info['headers'] = $req->getHeaders()->getAll();
+    	$info['fields'] = $req->getPostFields()->getAll();
+    	
+    	// string outpug
+    	$text = "HEADERS:\n";
+    	$headers = $info['headers'];
+    	foreach($headers as $header) {
+    		$text.= "- " . $header->getName() . ': ' . implode(', ', $header->toArray()) . "\n";
+    	}
+    	$text.= "PARAMS:\n";
+    	foreach($info['fields'] as $field => $value) {
+    		$text.= $field . ': ' . $value . "\n";
+    	}
+    	
+    	return ($asString? $text : $info);
     }
 }

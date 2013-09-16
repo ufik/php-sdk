@@ -7,14 +7,15 @@
  * @package Econda/RecEngine
  * @license MIT License
  */
-namespace Econda\RecEngine;
+namespace Econda\RecEngine\Widget;
 
-use Econda\RecEngine\Client\Request;
+use Econda\RecEngine\Client\Client;
+use Econda\RecEngine\Client\Request\RequestModel;
 use Econda\RecEngine\Config\ArrayConfig;
 use Econda\RecEngine\Exception\InvalidArgumentException;
 use Econda\RecEngine\Widget\Model\ModelInterface;
 use Econda\RecEngine\Widget\Renderer\AbstractRenderer;
-use Econda\RecEngine\Client\Request\Context;
+use Econda\RecEngine\Client\Request\Context\Context;
 use Econda\RecEngine\Widget\Renderer\HtmlRenderer;
 
 class Widget
@@ -71,6 +72,12 @@ class Widget
 	 * @var AbstractRenderer
 	 */
 	protected $renderer;
+	
+	/**
+	 * Reference to last used econda client
+	 * @var \Econda\RecEngine\Client\Client
+	 */
+	protected $client;
 	
 	public function __construct($config = null)
 	{
@@ -236,5 +243,16 @@ class Widget
             ->setContext($this->context);
 
         $this->model = $client->execute();
+        
+        $this->client = $client;
+    }
+    
+    public function getLastRequestInfo($asString = false)
+    {
+    	if($this->client) {
+    		return $this->client->getLastRequestInfo($asString);
+    	} else {
+    		return null;
+    	}
     }
 }
