@@ -1,0 +1,196 @@
+<?php
+/**
+ * econda recommendations client library
+ *
+ * @copyright Copyright econda GmbH
+ * @link http://www.econda.de
+ * @package Econda/RecEngine
+ * @license MIT License
+ */
+namespace Econda\RecEngine\Context;
+
+use Econda\RecEngine\Context\Category;
+use Econda\RecEngine\Exception\InvalidArgumentException;
+
+/**
+ * Context for recommendations, e.g. current product(s), category(ies), recipient id, ...
+ */
+class Context
+{
+	/**
+	 * Name of visitor id cookie
+	 */
+	const COOKIE_NAME_VISITOR_ID = 'emos_jcvid';
+	
+	/**
+	 * Name of best product cookie
+	 */
+	const COOKIE_NAME_BEST_PRODUCTS = 'emos_best_products';
+	
+	/**
+	 * Array of product Ids
+	 * @var array
+	 */
+	protected $productIds;
+
+    /**
+     * Array of context categories
+     * @var array
+     */
+    protected $categories;
+
+	/**
+	 * Array of produc ids from best product cookie
+	 * @var array
+	 */
+	protected $bestProductsIds;
+	
+	/**
+	 * Visitor id from cookie
+	 * @var string
+	 */
+	protected $visitorId;
+	
+	/**
+	 * Constructor
+	 */
+	public function __construct($data = null)
+	{
+		$this->bestProductsIds = $this->initBestProductIds();
+		$this->visitorId = $this->initVisitorId();
+
+        if($data) {
+            $this->initPropertiesFromArray($data);
+        }
+	}
+	
+	protected function initPropertiesFromArray($data)
+	{
+		if(!is_array($data)) {
+			if(get_class($data) == 'stdClass') {
+				$data = get_object_vars($data);
+			} else {
+				throw new InvalidArgumentException("Constructor expects an array of properties with their values.");
+			}
+		}
+		foreach($data as $key => $value) {
+			$setterName = 'set' . ucfirst($key);
+			if(!method_exists($this, $setterName)) {
+				throw new InvalidArgumentException("No setter found for property with name: " . $key);
+			}
+			$this->$setterName($value);
+		}
+	}
+	
+	/**
+	 * Read visitor id from cookie if available
+	 * @return Ambigous <NULL, unknown>
+	 */
+	protected function initVisitorId()
+	{
+		$vid = null;
+		if (!empty($_COOKIE[self::COOKIE_NAME_VISITOR_ID])) {
+			$vid = $_COOKIE[self::COOKIE_NAME_VISITOR_ID];
+		}
+		return $vid;
+	}
+	
+	/**
+	 * Product ids from emos_best_products cookie or emty array if no cookie is available
+	 * @return array:
+	 */
+	protected function initBestProductIds()
+	{
+		$autoContextResult = array();
+		if (!empty($_COOKIE[self::COOKIE_NAME_BEST_PRODUCTS])) {
+			$autoContextResult = explode(":", $_COOKIE[self::COOKIE_NAME_BEST_PRODUCTS]);
+		}
+		return $autoContextResult;
+	}
+
+    /**
+     * Get visitor id
+     * @return string
+     */
+    public function getVisitorId()
+    {
+        return $this->visitorId;
+    }
+
+    /**
+     * Normally it makes no sense to set the visitor id. We'll read it in constructor from cookie
+     * @param $visitorId
+     * @return $this
+     */
+    public function setVisitorId($visitorId)
+    {
+        $this->visitorId = $visitorId;
+        return $this;
+    }
+
+    /**
+     * Get best product ids
+     * @return array
+     */
+    public function getBestProductIds()
+    {
+        return $this->bestProductsIds;
+    }
+
+    /**
+     * Normally it makes no sense to set this property, we'll read it in constructor from cookie data
+     * @param array $productIds
+     * @return $this
+     */
+    public function setBestProductIds($productIds)
+    {
+        if(!is_array($productIds)) {
+            $productIds = array($productIds);
+        }
+        $this->bestProductsIds = $productIds;
+        return $this;
+    }
+
+    /**
+     * Set category to get recommendation for
+     * @param Category $category
+     * @return $this
+     */
+    public function setCategory($category)
+    {
+    	if($category instanceof Category == false) {
+    		$category = new Category($category);
+    	}
+        $this->categories = array($category);
+        return $this;
+    }
+
+    /**
+     * @return array array of path parts
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * @param $productIds
+     * @return $this
+     */
+    public function setProductIds($productIds)
+    {
+        if(!is_array($productIds)) {
+            $productIds = array($productIds);
+        }
+        $this->productIds = $productIds;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getProductIds()
+    {
+        return $this->productIds;
+    }
+}

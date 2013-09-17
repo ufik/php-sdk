@@ -127,7 +127,7 @@ econda.recengine.Widget = function(config)
 		widgetJson = cmp.toJson();
 
 		$.ajax({
-			type: "GET",
+			type: "POST",
 			url: cmp.rendererUri,
 			data: "data=" + widgetJson,
 			success: function(html) {

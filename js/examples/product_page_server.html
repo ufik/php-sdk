@@ -3,10 +3,8 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>CS Request on Product Page with Server Callback</title>
-		<script type="text/javascript" src="../lib/json/json2.js"></script>
-		<script type="text/javascript" src="../src/econda/recengine/Widget.js"></script>
-		<script type="text/javascript" src="../src/econda/recengine/Context.js"></script>
-		<script type="text/javascript" src="../src/econda/recengine/ContextCategory.js"></script>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="../build/econda_recommendations.js"></script>
 	</head>
 	<body>
 		<p>This example creates a container and calls another PHP Script running
@@ -17,6 +15,7 @@
 		<script type="text/javascript">
 			var widget = new econda.recengine.Widget({
 				element: document.getElementById('ecRecommendationsContainer'),
+                rendererUri: 'dummy_renderer.html',
 				accountId: '00000cec-d98025a8-912b-46a4-a57d-7a691ba7a376-1',
 				id: 6,
 				context: {
@@ -27,7 +26,7 @@
 					}
 				}
 			});
-			console.log(widget.toJson());
+			widget.render();
 		</script>
 
 	</body>
