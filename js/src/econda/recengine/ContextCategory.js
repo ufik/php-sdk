@@ -31,6 +31,13 @@ econda.recengine.ContextCategory = function(config)
 	 */
 	this.id = null;
 	
+	/**
+	 * Variant key
+	 * @private
+	 * @property {String}
+	 */
+	this.variant = null;
+	
 	this.setType = function(type)
 	{
 		this.type = type;
@@ -42,6 +49,13 @@ econda.recengine.ContextCategory = function(config)
 		this.id = id;
 		return this;
 	};
+	
+	this.setVariant = function(variant)
+	{
+		this.variant = variant;
+		return this;
+	};
+	
 	
 	/**
 	 * Set path, multiple formats allowed:

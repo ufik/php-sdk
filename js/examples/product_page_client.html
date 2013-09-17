@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>CS Request on Product Page with Server Callback</title>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="../lib/ecwidget/econdawidget.js"></script>
+		<script type="text/javascript" src="../build/econda_recommendations.js"></script>
+	</head>
+	<body>
+		<p>This example creates a container and sends a cross domain ajax request to the econda
+		   recommendation server. Then it will display the returned recommendations using a js template function.</p>
+		   
+		<div id="ecRecommendationsContainer">Loading...</div>
+		<script type="text/javascript">
+			var myTemplates = {};
+			/**
+			 * Renderer function for horizontal widgets.
+			 */
+			myTemplates.horizontal = function(data, element, esc) {
+				var products = data.products;
+				
+				var header = [
+				   '<div class="widgetContainer">',
+				   '<div>Recommendations Title</div>',
+				     '<ul class="productsContainer">'
+				];
+				
+				var recs = [];
+				for(var i=0; i<products.length; i++) {
+					var p = products[i];
+					recs.push('<li>' + esc.html(p.id) + '</li>');
+				}
+				
+				var footer = ['</ul></div>'];
+				
+				var html = header.concat(recs, footer); 
+				return html.join('');
+			};
+		
+			/**
+			 * Setup widget, load data and render using defined rendering function
+			 */
+			var widget = new econda.recengine.Widget({
+				element: document.getElementById('ecRecommendationsContainer'),
+                rendererFn: myTemplates.horizontal,
+				accountId: '00000cec-d98025a8-912b-46a4-a57d-7a691ba7a376-1',
+				id: 6,
+				context: {
+					productIds: ['prodId1', 'prodId2'],
+					category: {
+						type: 'brand',
+						path: 'econda'
+					}
+				}
+			});
+			widget.render();
+		</script>
+
+	</body>
+</html>
