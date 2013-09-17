@@ -2,165 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utils/closure-compiler/compiler.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utils/closure-compiler/COPYING" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utils/closure-compiler/README" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/compile-javascript-dev" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/compile-javascript" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/examples/dummy_renderer.html" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\AbstractField.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\CatalogInfo.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Client.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.ProductFeed.Description.DataSource.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.ProductFeed.Description.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.RecEngine.Base.StandardConstructorTrait.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.RecEngine.Client.Request.Context.Category.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.RecEngine.Client.Request.Context.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.RecEngine.Client.Request.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.RecEngine.Client.Response.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.RecEngine.Client.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.RecEngine.Config.ArrayConfig.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.RecEngine.Config.ConfigAwareTrait.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.RecEngine.Config.ConfigInterface.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.RecEngine.Exception.InvalidArgumentException.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.RecEngine.Exception.RuntimeException.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.RecEngine.Widget.Model.ModelInterface.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.RecEngine.Widget.Renderer.AbstractRenderer.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.RecEngine.Widget.Renderer.HtmlRenderer.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\classes\Econda.RecEngine.Widget.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\css\jquery.iviewer.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\css\phpdocumentor-clean-icons\Read Me.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\css\phpdocumentor-clean-icons\fonts\phpdocumentor-clean-icons.dev.svg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\css\phpdocumentor-clean-icons\fonts\phpdocumentor-clean-icons.eot" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\css\phpdocumentor-clean-icons\fonts\phpdocumentor-clean-icons.svg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\css\phpdocumentor-clean-icons\fonts\phpdocumentor-clean-icons.ttf" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\css\phpdocumentor-clean-icons\fonts\phpdocumentor-clean-icons.woff" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\css\phpdocumentor-clean-icons\lte-ie7.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\css\phpdocumentor-clean-icons\style.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\css\prism.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\css\template.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\Catalog.CatalogInfo.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\Catalog.FieldDefinition.AbstractField.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\Catalog.FieldDefinition.ImageField.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\Catalog.FieldDefinition.NumericField.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\Catalog.FieldDefinition.TextField.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\Catalog.FieldDefinition.UriField.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\CatalogApi.Client.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\CatalogApi\Client.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\Catalog\CatalogInfo.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\Catalog\FieldDefinition\AbstractField.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\Catalog\FieldDefinition\ImageField.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\Catalog\FieldDefinition\NumericField.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\Catalog\FieldDefinition\TextField.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\Catalog\FieldDefinition\UriField.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\ProductFeed.Description.DataSource.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\ProductFeed.Description.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\ProductFeed\Description.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\ProductFeed\Description\DataSource.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Base.StandardConstructorTrait.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Client.Request.Context.Category.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Client.Request.Context.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Client.Request.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Client.Response.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Client.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Config.ArrayConfig.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Config.ConfigAwareTrait.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Config.ConfigInterface.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Exception.InvalidArgumentException.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Exception.RuntimeException.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Widget.Model.ModelInterface.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Widget.Model.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Widget.Renderer.AbstractRenderer.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Widget.Renderer.HtmlRenderer.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine.Widget.php.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Base\StandardConstructorTrait.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Client.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Client\Request.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Client\Request\Context.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Client\Request\Context\Category.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Client\Response.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Config\ArrayConfig.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Config\ConfigAwareTrait.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Config\ConfigInterface.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Exception\InvalidArgumentException.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Exception\RuntimeException.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Widget.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Widget\Model.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Widget\Model\ModelInterface.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Widget\Renderer\AbstractRenderer.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\files\RecEngine\Widget\Renderer\HtmlRenderer.php.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\graphs\class.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\graphs\classes.svg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\custom-icons.svg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\hierarchy-item.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\icon-class-13x13.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\icon-class.svg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\icon-interface-13x13.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\icon-interface.svg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\icon-trait-13x13.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\icon-trait.svg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\iviewer\grab.cur" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\iviewer\hand.cur" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\iviewer\iviewer.rotate_left.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\iviewer\iviewer.rotate_right.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\iviewer\iviewer.zoom_fit.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\iviewer\iviewer.zoom_in.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\iviewer\iviewer.zoom_out.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\images\iviewer\iviewer.zoom_zero.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\js\jquery.dotdotdot-1.5.9.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\js\jquery.dotdotdot-1.5.9.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\js\jquery.iviewer.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\js\jquery.iviewer.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\js\jquery.smooth-scroll.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\js\prism.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\namespaces\Econda.ProductFeed.Description.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\namespaces\Econda.ProductFeed.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\namespaces\Econda.RecEngine.Base.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\namespaces\Econda.RecEngine.Client.Request.Context.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\namespaces\Econda.RecEngine.Client.Request.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\namespaces\Econda.RecEngine.Client.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\namespaces\Econda.RecEngine.Config.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\namespaces\Econda.RecEngine.Exception.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\namespaces\Econda.RecEngine.Widget.Model.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\namespaces\Econda.RecEngine.Widget.Renderer.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\namespaces\Econda.RecEngine.Widget.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\namespaces\Econda.RecEngine.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\namespaces\Econda.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\namespaces\default.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-11\phpdoc-cache-file_de14dd5257eaa1b19f4e7f6b0207a2cd.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-26\phpdoc-cache-file_71f806e94eae2e1e72ff4fc9bcb596ff.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-2b\phpdoc-cache-file_27f9aed1b9024b549f3c253094d5cc8f.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-2c\phpdoc-cache-file_0dcafafdac9a1d9a35d9b4077083b32f.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-2e\phpdoc-cache-settings.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-48\phpdoc-cache-file_388d4e15d5b102a0dc15218f730d4f7b.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-4f\phpdoc-cache-file_5bb9d23c5e45a8ddcacaa0075789ff01.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-56\phpdoc-cache-file_561fa1bb6f9675372d13ad8def0df3d7.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-59\phpdoc-cache-file_731a1f0d9cbeaaa3ce6dbfb7efba9172.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-5c\phpdoc-cache-file_f402d13bad1d780b06bd2d692e0982b8.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-6e\phpdoc-cache-file_b35d26ba29cfa7280779aef5fac7302e.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-79\phpdoc-cache-file_05fed3488d50f3de3927cf904cf05a14.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-79\phpdoc-cache-file_3c92c5a643129ac94ada7183fb411a01.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-7a\phpdoc-cache-file_64ecdd896191981cf20ccdcd44a185c9.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-88\phpdoc-cache-file_4238f94b97f2c50067124549caffc593.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-8b\phpdoc-cache-file_1639eb31c6a0c9c4d2b1f8ca812d17aa.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-8d\phpdoc-cache-file_7d3eef6c02efb96cc313066d4bd5733c.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-93\phpdoc-cache-file_77d9f265aa3a53029422c313ab448051.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-93\phpdoc-cache-file_bed75f766eee55fe609ae775008adfab.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-ab\phpdoc-cache-file_5783bd7f2e43da7854eb517107236fc9.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-d9\phpdoc-cache-file_8584b3b4a775cb6530a4e693accf2d68.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-dc\phpdoc-cache-file_f980e1b1afd46b6145bcc947b6f38f66.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-e1\phpdoc-cache-file_4af6b863f8bc83be2acf2b7facd7c4d7.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\phpdoc-cache-e6\phpdoc-cache-file_0835ed2b22695da4087f5da2c0112970.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\reports\deprecated.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\reports\errors.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Users\christoph.luetjen\Documents\GitHub\recommendations\docs\reports\markers.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/recommendations.iml" afterPath="$PROJECT_DIR$/.idea/recommendations.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/src/econda/recengine/Widget.js" afterPath="$PROJECT_DIR$/js/src/econda/recengine/Widget.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/create-api-docs" afterPath="$PROJECT_DIR$/bin/create-api-docs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/from_js_widget.php" afterPath="$PROJECT_DIR$/examples/from_js_widget.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/examples/product_page_server.html" afterPath="$PROJECT_DIR$/js/examples/product_page_server.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/lib/dust/dust.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="recommendations.iws" />
@@ -210,11 +52,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/closure-compiler/README">
+      <file leaf-file-name="csdemo_example.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/csdemo_example.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="22" column="0" selection-start="587" selection-end="830" vertical-scroll-proportion="-14.384615">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dust.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/lib/dust/dust.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="0" selection-start="317" selection-end="317" vertical-scroll-proportion="-6.9356985">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -255,10 +108,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create-api-docs" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="create-api-docs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/create-api-docs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="78" selection-start="165" selection-end="165" vertical-scroll-proportion="0.11147541">
+            <state line="6" column="78" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -282,15 +135,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dummy_renderer.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/examples/dummy_renderer.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="129" selection-start="153" selection-end="153" vertical-scroll-proportion="-0.65384614">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -309,8 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Econda/RecEngine/Client.php" />
-        <option value="$PROJECT_DIR$/src/Econda/RecEngine/Base/StandardConstructorTrait.php" />
         <option value="$PROJECT_DIR$/src/Econda/RecEngine/Client/Request.php" />
         <option value="$PROJECT_DIR$/src/Econda/RecEngine/Widget.php" />
         <option value="$PROJECT_DIR$/examples/csdemo_template_example.php" />
@@ -325,6 +167,8 @@
         <option value="$PROJECT_DIR$/examples/from_js_widget.php" />
         <option value="$PROJECT_DIR$/js/src/econda/recengine/Widget.js" />
         <option value="$PROJECT_DIR$/bin/create-api-docs" />
+        <option value="$PROJECT_DIR$/js/lib/dust/dust.min.js" />
+        <option value="$PROJECT_DIR$/js/lib/dust/dust.js" />
       </list>
     </option>
   </component>
@@ -377,6 +221,364 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Econda" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RecEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Widget" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Econda" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RecEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Widget" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Renderer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Econda" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RecEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Widget" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Econda" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RecEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Exception" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Econda" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RecEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Context" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Econda" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RecEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Econda" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RecEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Econda" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RecEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Response" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Econda" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RecEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Request" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Econda" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="json" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dust" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examples" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -526,18 +728,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Econda/RecEngine/Widget/Renderer/AbstractRenderer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/example_template.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="6" selection-start="203" selection-end="203" vertical-scroll-proportion="-4.576923" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Econda/RecEngine/Widget/Renderer/HtmlRenderer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="74" column="5" selection-start="1518" selection-end="1518" vertical-scroll-proportion="-6.0">
@@ -565,13 +755,6 @@
           <folding>
             <element signature="e#6#42#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/csdemo_example.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="2" selection-start="384" selection-end="384" vertical-scroll-proportion="0.28683916">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -633,8 +816,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/create-api-docs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="78" selection-start="165" selection-end="165" vertical-scroll-proportion="0.11147541">
+        <state line="6" column="78" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/csdemo_example.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="587" selection-end="830" vertical-scroll-proportion="-14.384615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/lib/dust/dust.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="317" selection-end="317" vertical-scroll-proportion="-6.9356985">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
