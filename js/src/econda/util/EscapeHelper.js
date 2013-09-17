@@ -6,9 +6,15 @@ if(typeof window.econda.util == 'undefined') {
 	econda.util = {};
 }
 
+/**
+ * Helper functions for string escaping.
+ * @class econda.util.EscapeHelper
+ * @singleton
+ */
 econda.util.EscapeHelper = {
 	/**
 	 * Defines characters to encode if we want to output text in html
+     * @private
 	 */
     entityMap: {
         "&": "&amp;",

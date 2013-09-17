@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/lib/dust/dust.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/src/econda/recengine/Context.js" afterPath="$PROJECT_DIR$/js/src/econda/recengine/Context.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/src/econda/recengine/ContextCategory.js" afterPath="$PROJECT_DIR$/js/src/econda/recengine/ContextCategory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/src/econda/util/EscapeHelper.js" afterPath="$PROJECT_DIR$/js/src/econda/util/EscapeHelper.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/src/econda/recengine/Widget.js" afterPath="$PROJECT_DIR$/js/src/econda/recengine/Widget.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="recommendations.iws" />
@@ -31,8 +34,11 @@
     <file path="/dummy_render.html" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379376124830" ignored="false" />
     <file path="/compile-javascript-dev" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379376655390" ignored="false" />
     <file path="/from_js_widget.php" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379377010706" ignored="false" />
-    <file path="/Widget.js" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379377176225" ignored="false" />
+    <file path="/Widget.js" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379451716990" ignored="false" />
     <file path="/create-api-docs" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379377341188" ignored="false" />
+    <file path="$PROJECT_DIR$/docs/js/output/econda.recengine.ContextCategory.js" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379450272478" ignored="false" />
+    <file path="$PROJECT_DIR$/docs/js/source/ContextCategory.html" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379450272478" ignored="false" />
+    <file path="/Context.js" changelist="2d4c6fb0-3d9d-4643-87a6-b4d2c735f0f2" time="1379450896487" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,84 +58,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="csdemo_example.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/csdemo_example.php">
+      <file leaf-file-name="EscapeHelper.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/src/econda/util/EscapeHelper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="587" selection-end="830" vertical-scroll-proportion="-14.384615">
+            <state line="16" column="15" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dust.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/lib/dust/dust.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="317" selection-end="317" vertical-scroll-proportion="-6.9356985">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="compile-javascript" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/compile-javascript">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="40" selection-start="0" selection-end="352" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="econda_recommendations.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/build/econda_recommendations.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="5404" selection-end="5404" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product_page_server.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/examples/product_page_server.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="23" selection-start="916" selection-end="916" vertical-scroll-proportion="-11.115385">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Widget.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Widget.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/src/econda/recengine/Widget.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="4" selection-start="2329" selection-end="2329" vertical-scroll-proportion="0.0">
+            <state line="10" column="144" selection-start="344" selection-end="344" vertical-scroll-proportion="0.17865169">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create-api-docs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/create-api-docs">
+      <file leaf-file-name="product_page_client.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/examples/product_page_client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="78" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0">
+            <state line="13" column="0" selection-start="763" selection-end="1960" vertical-scroll-proportion="-5.423077">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="from_js_widget.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/from_js_widget.php">
+      <file leaf-file-name="Context.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/src/econda/recengine/Context.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="36" selection-start="563" selection-end="563" vertical-scroll-proportion="-8.5">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="compile-javascript-dev" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/compile-javascript-dev">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="28" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
+            <state line="22" column="57" selection-start="589" selection-end="589" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -153,9 +112,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Econda/RecEngine/Client/Request.php" />
-        <option value="$PROJECT_DIR$/src/Econda/RecEngine/Widget.php" />
-        <option value="$PROJECT_DIR$/examples/csdemo_template_example.php" />
         <option value="$PROJECT_DIR$/examples/example_template.phtml" />
         <option value="$PROJECT_DIR$/src/Econda/RecEngine/Widget/Renderer/HtmlRenderer.php" />
         <option value="$PROJECT_DIR$/examples/csdemo_example.php" />
@@ -165,10 +121,13 @@
         <option value="$PROJECT_DIR$/bin/compile-javascript-dev" />
         <option value="$PROJECT_DIR$/js/build/econda_recommendations.js" />
         <option value="$PROJECT_DIR$/examples/from_js_widget.php" />
-        <option value="$PROJECT_DIR$/js/src/econda/recengine/Widget.js" />
         <option value="$PROJECT_DIR$/bin/create-api-docs" />
         <option value="$PROJECT_DIR$/js/lib/dust/dust.min.js" />
         <option value="$PROJECT_DIR$/js/lib/dust/dust.js" />
+        <option value="$PROJECT_DIR$/js/src/econda/recengine/ContextCategory.js" />
+        <option value="$PROJECT_DIR$/js/src/econda/util/EscapeHelper.js" />
+        <option value="$PROJECT_DIR$/js/src/econda/recengine/Context.js" />
+        <option value="$PROJECT_DIR$/js/src/econda/recengine/Widget.js" />
       </list>
     </option>
   </component>
@@ -505,6 +464,44 @@
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="econda" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="econda" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recengine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -523,10 +520,6 @@
               <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="json" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -542,11 +535,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dust" />
+              <option name="myItemId" value="examples" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -579,6 +568,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="examples" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="docs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recommendations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="docs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -646,13 +667,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2524013" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2524013" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -728,13 +749,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Econda/RecEngine/Widget/Renderer/HtmlRenderer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="5" selection-start="1518" selection-end="1518" vertical-scroll-proportion="-6.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/data_client.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="13" selection-start="554" selection-end="554" vertical-scroll-proportion="-13.730769">
@@ -772,68 +786,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/compile-javascript">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="40" selection-start="0" selection-end="352" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/compile-javascript-dev">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="28" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/build/econda_recommendations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="5404" selection-end="5404" vertical-scroll-proportion="0.0">
+        <state line="359" column="0" selection-start="11354" selection-end="11354" vertical-scroll-proportion="0.88691795">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/examples/product_page_server.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="23" selection-start="916" selection-end="916" vertical-scroll-proportion="-11.115385">
+        <state line="17" column="23" selection-start="917" selection-end="917" vertical-scroll-proportion="0.32508436">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/from_js_widget.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="36" selection-start="563" selection-end="563" vertical-scroll-proportion="-8.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/src/econda/recengine/Widget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="4" selection-start="2329" selection-end="2329" vertical-scroll-proportion="0.0">
+        <state line="13" column="36" selection-start="563" selection-end="563" vertical-scroll-proportion="0.2522831">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/create-api-docs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="78" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0">
+        <state line="6" column="78" selection-start="165" selection-end="165" vertical-scroll-proportion="0.11147541">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/csdemo_example.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="587" selection-end="830" vertical-scroll-proportion="-14.384615">
+        <state line="22" column="0" selection-start="587" selection-end="830" vertical-scroll-proportion="0.42069742">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/lib/dust/dust.js">
+    <entry file="file://$PROJECT_DIR$/docs/js/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="317" selection-end="317" vertical-scroll-proportion="-6.9356985">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/src/econda/recengine/ContextCategory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="1" selection-start="611" selection-end="611" vertical-scroll-proportion="0.27868852">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/src/econda/util/EscapeHelper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="15" selection-start="377" selection-end="377" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/src/econda/recengine/Context.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="57" selection-start="589" selection-end="589" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/examples/product_page_client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="763" selection-end="1960" vertical-scroll-proportion="-5.423077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/src/econda/recengine/Widget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="144" selection-start="344" selection-end="344" vertical-scroll-proportion="0.17865169">
+          <folding />
         </state>
       </provider>
     </entry>
