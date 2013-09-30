@@ -1,0 +1,8 @@
+<div>
+    <div><?= $this->getTitle() ?></div>
+    <ul>
+        <?php foreach($this->getProducts() as $product): ?>
+            <li><?= $product["id"] ?></li>
+        <?php endforeach; ?>
+    </ul>
+</div>

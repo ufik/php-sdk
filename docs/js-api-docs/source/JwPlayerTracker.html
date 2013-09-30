@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">if(typeof econda.media.helper == 'undefined') {
+    econda.media.helper = {};
+}
+
+<span id='econda-media-helper-JwPlayerTracker-method-constructor'><span id='econda-media-helper-JwPlayerTracker'>/**
+</span></span> * Helper to setup trackig for jwplayer. 
+ * &lt;a target=&quot;blank&quot; href=&quot;http://www.longtailvideo.com/jw-player/&quot;&gt;http://www.longtailvideo.com/jw-player/&lt;/a&gt;
+ * 
+ * @markdown
+Example:
+    &lt;!-- video will be placed here --&gt;
+    &lt;div id=&quot;myElement&quot;&gt;Loading the player...&lt;/div&gt;
+    
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var myPlayer = jwplayer(&quot;myElement&quot;).setup({
+            file: &quot;./media-files/movies/trailer.mp4&quot;
+        });
+    
+        // setup econda video tracking
+        
+        // enable debug output
+        econda.debug.setEnabled(true);
+        
+        // disable real server requests for this demo page
+        econda.proxy.configure({
+            type: &quot;direct&quot;,
+            disabled: true
+        });
+        
+        // Setup player tracker 
+        var trackingHelper = new econda.media.helper.JwPlayerTracker({
+            player: myPlayer,
+            tracker: {content: &quot;/Examples/JwPlayer Example&quot;}
+        });
+        
+    &lt;/script&gt;
+ * 
+ * @class econda.media.helper.JwPlayerTracker
+ * @extends econda.base.Object
+ * @constructor Constructor
+ * @param {Object} cfg Configuration options
+ */
+econda.media.helper.JwPlayerTracker = function(cfg)
+{
+    var cmp = this;
+    
+    cfg = cfg || {};
+    
+<span id='econda-media-helper-JwPlayerTracker-property-__p'>    /**
+</span>     * Private properties collection
+     * @property {Object} __p
+     * @private
+     */
+    var __p = {
+        
+<span id='econda-media-helper-JwPlayerTracker-cfg-tracker'>        /**
+</span>         * @cfg {econda.media.MediaTracker/Object} tracker Reference to tracker object or config options for a new tracker object. 
+         */
+        tracker: null,
+        
+<span id='econda-media-helper-JwPlayerTracker-cfg-player'>        /**
+</span>         * @cfg {Object} player Reference to jw player instance element
+         */
+        player: null
+    };
+    
+    this.__defaultProperty = &quot;player&quot;;
+    
+<span id='econda-media-helper-JwPlayerTracker-property-ve'>    /**
+</span>     * Reference to element where we can get duration etc...
+     * video or source tag.
+     * @private
+     * @property {Object} ve
+     */
+    var ve = null;
+    
+<span id='econda-media-helper-JwPlayerTracker-property-playerDataLoaded'>    /**
+</span>     * True as soon as we could read infos from player object.
+     * (Duration, etc...)
+     * @private
+     * @property {Boolean} playerDataLoaded
+     */
+    var playerDataLoaded = false;
+    
+<span id='econda-media-helper-JwPlayerTracker-property-trackerData'>    /**
+</span>     * Data we wrote or have to write to tracker object
+     * @private
+     * @property {Object} trackerData
+     */
+    var trackerData = {};
+    
+<span id='econda-media-helper-JwPlayerTracker-method-updateTrackerData'>    /**
+</span>     * Helper function to update tracker properties.
+     * We can't do this directly because the tracker might be set
+     * at a later time. You can call this function without parameters
+     * to write all stored data to tracker.
+     * 
+     * @method
+     * @private
+     * @param {String} property Property name to update
+     * @param {Mixed} value Value to assign 
+     */
+    this.updateTrackerData = function(property, value)
+    {
+        if(typeof property != 'undefined') {
+            trackerData[property] = value;
+        }
+        
+        if(typeof __p[&quot;tracker&quot;] != 'undefined') {
+            __p[&quot;tracker&quot;].set(trackerData);
+        }
+        return this;
+    };
+    
+<span id='econda-media-helper-JwPlayerTracker-method-setTracker'>    /**
+</span>     * Set tracker object or configuration. See constructor of MediaTracker object for details.
+     *  
+     *     // Example:
+     *     ytTracker.setTracer({
+     *       content: &quot;Video Name&quot;, 
+     *       category: &quot;/Example Videos&quot; 
+     *     }
+     *   
+     * @method
+     * @param {econda.media.MediaTracker/Object/String} tracker tracker object, tracker config or content name 
+     */
+    this.setTracker = function(tracker)
+    {
+        __p[&quot;tracker&quot;] = new econda.media.MediaTracker(tracker);
+        
+        // write cached data to tracker object
+        this.updateTrackerData();
+        
+        return this;
+    };
+    
+<span id='econda-media-helper-JwPlayerTracker-method-getTracker'>    /**
+</span>     * Get tracker object
+     * @method
+     * @return {econda.media.MediaTracker}
+     */
+    this.getTracker = function()
+    {
+        return __p[&quot;tracker&quot;];
+    };
+    
+<span id='econda-media-helper-JwPlayerTracker-method-setPlayer'>    /**
+</span>     * Set reference to html video element
+     * @method
+     * @param {Object} domNode Html video tag or element id
+     * @chainable
+     */
+    this.setPlayer = function(jwplayer)
+    {
+        var domNode;
+        
+        if(!jwplayer) {
+            econda.debug.error(&quot;No player object given.&quot;);
+            return this;
+        }
+        
+        __p[&quot;player&quot;] = jwplayer;
+        
+        this.addEventListeners();
+        
+        return this;
+    };
+    
+<span id='econda-media-helper-JwPlayerTracker-method-addEventListeners'>    /**
+</span>     * Add event listeners to jwplayer
+     * @method
+     * @private
+     */
+    this.addEventListeners = function()
+    {
+        var p = __p[&quot;player&quot;];
+        
+        p.onReady(cmp.handleReadyEvent);
+        p.onPlay(cmp.handlePlayEvent);
+        p.onPause(cmp.handlePauseEvent);
+        p.onSeek(cmp.handleSeekEvent);
+        p.onComplete(cmp.handleCompleteEvent);
+
+        return this;
+    };
+    
+<span id='econda-media-helper-JwPlayerTracker-method-handleReadyEvent'>    /**
+</span>     * Handles the players loadeddata event
+     * @method
+     * @private
+     */
+    this.handleReadyEvent = function()
+    {
+        econda.debug.log(&quot;got onReady event&quot;);
+        
+        cmp.updateTrackerData(&quot;duration&quot;, __p[&quot;player&quot;].getDuration());
+        playerDataLoaded = true;
+
+        // tracker should have all data now, so initialize it.
+        if(__p[&quot;tracker&quot;]) {
+            __p[&quot;tracker&quot;].init();
+        }
+    };
+    
+<span id='econda-media-helper-JwPlayerTracker-method-handlePlayEvent'>    /**
+</span>     * Handle video &quot;play&quot; events
+     * @method
+     * @private
+     */
+    this.handlePlayEvent = function()
+    {
+        var t = __p[&quot;tracker&quot;],
+            p = __p[&quot;player&quot;];
+        
+        econda.debug.log(&quot;got play event&quot;);
+        
+        if(t) {
+            t.setDuration(p.getDuration());
+            t.setState(&quot;playing&quot;, p.getPosition());
+        }
+    };
+
+<span id='econda-media-helper-JwPlayerTracker-method-handleSeekEvent'>    /**
+</span>     * Handle video &quot;seek&quot; events
+     * @method
+     * @private
+     * @param {Object} arguments {position: position, offset: new position}
+     */
+    this.handleSeekEvent = function(args)
+    {
+        var t = __p[&quot;tracker&quot;],
+            p = __p[&quot;player&quot;];
+        
+        econda.debug.log(&quot;got seek event to &quot; + args.offset);
+        
+        if(t) {
+            // t.setState(&quot;paused&quot;, arguments.position); FIXME
+            t.setState(&quot;playing&quot;, args.offset);
+        }
+    };
+
+    
+<span id='econda-media-helper-JwPlayerTracker-method-handlePauseEvent'>    /**
+</span>     * Handle video &quot;pause&quot; events
+     * @method
+     * @private
+     * @param {Object} event Event object
+     */
+    this.handlePauseEvent = function(event)
+    {
+        var t = __p[&quot;tracker&quot;];
+        econda.debug.log(&quot;got pause event&quot;);
+        
+        if(t) {
+            t.setState(&quot;paused&quot;, __p[&quot;player&quot;].getPosition());
+        }
+    };
+
+<span id='econda-media-helper-JwPlayerTracker-method-handleCompleteEvent'>    /**
+</span>     * Handle video &quot;ended&quot; events
+     * @method
+     * @private
+     * @param {Object} event Event object
+     */
+    this.handleCompleteEvent = function(event)
+    {
+        var t = __p[&quot;tracker&quot;];
+        econda.debug.log(&quot;got completed event&quot;);
+        
+        if(t) {
+            t.setState(&quot;stopped&quot;, __p[&quot;player&quot;].getPosition());
+        }
+    };
+    
+<span id='econda-media-helper-JwPlayerTracker-method-getPlayer'>    /**
+</span>     * Return reference to html video element
+     * @method
+     */
+    this.getPlayer = function()
+    {
+        return __p[&quot;player&quot;];
+    };
+    
+    return this.setup(cfg, __p);
+};
+econda.media.helper.JwPlayerTracker.prototype = new econda.base.Object();</pre>
+</body>
+</html>

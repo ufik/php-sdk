@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='econda-media-MediaTracker'>/**
+</span> * Use one MediaTracker object for each video/audio player on your page.
+ * @markdown
+ 
+    // get tracker object and set some properties in constructor
+    var tracker = new econda.media.MediaTracker({
+        content: {
+            name: &quot;Wetten dass... - Folge 9142&quot;,
+            category: &quot;/Unterhaltung/Wetten dass...&quot;
+        },
+        type: &quot;video&quot;
+    });
+    
+    // set one more property
+    tracker.setDuration(150); // video length in seconds
+    
+    // initialize it
+    tracker.init();
+    
+    // we would do this not here...
+    
+    // start playback
+    tracker.setState(&quot;playing&quot;, 0); // setState accepts the current position
+    
+    // we could write this as...
+    // tracker.setPosition(0).setState(&quot;playing&quot;);
+    // but one line is more handy
+    
+    // send user rewind
+    tracker.setState(&quot;paused&quot;, 30);
+    tracker.setState(&quot;playing&quot;, 5);
+    
+    // user clicked &quot;stop video&quot; button
+    tracker.setStated(&quot;stopped&quot;, 60);
+ 
+ * 
+ * @class econda.media.MediaTracker
+ * @extends econda.base.Object
+ * @param cnf
+ * @returns {econda.media.MediaTracker}
+ */
+econda.media.MediaTracker = function(cfg) 
+{
+    var cfg = cfg || {};
+    
+<span id='econda-media-MediaTracker-property-__p'>    /**
+</span>     * Private properties collection
+     * @property {Object} __p
+     * @private
+     */
+    var __p = {
+            
+<span id='econda-media-MediaTracker-cfg-content'>        /**
+</span>         * @cfg {econda.media.Content} content
+         * Content object
+         */
+        content: null,
+        
+<span id='econda-media-MediaTracker-cfg-type'>        /**
+</span>         * @cfg {String} [type=&quot;video&quot;]
+         * Media type, &quot;audio&quot; or &quot;video&quot;
+         */
+        type: &quot;video&quot;,
+        
+<span id='econda-media-MediaTracker-cfg-duration'>        /**
+</span>         * @cfg {Number} duration
+         * Duration in seconds
+         */
+        duration: null,
+    
+<span id='econda-media-MediaTracker-cfg-previewUri'>        /**
+</span>         * @cfg {String} previewUri
+         * URI of preview video (absulte uri, including protocal, host...). Preview media files
+         * must be accessible via SSL (https://).
+         */
+        previewUri: null,
+        
+<span id='econda-media-MediaTracker-cfg-position'>        /**
+</span>         * @cfg {Number} position
+         * Current playback position
+         */
+        position: 0,
+        
+<span id='econda-media-MediaTracker-cfg-state'>        /**
+</span>         * @cfg {String} state
+         * Current playback state uninitialized|initialized|playing|paused|stopped
+         */
+        state: 'uninitialized' // uninitialized|initialized|playing|paused|stopped
+    };
+    
+<span id='econda-media-MediaTracker-property-__instanceId'>    /**
+</span>     * @property {Number} __instanceId Id of this tracker instance
+     * @private
+     */
+    this.__instanceId = econda.media.MediaTracker.instanceCount++;
+    
+<span id='econda-media-MediaTracker-method-init'>    /**
+</span>     * @method
+     * Initialize tracker. Properties must be set at this point
+     */
+    this.init = function()
+    {
+        // check if we've all required data
+        var ok = true;
+        ok = ok &amp;&amp; (__p[&quot;content&quot;] instanceof econda.media.Content &amp;&amp; &quot;&quot; != __p[&quot;content&quot;].getName());
+        ok = ok &amp;&amp; (__p[&quot;type&quot;] == &quot;audo&quot; || __p[&quot;type&quot;] == &quot;video&quot;);
+        ok = ok &amp;&amp; (__p[&quot;duration&quot;] != null);
+        if(ok) {
+            econda.debug.log(&quot;MediaTracker initialized.&quot;, this);
+            __p[&quot;state&quot;] = &quot;initialized&quot;;
+        } else {
+            econda.debug.error(&quot;Could not initialize MediaTracker.&quot;, this);
+        }
+        
+        return this;
+    };
+    
+<span id='econda-media-MediaTracker-method-setContent'>    /**
+</span>     * Set content information
+     * @markdown
+
+       Example:
+       
+       tracker.setContent({
+           name: &quot;MyVideo&quot;,
+           categories: [&quot;/Produktvideos&quot;, &quot;/ImageVideos&quot;]
+       });
+       
+     * @param {econda.media.Content/Object/String}
+     */
+    this.setContent = function(content)
+    {
+        if( this.getState() == 'playing' || this.getState() == 'paused') {
+            econda.debug.error(&quot;Trying to modify content information on an already playing tracker.&quot;);
+        } else {
+            __p[&quot;content&quot;] = new econda.media.Content(content);
+        }
+        return this;
+    };
+    
+<span id='econda-media-MediaTracker-method-getContent'>    /**
+</span>     * Get current content information
+     * 
+     * @method
+     * @return {econda.media.Content}
+     */
+    this.getContent = function()
+    {
+        return __p[&quot;content&quot;];
+    };
+    
+<span id='econda-media-MediaTracker-method-setDuration'>    /**
+</span>     * Set duration of media
+     * @method
+     * @param {Number} seconds Duration in seconds
+     * @returns {econda.media.MediaTracker}
+     */
+    this.setDuration = function(seconds)
+    {
+        __p[&quot;duration&quot;] = Number(seconds);
+        return this
+    };
+    
+<span id='econda-media-MediaTracker-method-getDuration'>    /**
+</span>     * Get defined duration of current media
+     * 
+     * @method
+     * @returns {Number} duration in seconds
+     */
+    this.getDuration = function()
+    {
+        return __p[&quot;duration&quot;];
+    };
+    
+<span id='econda-media-MediaTracker-method-setPosition'>    /**
+</span>     * Set current playback position
+     * @methid
+     * @param {Number} seconds Current position in seconds
+     */
+    this.setPosition = function(seconds)
+    {
+        if(typeof seconds != 'number') {
+            econda.debug.error(&quot;Got invalid value for position: &quot; + seconds);
+        } else {
+            __p[&quot;position&quot;] = seconds;
+        }
+        return this;
+    };
+    
+<span id='econda-media-MediaTracker-method-getPosition'>    /**
+</span>     * Get current playback position as stored in tracker.
+     * This might not be the current position in your media player!
+     * 
+     * @method
+     * @return {Number} seconds since start
+     */
+    this.getPosition = function()
+    {
+        return __p[&quot;position&quot;];
+    };
+    
+<span id='econda-media-MediaTracker-method-setPreviewUri'>    /**
+</span>     * Set preview uri
+     * @method
+     * @param {String} uri Uri of preview media file. Must be an SSL URI (https://...)
+     */
+    this.setPreviewUri = function(uri)
+    {
+        if(typeof uri != 'string' &amp;&amp; uri != null) {
+            econda.debug.error(&quot;Got invalid value for MediaTracker.previewUri: &quot; + uri);
+        } else {
+            if(typeof uri == 'string' &amp;&amp; uri.indexOf(&quot;https://&quot;) != 0) {
+                econda.debug.error(&quot;preview uri MUST be a valid SSL uri!&quot;);
+            } else {
+                __p[&quot;previewUri&quot;] = uri;                
+            }
+        }
+        return this;
+    };
+    
+<span id='econda-media-MediaTracker-method-getPreviewUri'>    /**
+</span>     * Get preview uri
+     * @return {String}
+     */
+    this.getPreviewUri = function()
+    {
+        return __p[&quot;previewUri&quot;];
+    };
+
+    
+<span id='econda-media-MediaTracker-method-setState'>    /**
+</span>     * Set current state and optional current position
+     * @method
+     * @param {String} state playing|paused|stopped
+     * @param {Number} position current plaback position in seconds
+     * @return {econda.media.MediaTracker}
+     */
+    this.setState = function(state, position)
+    {
+        var oldState;
+        
+        // check and set new state
+        if(typeof state != 'string') {
+            econda.debug.error(&quot;State value must be a string.&quot;);
+        } else {
+            oldState = __p[&quot;state&quot;];
+            state = state.toLowerCase();
+            
+            // check for valid state values
+            if(econda.util.Array.indexOf(['playing', 'paused', 'stopped'], state) == -1) {
+                econda.debug.error(&quot;Invalid state value given: &quot; + state);
+            } else {
+                // tracker should be initialized first
+                if(__p[&quot;state&quot;] == &quot;uninitialized&quot; &amp;&amp; state != &quot;initialized&quot;) {
+                    econda.debug.warn(&quot;Got playing/paused/stopped state changed but MediaTracker is uninitialized. Please initialize tracker first.&quot;, this);
+                }
+                __p[&quot;state&quot;] = state;
+                
+                // check and set position 
+                if(typeof position != 'undefined') {
+                    __p[&quot;position&quot;] = Number(position);
+                }
+
+                if(oldState != state) {
+                    // Send event via proxy
+                    var eventNames = {
+                        playing: &quot;play&quot;,
+                        paused: &quot;pause&quot;,
+                        stopped: &quot;stop&quot;
+                    };
+                    this.sendMediaEvent(eventNames[state]);
+                }
+            }
+        }
+        return this;
+    };
+    
+<span id='econda-media-MediaTracker-method-sendMediaEvent'>    /**
+</span>     * Helper to send media events using configured proxy
+     * @method
+     * @private
+     */
+    this.sendMediaEvent = function(eventName)
+    {
+        var cmp = this,
+            event = new econda.proxy.MediaEvent({
+                contentLabel: cmp.getContent().toString(),
+                eventName: eventName,
+                mediaType: cmp.getType(),
+                position: Math.round(cmp.getPosition()),
+                duration: Math.round(cmp.getDuration()),
+                previewUri: cmp.getPreviewUri(),
+                trackerId: cmp.__instanceId
+        });
+        this.getProxy().sendMediaEvent(event);
+    };
+    
+<span id='econda-media-MediaTracker-method-getState'>    /**
+</span>     * Get current playback state
+     * @method
+     * @return {String}
+     */
+    this.getState = function()
+    {
+        return __p[&quot;state&quot;];
+    };
+    
+<span id='econda-media-MediaTracker-method-getProxy'>    /**
+</span>     * Get used proxy instance
+     * @method
+     * @return {econda.proxy.Direct}
+     */
+    this.getProxy = function()
+    {
+        return econda.proxy.getInstance();
+    };
+    
+<span id='econda-media-MediaTracker-method-setType'>    /**
+</span>     * Set content type
+     * @param {String} type Must be &quot;audio&quot; or &quot;video&quot;
+     */
+    this.setType = function(type)
+    {
+        if(typeof type != 'string') {
+            econda.debug.error(&quot;MediaTracker.setType expects as String. Got: &quot; + type, type);
+        } else {
+            type = type.toLowerCase();
+            if(type != 'audio' &amp;&amp; type != 'video') {
+                econda.debug.error(&quot;MediaTracker.setType expects 'audio' or 'video' as parameter. Got: &quot; + type, type);
+            } else {
+                __p[&quot;type&quot;] = type;
+            }
+        }
+        return this;
+    };
+    
+<span id='econda-media-MediaTracker-method-getType'>    /**
+</span>     * Returns content type
+     * @returns {String} media type (video/audio)
+     */
+    this.getType = function()
+    {
+        return __p[&quot;type&quot;];
+    };
+    
+    // Constructor 
+    return this.setup(cfg, __p);
+};
+econda.media.MediaTracker.prototype = new econda.base.Object();
+
+<span id='econda-media-MediaTracker-property-instanceCount'>/**
+</span> * @property {Number} instanceCount Number of instances created
+ * @private
+ */
+econda.media.MediaTracker.instanceCount = 0;</pre>
+</body>
+</html>

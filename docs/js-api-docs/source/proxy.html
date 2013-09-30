@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">if(typeof window.econda == 'undefined') {
+    window.econda = {};
+}
+var econda = window.econda;
+
+<span id='econda-proxy'>/**
+</span> * A proxy is responsible for transfering data to the econda tracking server.
+ * Use Direct proxy to send all request immediately. Currently, this is the only supported
+ * proxy.
+ * 
+ * You can configure the proxy manually:
+ * 
+ *     // at the beginning of your page/app startup
+ *     e4.proxy.configure({
+ *         type: &quot;direct&quot;,
+ *         keepalive: 30
+ *     });
+ * 
+ * If there's no manual configuration, we'll create a default instance with default settings.
+ * 
+ * @class econda.proxy
+ */
+econda.proxy = {
+<span id='econda-proxy-static-property-__pageInitDate'>    /**
+</span>     * Timestamp when page was loaded
+     * @static
+     * @private
+     * @property {Date} __pageInitDate
+     */
+    __pageInitDate: new Date(),
+    
+<span id='econda-proxy-property-__instance'>    /**
+</span>     * Proxy instance
+     * @property {econda.proxy.Direct} __instance
+     * @private
+     */
+    __instance: null,
+        
+<span id='econda-proxy-method-getInstance'>    /**
+</span>     * Get singleton instance of current proxy. You should not use this method directly.
+     * @method
+     */
+    getInstance: function()
+    {
+        if(this.__instance == null) {
+            this.createDefaultInstance();
+        }
+        return this.__instance;
+    },
+    
+<span id='econda-proxy-method-configure'>    /**
+</span>     * Set proxy configuration
+     * @method
+     * @param cfg
+     */
+    configure: function(cfg)
+    {
+        if(typeof cfg.type != 'string') {
+            econda.debug.error(&quot;Error in proxy.configure: You must set a proxy type.&quot;);
+            return;
+        }
+        var type = cfg.type.toLowerCase();
+        var proxy = null;
+        
+        switch(type) {
+        case &quot;direct&quot;:
+            proxy = new econda.proxy.Direct(cfg);
+            break;
+        default:
+            econda.debug.error(&quot;To proxy found for type: &quot; + type);
+        }
+        this.__instance = proxy;
+    },
+    
+<span id='econda-proxy-method-createDefaultInstance'>    /**
+</span>     * Used to create a default instance if we get no user defined configuration
+     * @method
+     * @private
+     */
+    createDefaultInstance: function()
+    {
+        this.configure({
+            type: &quot;direct&quot;
+        });
+    }
+};</pre>
+</body>
+</html>

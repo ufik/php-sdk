@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='econda-media-Stream'>/**
+</span> * Meta information to a continous stream
+ * @ignore
+ * @markdown
+&lt;p&gt;Example:&lt;/p&gt;
+    var streamInfo = new econda.media.Stream({
+        name: &quot;SatTV Regional&quot;,
+        type: &quot;video&quot;
+    });
+    
+    // or for a radio station
+    var streamInfo = new econda.media.Stream({
+        name: &quot;Ultimate Dudelfunk&quot;,
+        type: &quot;audio&quot;
+    });
+    
+    // set stream info in StreamTracker
+    tracker.setStream(streamInfo);
+    tracker.init();
+
+ * @class econda.media.Stream
+ */
+econda.media.Stream = function(cfg)
+{
+    var __p = {
+<span id='econda-media-Stream-cfg-name'>        /**
+</span>         * @cfg {String} name Name of Stream
+         */
+        name: null,
+        
+<span id='econda-media-Stream-cfg-type'>        /**
+</span>         * @cfg {String} [type=&quot;video&quot;] Media type (audio / video)
+         */
+        type: &quot;video&quot;
+    };
+    
+    this.__defaultProperty = &quot;name&quot;;
+    
+<span id='econda-media-Stream-method-setName'>    /**
+</span>     * Set stream name
+     * @method
+     * @chainable
+     * @param {String} name stream name
+     */
+    this.setName = function(name)
+    {
+        if(typeof name != 'string') {
+            econda.debug.error(&quot;Wrong type for Stream.name. Get: &quot; + name, name);
+        } else {
+            __p[&quot;name&quot;] = name;
+        }
+        return this;
+    };
+    
+<span id='econda-media-Stream-method-getName'>    /**
+</span>     * Returns name of stream
+     * @method
+     * @return {String}
+     */
+    this.getName = function()
+    {
+        return __p[&quot;name&quot;];
+    };
+    
+<span id='econda-media-Stream-method-setType'>    /**
+</span>     * Set media type of stream.
+     * @method
+     * @chainable
+     * @param {String} type &quot;video&quot; or &quot;audio&quot;
+     */
+    this.setType = function(type)
+    {
+        if(typeof type != 'string') {
+            econda.debug.error(&quot;Got invalid media type in Stream.setType: &quot; + type, type);
+            return this;
+        }
+        type = type.toLowerCase();
+        if(type != 'audio' &amp;&amp; type != 'video') {
+            econda.debug.error(&quot;Got invalid media type. Must be audio or video. Got: &quot; + type, type);
+            return this;
+        }
+        __p[&quot;type&quot;] = type;
+        return this;
+    };
+    
+<span id='econda-media-Stream-method-getType'>    /**
+</span>     * Get stream type
+     * @method
+     * @return {String}
+     */
+    this.getType = function()
+    {
+        return __p[&quot;type&quot;];
+    };
+    
+    return this.setup(cfg, __p);
+};
+econda.media.Stream.prototype = new econda.base.Object();</pre>
+</body>
+</html>

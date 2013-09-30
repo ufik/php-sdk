@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='econda-proxy-Direct'>/**
+</span> * Proxy to send request directly to the econda tracking server.
+ * See econda.proxy for information, how to configure the proxy.
+ * 
+ * @class econda.proxy.Direct
+ */
+econda.proxy.Direct = function(cfg)
+{
+    var cmp = this;
+    
+<span id='econda-proxy-Direct-property-__p'>    /**
+</span>     * Private members collection
+     * @property {Object} __p Collection of private properties
+     * @private
+     */
+    var __p = {
+<span id='econda-proxy-Direct-cfg-keepalive'>        /**
+</span>         * @cfg {Number/String} [keepalive=&quot;auto&quot;]
+         * Number of seconds between keepalive requests. Use &quot;auto&quot; to let the tracker
+         * calculate the keepalive frequencey automaticall. We'll use longere periods for
+         * long videos than for short ones. Use 0 to disable keepalive server calls.
+         */
+        keepalive: &quot;auto&quot;,
+        
+<span id='econda-proxy-Direct-cfg-disabled'>        /**
+</span>         * @cfg {Boolean} [disabled: false]
+         * If set to true, we'll not send any request to the tracking server.
+         * This option is intended for testing only
+         */
+        disabled: false
+    };
+    
+<span id='econda-proxy-Direct-property-_lastRequest'>    /**
+</span>     * Stores the data of last server call.
+     * @property {Object} _lastRequest
+     * @private
+     */
+    this._lastRequest = null;
+    
+<span id='econda-proxy-Direct-property-keepaliveHandler'>    /**
+</span>     * Reference to keepalive handlers {&quot;trackerId&quot;: reference}
+     * @private
+     * @property {Object} keepaliveHandler collection of keepalive handlers
+     */
+    var keepaliveHandler = {};
+    
+<span id='econda-proxy-Direct-method-sendMediaEvent'>    /**
+</span>     * Send media event.
+     * @method
+     * @protected
+     * @property {econda.proxy.MediaEvent} mediaEvent Event object
+     * @return {econda.proxy.Direct}
+     */
+    this.sendMediaEvent = function(mediaEvent) 
+    {
+        if(!(mediaEvent instanceof econda.proxy.MediaEvent)) {
+            econda.debug.error(&quot;Proxy.sendMediaEvent expects object of type econda.proxy.MediaEvent as parameter&quot;);
+        }
+        var srvEventName, // event name as expected by tracking server
+            eventName = mediaEvent.getEventName();
+
+        switch(mediaEvent.getEventName()) {
+        case &quot;keepalive&quot;:
+            srvEventName = &quot;keepalive&quot;;
+            break;
+        case &quot;play&quot;:
+            srvEventName = &quot;play&quot;;
+            break;
+        case &quot;pause&quot;:
+            srvEventName = &quot;pause&quot;;
+            break;
+        case &quot;stop&quot;:
+            srvEventName = &quot;ended&quot;;
+            break;
+        default:
+            // currently not supported by this proxy
+            return;
+        }
+        
+        // collect data we'll send to server
+        var data = [
+            // name of media file as we'l show it in monitor ui
+            // toString will return the main category followed by content name
+            mediaEvent.getContentLabel(),
+            
+            // Event name. Currently supported &quot;play&quot;, &quot;pause&quot;, &quot;ended&quot;
+            srvEventName,
+            
+            // Media type, must be &quot;audio&quot; or &quot;video&quot;
+            mediaEvent.getMediaType(),
+            
+            // current position in seconds
+            mediaEvent.getPosition(),
+            
+            // duration of on demand media file
+            mediaEvent.getDuration(),
+            
+            // time since page load
+            Math.round((new Date().getTime() - econda.proxy.__pageInitDate.getTime())),
+            
+            // counter for each movie
+            mediaEvent.getTrackerId(),
+            
+            // previewUri
+            mediaEvent.getPreviewUri()
+        ];
+        
+        econda.debug.log(&quot;Sending media event: &quot; + eventName, data);
+        var dataToSend = {
+                type: 'event',
+                media: data
+            };
+        if(!this.isDisabled()) {
+            window.emosPropertiesEvent(dataToSend);
+        } else {
+            econda.debug.log(&quot;Request not send, tracking is disabled in proxy.&quot;);
+        }
+        // store last request (required for unit tests)
+        this._lastRequest = dataToSend;
+        
+        // start / top keepalive
+        if(eventName == &quot;play&quot;) {
+            cmp.startKeepalive(mediaEvent);
+        }
+        if(eventName == &quot;pause&quot; || eventName == &quot;stop&quot;) {
+            cmp.stopKeepalive(mediaEvent);
+        }
+        
+        return this;
+    };
+    
+<span id='econda-proxy-Direct-method-startKeepalive'>    /**
+</span>     * Starts sending keepalive requests to tracking server
+     * @method
+     * @param {econda.proxy.MediaEvent} mediaEvent
+     * @private
+     */
+    this.startKeepalive = function(mediaEvent)
+    {
+        var keepaliveInterval,
+            trackerId = mediaEvent.getTrackerId(),
+            keepaliveEvent;
+        
+        if(__p[&quot;keepalive&quot;] != &quot;0&quot;) {
+            keepaliveEvent  = mediaEvent.copy();
+            keepaliveEvent.setEventName(&quot;keepalive&quot;);
+            keepaliveInterval = isNaN(__p[&quot;keepalive&quot;]) ? 10000 : __p[&quot;keepalive&quot;];
+            
+            keepaliveHandler[trackerId] = setInterval(function(){
+                keepaliveEvent.setPosition(keepaliveEvent.getPosition()+(keepaliveInterval/1000));
+                cmp.sendMediaEvent(keepaliveEvent);
+            }, keepaliveInterval);
+        }
+        return this;
+    };
+    
+<span id='econda-proxy-Direct-method-stopKeepalive'>    /**
+</span>     * Stop sending keepaliv requests
+     * @method
+     * @private
+     */
+    this.stopKeepalive = function(mediaEvent)
+    {
+        var trackerId = mediaEvent.getTrackerId();
+        if(typeof keepaliveHandler[trackerId] != 'undefined') {
+            clearInterval(keepaliveHandler[trackerId]);
+        }
+        return this;
+    };
+    
+<span id='econda-proxy-Direct-method-setKeepalive'>    /**
+</span>     * Set new keepalive value in seconds or &quot;auto&quot; for auto calcualtion
+     * @method
+     * @param {Number/String} seconds Number of seconds or &quot;auto&quot;
+     */
+    this.setKeepalive = function(seconds)
+    {
+        if(typeof seconds != 'number' &amp;&amp; seconds != 'auto') {
+            econda.debug.error(&quot;Got invalid value for MediaTracker.keepalive: &quot; + seconds);
+        } else {
+            __p[&quot;keepalive&quot;] = seconds;
+        }
+        return this;
+    };
+    
+<span id='econda-proxy-Direct-method-getKeepalive'>    /**
+</span>     * Get current keepalive setting
+     * @method
+     * @return {Number/String}
+     */
+    this.getKeepalive = function()
+    {
+        return __p[&quot;keepalive&quot;];
+    };
+    
+<span id='econda-proxy-Direct-method-disable'>    /**
+</span>     * Disable tracking
+     * @method
+     */
+    this.disable = function()
+    {
+        __p[&quot;disabled&quot;] = true;
+        return this;
+    };
+    
+<span id='econda-proxy-Direct-method-enable'>    /**
+</span>     * Enable tracking
+     * @method
+     */
+    this.enable = function()
+    {
+        __p[&quot;disabled&quot;] = false;
+        return this;
+    };
+
+<span id='econda-proxy-Direct-method-setDisabled'>    /**
+</span>     * Set new status for disabled property
+     * @param {Boolean} isDisabled True to disable, false to enabled
+     */
+    this.setDisabled = function(isDisabled)
+    {
+        __p[&quot;disabled&quot;] = (isDisabled == true);
+        return this;
+    };
+    
+<span id='econda-proxy-Direct-method-isDisabled'>    /**
+</span>     * True if tracking is disabled
+     * @method
+     */
+    this.isDisabled = function()
+    {
+        return __p[&quot;disabled&quot;];
+    };
+    
+<span id='global-method-setType'>    /**
+</span>     * Dummy function, you can't change the type of a proxy this way.
+     * Use econda.proxy.configure() instead.
+     * @method {String} type Proxy type, must be &quot;direct&quot;
+     * @ignore
+     */
+    this.setType = function(type)
+    {
+        var type = type || &quot;&quot;;
+        
+        if(type.toLowerCase() != 'direct') {
+            econda.debug.error(&quot;You can't change the type of proxies use setType. Use econda.proxy.configure instead.&quot;);
+        }
+        return this;
+    };
+    
+    return this.setup(cfg, __p);
+};
+econda.proxy.Direct.prototype = new econda.base.Object();</pre>
+</body>
+</html>

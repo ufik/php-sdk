@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">if(typeof window.econda == 'undefined') {
+    window.econda = {};
+    var econda = window.econda;
+}
+if(typeof window.econda.recengine == 'undefined') {
+    econda.recengine = {};
+}
+<span id='econda-recengine-Widget'>/**
+</span> * Cross sell widget
+ *
+ * The following example shows a browser only implementation of a widget. If you are looking for a server side rendering, check #setRendererUri.
+ *
+ *     &lt;div id=&quot;ecRecommendationsContainer&quot;&gt;Loading...&lt;/div&gt;
+ *     &lt;script type=&quot;text/javascript&quot;&gt;
+ *        var myTemplates = {};
+ *
+ *        // Renderer function for horizontal widgets.
+ *        myTemplates.horizontal = function(data, element, esc) {
+ *            var products = data.products;
+ *
+ *            var header = [
+ *              '&lt;div class=&quot;widgetContainer&quot;&gt;',
+ *               '&lt;div&gt;Recommendations Title&lt;/div&gt;',
+ *               '&lt;ul class=&quot;productsContainer&quot;&gt;'
+ *            ];
+ *
+ *            var recs = [];
+ *            for(var i=0; i&lt;products.length; i++) {
+ *                  var p = products[i];
+ *                  recs.push('&lt;li&gt;' + esc.html(p.id) + '&lt;/li&gt;');
+ *            }
+ *
+ *            var footer = ['&lt;/ul&gt;&lt;/div&gt;'];
+ *
+ *            var html = header.concat(recs, footer);
+ *            return html.join('');
+ *        };
+ *
+  *        // Setup widget, load data and render using defined rendering function
+  *        var widget = new econda.recengine.Widget({
+ *            element: document.getElementById('ecRecommendationsContainer'),
+ *            rendererFn: myTemplates.horizontal,
+ *            accountId: '00000cec-d98025a8-912b-46a4-a57d-7a691ba7a376-1',
+ *            id: 6,
+ *            context: {
+ *                productIds: ['prodId1', 'prodId2'],
+ *                category: {
+ *                    type: 'brand',
+ *                    path: 'econda'
+ *                }
+ *            }
+ *        });
+ *        widget.render();
+ *     &lt;/script&gt;
+ *
+ *
+ * Deferred widget initialization
+ *
+ * There might be situations, where it's
+ *
+ * @class econda.recengine.Widget
+ */
+econda.recengine.Widget = function(config)
+{
+    var cmp = this;
+
+<span id='econda-recengine-Widget-cfg-element'>    /**
+</span>     * HTML container element where we'll insert the widget HTML
+     * @cfg element
+     */
+<span id='econda-recengine-Widget-cfg-id'>    /**
+</span>     * Widget id as defined in cross sell management interface
+     * @cfg {Number} id
+     */
+<span id='econda-recengine-Widget-cfg-rendererUri'>    /**
+</span>     * Uri of renderer. We'll send widget data as json encoded parameter to this renderer
+     * and replace content of widget element with response. If this property is not set,
+     * we'll send a request use an cross domain ajax call.
+     * @cfg {String} rendererUri
+     */
+<span id='econda-recengine-Widget-cfg-accountId'>    /**
+</span>     * Cross sell account id
+     * @cfg {String} accountId
+     */
+<span id='econda-recengine-Widget-cfg-context'>    /**
+</span>     * Request context
+     * @cfg {econda.recengine.Context} context
+     */
+<span id='econda-recengine-Widget-cfg-startIndex'>    /**
+</span>     * Index of first product redommendation
+     * @cfg {Number} startIndex
+     */
+<span id='econda-recengine-Widget-cfg-chunkSize'>    /**
+</span>     * Number of recommendations to load
+     * @cfg {Number} chunkSize
+     */
+<span id='econda-recengine-Widget-cfg-rendererFn'>    /**
+</span>     * Uri or renderer. We'll send widget data as json encoded parameter to this renderer
+     * and replace content of widget element with response. If this property is not set,
+     * we'll send a request use an cross domain ajax call.
+     * @cfg {Function} rendererFn
+     */
+
+<span id='econda-recengine-Widget-property-element'>    /**
+</span>     * HTML container element where we'll insert the widget HTML
+     * Existing content will be removed.
+     * @property element
+     * @private
+     */
+    this.element = null;
+    
+<span id='econda-recengine-Widget-property-id'>    /**
+</span>     * Widget id as defined in cross sell management interface
+     * @property {Number} id
+     * @private
+     */
+    this.id = null;
+    
+<span id='econda-recengine-Widget-property-accountId'>    /**
+</span>     * Cross sell account id
+     * @property {String} accountId
+     * @private
+     */
+    this.accountId = null;
+    
+<span id='econda-recengine-Widget-property-context'>    /**
+</span>     * Request context
+     * @property {Object|econda.recengine.Context} context
+     * @private
+     */
+    this.context = null;
+    
+<span id='econda-recengine-Widget-property-startIndex'>    /**
+</span>     * Index of first product redommendation
+     * @property {Number} [startIndex=0]
+     * @private
+     */
+    this.startIndex = 0;
+    
+<span id='econda-recengine-Widget-property-chunkSize'>    /**
+</span>     * Number of recommendations to load
+     * @property {Number} [chunkSize=null]
+     * @private
+     */
+    this.chunkSize = null;
+    
+<span id='econda-recengine-Widget-property-rendererUri'>    /**
+</span>     * Uri or renderer. We'll send widget data as json encoded parameter to this renderer
+     * and replace content of widget element with response. If this property is not set,
+     * we'll send a request use an cross domain ajax call.
+     * @property {String} rendererUri
+     * @private
+     */
+    this.rendererUri = null;
+    
+<span id='econda-recengine-Widget-property-rendererFn'>    /**
+</span>     * Renderer function. Used to render result of cross domain ajax call to container specified in element
+     * property
+     * @property {Function} rendererFn
+     * @private
+     */
+    this.rendererFn = null;
+
+<span id='econda-recengine-Widget-method-setElement'>    /**
+</span>     * Set html element node, allowed is what jquery accepts.
+     * This can be a css selector or a javascript reference to a dom node (result of document.getElementBy...)
+     * @param {String|HTMLElement} element
+     * @method
+     * @return econda.recengine.Widget
+     */
+    this.setElement = function(element)
+    {
+        this.element = element;
+        return this;
+    };
+
+<span id='econda-recengine-Widget-method-setId'>    /**
+</span>     * Widget id as defined in cross sell management interface.
+     *
+     * @param {Number} id
+     * @returns econda.recengine.Widget
+     */
+    this.setId = function(id)
+    {
+        this.id = id;
+        return this;
+    };
+
+<span id='econda-recengine-Widget-method-setAccountId'>    /**
+</span>     * Cross sell account id
+     * @param {String} accountId
+     * @returns {econda.recengine.Widget}
+     */
+    this.setAccountId = function(accountId)
+    {
+        this.accountId = accountId;
+        return this;
+    };
+
+<span id='econda-recengine-Widget-method-setContext'>    /**
+</span>     * Set request context (that's what we want to get recommendations for). See econda.recengine.Context for details.
+     *
+     * @param {Object|econda.recengine.Context} context
+     * @returns {econda.recengine.Widget}
+     */
+    this.setContext = function(context)
+    {
+        if(context instanceof econda.recengine.Context == false) {
+            context = new econda.recengine.Context(context);
+        }
+        
+        this.context = context;
+        return this;
+    };
+
+<span id='econda-recengine-Widget-method-setStartIndex'>    /**
+</span>     * Index of first result. Used for paging widgets.
+     * @param {Number} startIndex
+     * @returns {econda.recengine.Widget}
+     */
+    this.setStartIndex = function(startIndex)
+    {
+        this.startIndex = startIndex;
+        return this;
+    };
+
+<span id='econda-recengine-Widget-method-setChunkSize'>    /**
+</span>     * Chunk size is the maximum number of results the recommendation service may return.
+     *
+     * @param {Number|null} chunkSize
+     * @returns {econda.recengine.Widget}
+     */
+    this.setChunkSize = function(chunkSize)
+    {
+        this.chunkSize = chunkSize;
+        return this;
+    };
+
+<span id='econda-recengine-Widget-method-setRendererUri'>    /**
+</span>     * Uri on shop server where we'll send the widget configuration to. Response will be written
+     * to #element html container.
+     *
+     * @param {String} rendererUri
+     * @returns {econda.recengine.Widget}
+     */
+    this.setRendererUri = function(rendererUri)
+    {
+        this.rendererUri = rendererUri;
+        return this;
+    };
+
+<span id='econda-recengine-Widget-method-setRendererFn'>    /**
+</span>     * A function we'll pass the recommendations to and use the return value as html for #element.
+     *
+     * Renderer function has the following parameters:
+     * &lt;ul&gt;
+     *     &lt;li&gt;data: Recommendation server response as javascript object.&lt;/li&gt;
+     *     &lt;li&gt;element: Element as given in #setElement&lt;/li&gt;
+     *     &lt;li&gt;esc: Escape helper econda.util.EscapeHelper&lt;/li&gt;
+     * &lt;/ul&gt;
+     *
+     * @param rendererFn
+     * @returns {econda.recengine.Widget}
+     */
+    this.setRendererFn = function(rendererFn)
+    {
+        this.rendererFn = rendererFn;
+        return this;
+    };
+        
+    
+<span id='econda-recengine-Widget-method-toJson'>    /**
+</span>     * Creates a json string from widget configuration
+     * @return {String}
+     */
+    this.toJson = function()
+    {
+        var cmp = this,
+            data = {},
+            allowedProperties = {id: true, accountId: true, context: true, startIndex: true, chunkSize: true};
+            
+            
+        for(var p in cmp) {
+            if(typeof(allowedProperties[p]) != 'undefined' &amp;&amp; allowedProperties[p] &amp;&amp; cmp[p] != null) {
+                data[p] = cmp[p];
+            }
+        }
+        return window.JSON.stringify(data);
+    };
+
+<span id='econda-recengine-Widget-method-render'>    /**
+</span>     * Render widget.
+     *
+     * &lt;ul&gt;
+     *     &lt;li&gt;If #rendererUri is set: Send widget configuration as json string to given uri
+     *         and write result to html element specified in #element&lt;/li&gt;
+     *     &lt;li&gt;Else: Send request to cross sell server from javascript and render result using renderer
+     *         function given in #rendererFn&lt;/li&gt;
+     * &lt;/ul&gt;
+     */
+    this.render = function()
+    {
+        if(cmp.rendererUri) {
+            cmp._callRemoteRenderer();
+        } else {
+            cmp._getDataFromCrossSellServer({
+                success: cmp._renderDataResult
+            });
+        }
+    };
+    
+<span id='econda-recengine-Widget-method-_renderDataResult'>    /**
+</span>     * Call defined renderer function and pass data, target element and
+     * escape helper as arguments. Replace element content if there's a
+     * return value.
+     * @private
+     */
+    this._renderDataResult = function(data)
+    {
+        if(!cmp.rendererFn) {
+            throw &quot;Trying to render result but no template function set.&quot;;
+        }
+        // add property names as used in js api
+        if(typeof(data) == 'undefined') {
+            data = {};
+        }
+        if(typeof(data.products) == 'undefined') {
+            data.products = data.items || [];
+        }
+        if(typeof(data.startIndex)) {
+            data.startIndex = data.start || 0;
+        }
+        
+        var html = cmp.rendererFn(data, cmp.element, econda.util.EscapeHelper);
+        if(typeof(html) != 'undefined' &amp;&amp; html) {
+            $(cmp.element).html(html);
+        }
+    };
+
+<span id='econda-recengine-Widget-method-_getDataFromCrossSellServer'>    /**
+</span>     * @param {Object} cfg
+     * @private
+     */
+    this._getDataFromCrossSellServer = function(cfg)
+    {
+        var cfg = cfg || {};
+        
+        if(typeof(cfg) == 'undefined') {
+            throw &quot;Missing success callback configuration in getDataFromCrossSellServer.&quot;;
+        }
+        
+        var widgetDataLoader = new econda.widgets._Widget(
+        {
+            &quot;wid&quot;: cmp.id,
+            &quot;aid&quot;: cmp.accountId,
+            &quot;handleData&quot;: cfg.success
+        });
+        var csRequest = cmp._buildCsRequest();
+        widgetDataLoader._loadData(csRequest);
+    };
+    
+<span id='econda-recengine-Widget-method-_buildCsRequest'>    /**
+</span>     * Read data from widget and return cross sell request as
+     * object key =&gt; value
+     * @private
+     */
+    this._buildCsRequest = function()
+    {
+        var ctx = cmp.context,
+            csRequest = {};
+            
+        csRequest.type = 'cs';
+        csRequest.start = cmp.startIndex;
+        if(cmp.chunkSize) {
+            csRequest.csize = cmp.chunkSize;
+        }
+        if(ctx.productIds) {
+            csRequest.pid = window.JSON.stringify(ctx.productIds);
+        }
+        if(ctx.category) {
+            csRequest['ctxcat.ct'] = ctx.category.type;
+            if(ctx.category.id) {
+                csRequest['ctxcat.id'] = ctx.category.id;
+            }
+            if(ctx.category.path) {
+                csRequest['ctxcat.paa'] = ctx.category.path;
+            }
+            if(ctx.category.variant) {
+                csRequest['ctxcat.pv'] = ctx.category.variant;
+            }
+        }
+        
+        return csRequest;
+    };
+        
+    
+<span id='econda-recengine-Widget-method-_callRemoteRenderer'>    /**
+</span>     * Call remote renderer as defined in rendererUri
+     * @private
+     */
+    this._callRemoteRenderer = function()
+    {
+        var cmp = this,
+        widgetJson;
+    
+        widgetJson = cmp.toJson();
+    
+        $.ajax({
+            type: &quot;POST&quot;,
+            url: cmp.rendererUri,
+            data: &quot;data=&quot; + widgetJson,
+            success: function(html) {
+                if(cmp.rendererFn) {
+                    // if there's a renderer function set, call it (assuming that the server returned json)
+                    cmp._renderDataResult(html);
+                } else {
+                    $(cmp.element).html(html);
+                }
+            }
+        });
+    };
+    
+    
+    // constructor
+    if(typeof config != 'undefined') {
+        if(typeof config != 'object') {
+            throw &quot;Invalid config object given for recommendation widget.&quot;
+        }
+        for(var p in config) {
+            var setter = 'set' + p.charAt(0).toUpperCase() + p.slice(1);
+            if(typeof(cmp[setter]) == 'undefined') {
+                throw &quot;There's no setter function for property: &quot; + p;
+            }
+            cmp[setter](config[p]);
+        }
+    }
+};
+
+<span id='econda-recengine-Widget-method-init'>/**
+</span> * Initializes global widget definitions stored in window.csWidgets
+ */
+econda.recengine.Widget.init = function()
+{
+    if(typeof window.csWidgets == 'object') {
+        var csWidgets = window.csWidgets;
+
+        if(csWidgets instanceof Array == false) {
+            csWidgets = [csWidgets];
+        }
+
+        for(var n=0; n&lt;csWidgets.length; n++) {
+            if(csWidgets[n] instanceof econda.recengine.Widget == false) {
+                csWidgets[n] = new econda.recengine.Widget(csWidgets[n]);
+                csWidgets[n].render();
+            }
+        }
+    }
+}
+
+// init existing widget definitions
+$(document).ready(econda.recengine.Widget.init);
+</pre>
+</body>
+</html>

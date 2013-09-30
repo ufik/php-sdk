@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">if(typeof window.econda == 'undefined') {
+    var econda = window.econda = {};
+}
+
+<span id='econda-debug'>/**
+</span> * Provides some basic debugging functions
+ * &lt;p&gt;This api will not output any messages (including errors) as long as debug mode
+ * is not enabled!&lt;/p&gt;
+ * &lt;p&gt;During development, we strongly recommend to enable debug mode. This will output
+ * debug messages, warning and errors on browser console.&lt;/p&gt;
+ *     // somewhere before you use the tracking api
+ *     econda.debug.setEnabled(true);
+ *     
+ * @class econda.debug
+ * @static
+ */
+econda.debug = 
+{
+<span id='econda-debug-static-property-enabled'>    /**
+</span>     * @property {Boolean} enabled
+     * @private
+     * @static
+     * True to enable debug output. This includes also warnings and errors.
+     */
+    enabled : false,
+
+<span id='econda-debug-static-method-setEnabled'>    /**
+</span>     * Enable debug mode for current page.
+     * 
+     * @TODO Add support to enable debug mode for session (set cookie)
+     * 
+     * @method
+     * @static
+     * @param {Boolean} enabled
+     */
+    setEnabled : function(enabled) 
+    {
+        this.enabled = enabled;
+        return this;
+    },
+
+<span id='econda-debug-static-method-getEnabled'>    /**
+</span>     * Get status, returns true if enabled
+     * 
+     * @method
+     * @static
+     * @return {Boolean} True if debug mode is enabled
+     */
+    getEnabled : function() 
+    {
+        return this.enabled;
+    },
+
+<span id='econda-debug-static-method-error'>    /**
+</span>     * Writes error message to console if debug mode is enabled
+     * @method
+     * @static
+     * @param {String} message
+     * @param {Array} data additional information
+     */
+    error : function() 
+    {
+        var data = [];
+        for(var n=1;n&lt;arguments.length; n++) {
+            data.push(arguments[n]);
+        }
+        if(this.enabled &amp;&amp; typeof console != 'undefined' &amp;&amp; console.error) {
+            console.error(arguments[0], data);
+        }
+        return this;
+    },
+
+<span id='econda-debug-static-method-warn'>    /**
+</span>     * Writes warning to console if debug mode is enabled
+     * @method
+     * @static
+     * @param {String} message
+     * @param {Array} data additional information
+     */
+    warn : function() 
+    {
+        var data = [];
+        for(var n=1;n&lt;arguments.length; n++) {
+            data.push(arguments[n]);
+        }
+        if(this.enabled &amp;&amp; typeof console != 'undefined' &amp;&amp; console.warn) {
+            console.warn(arguments[0], data);
+        }
+        return this;
+    },
+
+<span id='econda-debug-static-method-log'>    /**
+</span>     * Writes debug message to console if debug mode is enabled
+     * @method
+     * @static
+     * @param {String} message
+     * @param {Array} data additional information
+     */
+    log : function() 
+    {
+        var data = [];
+        for(var n=1;n&lt;arguments.length; n++) {
+            data.push(arguments[n]);
+        }
+        if(this.enabled &amp;&amp; typeof console != 'undefined' &amp;&amp; console.log) {
+            console.log(arguments[0], data);
+        }
+        return this;
+    }
+};</pre>
+</body>
+</html>

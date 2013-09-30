@@ -1,4 +1,4 @@
-recommendations
+php-sdk
 ===============
 
 Helper classes to access econda recommendations service. This service provides

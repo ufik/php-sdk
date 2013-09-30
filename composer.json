@@ -20,6 +20,6 @@
     },
 	
 	"autoload": {
-		"psr-0": { "Econda\\RecEngine": "src/" }
+		"psr-0": { "Econda": "src/" }
 	}
 }

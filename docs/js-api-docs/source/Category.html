@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='econda-media-Category'>/**
+</span> * Content category.
+ * 
+ * @markdown
+ Example:
+ 
+    //create a content object
+    var myContent = new econda.media.Content({
+        name: &quot;MyMediaFile&quot;
+    });
+    // add a category
+    myContent.setCategory(new econda.media.Category({
+          path: &quot;/ProductViedeos&quot;
+    });
+ 
+    // you can use a shortcut syntax
+    myContent.setCategory(&quot;/ProductVideos&quot;);
+   
+    // or let's do it all in constructor of content object
+    var myContent = new econda.media.Content({
+        name: &quot;MyMediaFile&quot;,
+        category: &quot;/ProductVideos&quot;
+    });
+    
+ * @class econda.media.Category
+ * @extends econda.base.Object
+ */
+econda.media.Category = function(cfg) 
+{
+    cfg = cfg || {};
+    
+<span id='econda-media-Category-property-__p'>    /**
+</span>     * Private properties collection
+     * @property {Object} __p
+     * @private
+     */
+    var __p = {
+<span id='econda-media-Category-cfg-path'>        /**
+</span>         * @cfg {String} path
+         * Name or path of category (use slash to separate parts)
+         * A path must start with a slash, if you set a value that does not start
+         * with a slash, a slash will be added automatically
+         */
+        path: null
+    };
+    
+<span id='econda-media-Category-property-__defaultProperty'>    /**
+</span>     * Handle non object cfg values as value for property &quot;name&quot;
+     * @property {String} __defaultProperty
+     * @private
+     */
+    this.__defaultProperty = &quot;path&quot;;
+    
+<span id='econda-media-Category-method-setPath'>    /**
+</span>     * Set path (name) of category. e.g. /productVideos/tv/myvideo
+     * @method
+     * @param {String} path Name/path of category
+     */
+    this.setPath = function(path) 
+    {
+        if(typeof path !== 'string') {
+            econda.debug.error(&quot;Category expects a String as path. Got: &quot; + path, path);
+        } else {
+            if(path.substr(0,1) != '/') {
+                path = &quot;/&quot; + path;
+            }
+            __p[&quot;path&quot;] = path;
+        }
+        return this;
+    };
+
+<span id='econda-media-Category-method-getPath'>    /**
+</span>     * Returns path (name) of category. e.g. /productVideos/tv/myvideo
+     * @method 
+     * @return {String}
+     */
+    this.getPath = function() 
+    {
+        return __p[&quot;path&quot;];
+    };
+
+<span id='econda-media-Category-method-toString'>    /**
+</span>     * Returns path of category as String
+     * @method
+     * @return {String} path of category
+     */
+    this.toString = function()
+    {
+        return this.getPath();
+    }
+    
+    return this.setup(cfg, __p);
+};
+econda.media.Category.prototype = new econda.base.Object();</pre>
+</body>
+</html>

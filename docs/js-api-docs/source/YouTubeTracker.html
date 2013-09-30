@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">if(typeof econda.media.helper == 'undefined') {
+    econda.media.helper = {};
+}
+
+<span id='econda-media-helper-YouTubeTracker-method-constructor'><span id='econda-media-helper-YouTubeTracker'>/**
+</span></span> * Helper class for tracking youtube videos.
+ * 
+ * @markdown
+Example using youtube IFRAME API:
+
+    &lt;!-- you tube player will replace this &lt;div&gt; tag. --&gt;
+    &lt;div id=&quot;ytplayer_id&quot;&gt;&lt;/div&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        function onYouTubeIframeAPIReady() {
+            
+            var ytplayer = new YT.Player('ytplayer_id', {
+                height: '390',
+                width: '640',
+                videoId: 'nHNq1tK3rFg'
+            });
+    
+            // Setup player tracker 
+            var ytTrackingHelper = new econda.media.helper.YouTubeTracker({
+                player: ytplayer,
+                tracker: {content: &quot;Example Video&quot;}
+            });
+        }
+    &lt;/script&gt;
+ * 
+ * 
+ * @class econda.media.helper.YouTubeTracker
+ * @extends econda.base.Object
+ * @constructor Constructor
+ * @param {econda.media.helper.YouTubeTracker/Object} cfg Helper configuration options
+ */
+econda.media.helper.YouTubeTracker = function(cfg)
+{
+    cfg = cfg || {};
+    
+<span id='econda-media-helper-YouTubeTracker-property-__p'>    /**
+</span>     * Private properties collection
+     * @property {Object} __p
+     * @private
+     */
+    var __p = {
+        
+<span id='econda-media-helper-YouTubeTracker-cfg-tracker'>        /**
+</span>         * @cfg {econda.media.MediaTracker/Object} tracker Reference to tracker object or config options for a new tracker object. 
+         */
+        tracker: null,
+        
+<span id='econda-media-helper-YouTubeTracker-cfg-player'>        /**
+</span>         * @cfg {Object} player Reference to youtube player. Required in constructur.
+         */
+        player: null
+    };
+    
+<span id='econda-media-helper-YouTubeTracker-property-playerType'>    /**
+</span>     * Type of you tube player. One of &quot;iframe&quot;. Will be set in setPlayer method and must not be modified anywhere else.
+     * @property {String} playerType 
+     * @private
+     */
+    this.playerType = null;
+
+<span id='econda-media-helper-YouTubeTracker-property-playerId'>    /**
+</span>     * Id of youtube player. Will be set in setPlayer method and must not be modified anywhere else.
+     * @property {String} playerId
+     * @private
+     */
+    this.playerId = null;
+    
+    this.__defaultProperty = &quot;player&quot;;
+    
+<span id='econda-media-helper-YouTubeTracker-method-setTracker'>    /**
+</span>     * Set tracker object or configuration. See constructor of MediaTracker object for details.
+     *  
+     *     // Example:
+     *     ytTracker.setTracer({
+     *       content: &quot;Video Name&quot;, 
+     *       category: &quot;/Example Videos&quot; 
+     *     }
+     *   
+     * @method
+     * @param {econda.media.MediaTracker/Object/String} tracker tracker object, tracker config or content name 
+     */
+    this.setTracker = function(tracker)
+    {
+        __p[&quot;tracker&quot;] = new econda.media.MediaTracker(tracker);
+        return this;
+    };
+    
+<span id='econda-media-helper-YouTubeTracker-method-getTracker'>    /**
+</span>     * Get tracker object
+     * @method
+     * @return {econda.media.MediaTracker}
+     */
+    this.getTracker = function()
+    {
+        return __p[&quot;tracker&quot;];
+    };
+    
+<span id='global-method-setPlayer'>    /**
+</span>     * Set reference to youtube player
+     * @method
+     * @ignore Available as config option only
+     * @todo Check if it's possible to modify the player!
+     */
+    this.setPlayer = function(player)
+    {
+        var cmp = this,
+            playerId, 
+            playerObject;
+        
+        if(typeof player == &quot;string&quot;) {
+            playerObject = document.getElementById(player);
+        } else {
+            playerObject = player;
+        }
+        __p[&quot;player&quot;] = playerObject;
+        
+        // detect player type
+        if(typeof playerObject.getIframe != 'undefined') {
+            cmp.playerType = 'iframe';
+            cmp.playerId = playerObject.getIframe().getAttribute(&quot;id&quot;);
+        } else {
+            cmp.playerId = playerObject.getAttribute(&quot;id&quot;);
+        }
+        
+        // register player
+        econda.media.helper.YouTubeTracker.registeredTrackers[cmp.playerId] = cmp;
+        
+        // add event listeners
+        if(cmp.playerType == 'iframe') {
+            playerObject.addEventListener(&quot;onReady&quot;, function() {cmp.handleReadyIframe()});
+            playerObject.addEventListener(&quot;onStateChange&quot;, function(stateObj){cmp.handleStateChangeIframe(stateObj);});
+        } else {
+            playerObject.addEventListener(
+                    &quot;onStateChange&quot;, 
+                    &quot;(function(newState){econda.media.helper.YouTubeTracker.registeredTrackers['&quot;+cmp.playerId+&quot;'].handleStateChange(newState);})&quot;
+                );
+        }
+        
+        return this;
+    };
+    
+<span id='econda-media-helper-YouTubeTracker-method-getPlayer'>    /**
+</span>     * Return reference to youtube player
+     */
+    this.getPlayer = function()
+    {
+        return __p[&quot;player&quot;];
+    };
+    
+<span id='econda-media-helper-YouTubeTracker-method-handleStateChangeIframe'>    /**
+</span>     * Handle onStateChange event of youtube player
+     * @private
+     * @param {Object} newState new state of youtube player
+     */
+    this.handleStateChangeIframe = function(stateObj)
+    {
+        // stateObj.data = new state as number
+        // stateObj.target = player reference
+        console.log(&quot;got state change&quot; + stateObj.data);
+        var cmp = this,
+            tracker = cmp.getTracker(),
+            newState;
+        
+        switch(stateObj.data) {
+        case -1:
+            // newState = 'unititialized';
+            break;
+        case 0:
+            newState = 'stopped';
+            break;
+        case 1:
+            newState = 'playing';
+            break;
+        case 2:
+            newState = 'paused';
+            break;
+        case 3: // currently not supported by our tracker
+            //    newState = 'buffering';
+            break;
+        }
+        
+        if(tracker &amp;&amp; newState) {
+            tracker.setState(newState, cmp.getPlayer().getCurrentTime());
+        }
+        
+        return this;
+    };
+    
+<span id='econda-media-helper-YouTubeTracker-method-handleReadyIframe'>    /**
+</span>     * Handle iframe api onReady event
+     *
+     * @method
+     * @private
+     */
+    this.handleReadyIframe = function()
+    {
+        var cmp = this,
+            tracker = cmp.getTracker(),
+            player = cmp.getPlayer(),
+            content,
+            previewUri;
+        
+        // read some infos from player
+        if(!tracker) {
+            tracker = new econda.media.MediaTracker();
+            cmp.setTracker(tracker);
+        }
+        // set video duration
+        tracker.setDuration(player.getDuration());
+        
+        // use SSL uri!!
+        previewUri = player.getVideoUrl();
+        tracker.setPreviewUri(previewUri.replace(/http:\/\//, 'https://'));
+        
+        // use document location if we've no video name
+        if(!tracker.getContent()) {
+            tracker.setContent(location.pathname);
+        }
+        
+        // initialize tracker
+        tracker.init();
+    };
+    
+    // Constructor 
+    return this.setup(cfg, __p);
+};
+
+<span id='econda-media-helper-YouTubeTracker-static-method-handleOnYouTubePlayerReady'>/**
+</span> * Handle global onYouTubePlayerReady event. If you define your own onYouTubePlayerReady
+ * function, make sure to call this handler.
+ * @static
+ * @method handleOnYouTubePlayerReady
+ * @param {String} playerId Id of youtube player
+ */
+econda.media.helper.YouTubeTracker.handleOnYouTubePlayerReady = function(playerId)
+{
+    econda.debug.log(&quot;Got youtube player ready event. Player ID: &quot; + playerId);
+    
+    
+};
+
+<span id='econda-media-helper-YouTubeTracker-static-property-registeredTrackers'>/**
+</span> * playerId to player tracker object registry.
+ * @property {Object} registeredTrackers
+ * @private
+ * @static
+ */
+econda.media.helper.YouTubeTracker.registeredTrackers = {};
+
+// add standard object features
+econda.media.helper.YouTubeTracker.prototype = new econda.base.Object();</pre>
+</body>
+</html>

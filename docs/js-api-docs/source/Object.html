@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">if(typeof window.econda == 'undefined') {
+    window.econda = {};
+}
+var econda = window.econda;
+
+if(typeof econda.base == 'undefined') {
+    econda.base = {};
+}
+<span id='econda-base-Object'>/**
+</span> * Base Object providing some common support for configs, standard set/get method.
+ * Do not use this object directly, it's a base class for other objects.
+ * 
+ * @private
+ * @class {econda.base.Object}
+ * @param cfg
+ * @returns {econda.base.Object}
+ */
+econda.base.Object = function(defaultPropertyName)
+{
+<span id='econda-base-Object-property-__p'>    /**
+</span>     * We assign private properties for extending objects here
+     * See this.setup().
+     * @private
+     * @property {Object} __p
+     */
+    var __p;
+    
+<span id='econda-base-Object-method-getSetterName'>    /**
+</span>     * Converts property names to setter function names
+     * myProperty =&gt; setMyProperty
+     * 
+     * @method
+     * @private
+     * @param {String} propertyName Name of class property
+     * @return {String} Name of setter function for given property
+     */
+    this.getSetterName = function (propertyName) 
+    {
+        return &quot;set&quot; + propertyName.substr(0,1).toUpperCase() + propertyName.substr(1);
+    };
+    
+<span id='econda-base-Object-method-set'>    /**
+</span>     * Set multiple properties.
+     * 
+     * Example:
+     *     // set multiple properties
+     *     obj.set({
+     *         propertyName: newValue,
+     *         property2: newValue2
+     *     });
+     *     
+     *     // set single property
+     *     // you should use obj.setPropertyName(newValue) instead
+     *     obj.set(&quot;propertyName&quot;, newValue);
+     *     
+     *     // set default property
+     *     obj.set(newValue);
+     *  
+     * @method
+     * @param {Object/String} cnf Object containing multiple properties and values or name of property
+     * @param {Mixed} newValue (Optional)
+     */
+    this.set = function(cfg) 
+    {
+        var cmp = this;
+        
+        // handles set({propertyName: newValue})
+        if (typeof cfg == 'object') {
+            for ( var propertyName in cfg) {
+                var functionName = cmp.getSetterName(propertyName);
+                if (typeof this[functionName] != 'undefined') {
+                    this[functionName](cfg[propertyName]);
+                } else {
+                    econda.debug.error(&quot;Cannot set &quot; + propertyName + &quot;: no setter defined.&quot;);
+                }
+            }
+        
+        // handles set(&quot;propertyName&quot;, newValue)
+        } else if(typeof cfg == 'string' &amp;&amp; arguments.length == 2) {
+            var propertyName = cfg;
+            var newValue = arguments[1];
+            var functionName = cmp.getSetterName(propertyName);
+            if (typeof this[functionName] != 'undefined') {
+                this[functionName](newValue);
+            } else {
+                econda.debug.error(&quot;Cannot set &quot; + propertyName + &quot;: no setter defined.&quot;);
+            }
+            
+        // handles set(newValue)
+        } else if(typeof cfg != 'undefined' &amp;&amp; cmp.__defaultProperty) {
+            var functionName = cmp.getSetterName(cmp.__defaultProperty);
+            cmp[functionName](cfg);
+        }
+        return this;
+    };
+    
+<span id='econda-base-Object-method-processConfig'>    /**
+</span>     * Handles config options that we got in a constructor.
+     * Config options might be an instance of the given object, a config object or
+     * the value of standard property.
+     * 
+     * @method
+     * @private
+     * @param {Number/String/Object} cfg Constructor value
+     */
+    this.processConfig = function(cfg)
+    {
+        // FIXME
+        if(cfg instanceof econda.base.Object) {
+            return cfg;
+        } else {
+            this.set(cfg);
+            return this;
+        }
+    };
+    
+<span id='econda-base-Object-method-setup'>    /**
+</span>     * Private setup function. Handles setup of config and some additional things
+     * @method
+     * @private
+     */
+    this.setup = function(cfg, privateProperties)
+    {
+        var ret = this;
+        __p = privateProperties;
+        
+        // process configuration
+        if(typeof cfg != 'undefined') {
+            ret = this.processConfig(cfg);
+        }
+        
+        // provide debug information
+        if(econda.debug.enabled) {
+            this.__privateData = privateProperties;
+        }
+        return ret;
+    };
+    
+<span id='global-method-addCustomFields'>    /**
+</span>     * Add custom fieldset // NOT SUPPORTED
+     * @ignore
+     * @method
+     * @chainable
+     * @param {econda.CustomFieldset/Object} fieldSet
+     */
+    this.addCustomFields = function(fieldSet)
+    {
+        if(typeof __p[&quot;customFieldsets&quot;] == 'undefined') {
+            econda.debug.error(&quot;Object doesn't support custom fieldsets.&quot;, this);
+            return this;
+        }
+        if(fieldSet instanceof Array) {
+            for(var n=0; n&lt;fieldSet.length; n++) {
+                this.addCustomFields(fieldSet[n]);
+            }
+        } else {
+            __p[&quot;customFieldsets&quot;].push(new econda.CustomFieldset(fieldSet));
+        }
+        return this;
+    };
+    
+<span id='global-method-setCustomFields'>    /**
+</span>     * Set custom fieldsets (replaces existing data)
+     * @ignore
+     * @method
+     * @chainable
+     * @param {econda.CustomFieldset/Object/Array} fieldSet
+     */
+    this.setCustomFields = function(fieldSet)
+    {
+        this.clearCustomFields();
+        return this;
+    };
+
+<span id='global-method-clearCustomFields'>    /**
+</span>     * Removes all custom fieldsets
+     * @ignore
+     * @method
+     */
+    this.clearCustomFields = function()
+    {
+        __p[&quot;customFieldsets&quot;].length = 0;
+        return this;
+    };
+}</pre>
+</body>
+</html>

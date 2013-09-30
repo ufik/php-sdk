@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='econda-proxy-MediaEvent'>/**
+</span> * Media Event object
+ * @class econda.proxy.MediaEvent
+ * @private
+ */
+econda.proxy.MediaEvent = function(cfg)
+{
+    var cfg = cfg || {};
+    
+<span id='econda-proxy-MediaEvent-property-__p'>    /**
+</span>     * Private properties collection
+     * @property {Object} __p
+     * @private
+     */
+    var __p = {
+        
+<span id='econda-proxy-MediaEvent-cfg-eventName'>        /**
+</span>         * @cfg {String} eventName Name of event
+         */
+        eventName: null,
+            
+<span id='econda-proxy-MediaEvent-cfg-contentLabel'>        /**
+</span>         * @cfg {String} contentLabel
+         * Content label string
+         */
+        contentLabel: null,
+        
+<span id='econda-proxy-MediaEvent-cfg-mediaType'>        /**
+</span>         * @cfg {String} [mediaType=&quot;video&quot;] Type of media (&quot;audio&quot; or &quot;video&quot;}
+         */
+        mediaType: 'video',
+        
+<span id='econda-proxy-MediaEvent-cfg-position'>        /**
+</span>         * @cfg {Number} position Current position in media playback
+         */
+        position: 0,
+        
+<span id='econda-proxy-MediaEvent-cfg-duration'>        /**
+</span>         * @cfg {Number} duration duration of media file
+         */
+        duration: 0,
+        
+<span id='econda-proxy-MediaEvent-cfg-trackerId'>        /**
+</span>         * @cfg {Number} trackerId Id of tracker (unique per page)
+         */
+        trackerId: 0,
+        
+<span id='econda-proxy-MediaEvent-cfg-previewUri'>        /**
+</span>         * @cfg {String} previewUri https uri to media file preview
+         */
+        previewUri: null
+    };
+    
+<span id='econda-proxy-MediaEvent-method-setEventName'>    /**
+</span>     * Set eventName property
+     * @method
+     */
+    this.setEventName = function(eventName)
+    {
+        __p[&quot;eventName&quot;] = eventName;
+        return this;
+    };
+    
+<span id='econda-proxy-MediaEvent-method-getEventName'>    /**
+</span>     * Get eventName property
+     * @method
+     */
+    this.getEventName = function()
+    {
+        return __p[&quot;eventName&quot;];
+    };
+    
+<span id='econda-proxy-MediaEvent-method-setContentLabel'>    /**
+</span>     * Setter for content label
+     * @method
+     * @param {String} contentLabel
+     */
+    this.setContentLabel = function(contentLabel)
+    {
+        __p[&quot;contentLabel&quot;] = contentLabel;
+        return this;
+    };
+    
+<span id='econda-proxy-MediaEvent-method-getContentLabel'>    /**
+</span>     * Getter for contentLabel
+     * @method
+     * @return {String} content label
+     */
+    this.getContentLabel = function()
+    {
+        return __p[&quot;contentLabel&quot;];
+    };
+    
+<span id='econda-proxy-MediaEvent-method-setMediaType'>    /**
+</span>     * Setter for mediaType
+     * @method
+     * @param {String} type
+     */
+    this.setMediaType = function(type)
+    {
+        __p[&quot;mediaType&quot;] = type;
+        return this;
+    };
+    
+<span id='econda-proxy-MediaEvent-method-getMediaType'>    /**
+</span>     * Getter for mediaType
+     * @method
+     * @return {String}
+     */
+    this.getMediaType = function()
+    {
+        return __p[&quot;mediaType&quot;];
+    };
+    
+<span id='econda-proxy-MediaEvent-method-setPosition'>    /**
+</span>     * Setter for position
+     * @method
+     * @param {Number} currentPosition
+     */
+    this.setPosition = function(currentPosition)
+    {
+        __p[&quot;position&quot;] = currentPosition;
+        return this;
+    };
+    
+<span id='econda-proxy-MediaEvent-method-getPosition'>    /**
+</span>     * Getter for current position
+     * @method
+     * @return {Number}
+     */
+    this.getPosition = function(currentPosition)
+    {
+        return __p[&quot;position&quot;];
+    };
+    
+<span id='econda-proxy-MediaEvent-method-setDuration'>    /**
+</span>     * Setter for duration (length of video)
+     * @method
+     * @param {Number} duration
+     */
+    this.setDuration = function(duration)
+    {
+        __p[&quot;duration&quot;] = duration;
+        return this;
+    };
+    
+<span id='econda-proxy-MediaEvent-method-getDuration'>    /**
+</span>     * Getter for duration
+     * @method
+     * @return {Number} media duration
+     */
+    this.getDuration = function()
+    {
+        return __p[&quot;duration&quot;];
+    };
+    
+<span id='econda-proxy-MediaEvent-method-setTrackerId'>    /**
+</span>     * Setter for trackerId
+     * @method
+     * @param {Number} id
+     */
+    this.setTrackerId = function(id)
+    {
+        __p[&quot;trackerId&quot;] = id;
+        return this;
+    };
+    
+<span id='econda-proxy-MediaEvent-method-getTrackerId'>    /**
+</span>     * Getter for trackerId
+     * @return {Number} Id of tracker
+     */
+    this.getTrackerId = function()
+    {
+        return __p[&quot;trackerId&quot;];
+    };
+    
+<span id='econda-proxy-MediaEvent-method-setPreviewUri'>    /**
+</span>     * Setter for previewUri
+     * @method
+     * @param {String} uri HTTPS uri to video preview
+     */
+    this.setPreviewUri = function(uri)
+    {
+        __p[&quot;previewUri&quot;] = uri;
+        return this;
+    };
+    
+<span id='econda-proxy-MediaEvent-method-getPreviewUri'>    /**
+</span>     * Getter for previewUri
+     * @method
+     * @return {String} uri for preview
+     */
+    this.getPreviewUri = function()
+    {
+        return __p[&quot;previewUri&quot;];
+    };
+    
+<span id='econda-proxy-MediaEvent-method-copy'>    /**
+</span>     * Returns a copy of this event
+     * @method
+     * @return {econda.proxy.MediaEvent}
+     */
+    this.copy = function()
+    {
+        return obj = new econda.proxy.MediaEvent(__p);
+    };
+    
+    // Constructor 
+    return this.setup(cfg, __p);
+};
+econda.proxy.MediaEvent.prototype = new econda.base.Object();</pre>
+</body>
+</html>

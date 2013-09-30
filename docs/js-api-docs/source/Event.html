@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='econda-media-Event'>/**
+</span> * An event can be used to add information to media session like bandwidth changes, buffer
+ * underruns, technical errors,...
+ * @ignore
+ * @markdown
+
+Example:
+
+    // send an event of type &quot;buffering&quot; without additional information
+    // ad playback position 43 sec.
+    tracker.sendEvent(&quot;buffering&quot;, 43);
+    
+    // send an error event, something went wrong...
+    tracker.sendEvent({
+        type: &quot;error&quot;,
+        value: &quot;Could not initialize something...&quot;
+    }, 58);
+
+ * @class econda.media.Event
+ * @extends econda.base.Object
+ */
+econda.media.Event = function(cfg)
+{
+    cfg = cfg || {};
+    
+<span id='econda-media-Event-property-__p'>    /**
+</span>     * Private properties
+     * @private
+     * @property {Object} __p
+     */
+    var __p = {
+            
+<span id='econda-media-Event-cfg-type'>        /**
+</span>         * Type of event. Might be any string.
+         * @cfg {String} [type=&quot;error&quot;]
+         */
+        type: 'error',
+        
+<span id='econda-media-Event-cfg-value'>        /**
+</span>         * Additional information (message,...)
+         * @cfg {String} value
+         */
+        value: ''
+    };
+    
+<span id='econda-media-Event-property-__defaultProperty'>    /**
+</span>     * Handle cfg as value for property with name
+     * @property {String} __defaultProperty
+     * @private
+     */
+    this.__defaultProperty = &quot;type&quot;;
+    
+<span id='econda-media-Event-method-setType'>    /**
+</span>     * Set event Type
+     * @method
+     * @param {String} type
+     */
+    this.setType = function(type)
+    {
+        __p[&quot;type&quot;] = type;
+        return this;
+    };
+    
+<span id='econda-media-Event-method-getType'>    /**
+</span>     * Get event type
+     * @method
+     * @return {String}
+     */
+    this.getType = function()
+    {
+        return __p[&quot;type&quot;];
+    };
+    
+<span id='econda-media-Event-method-setValue'>    /**
+</span>     * Add additional information
+     * @method
+     * @param {String} value new value
+     */
+    this.setValue = function(value)
+    {
+        __p[&quot;value&quot;] = value;
+        return this;
+    };
+    
+<span id='econda-media-Event-method-getValue'>    /**
+</span>     * Get current value
+     * @method
+     * @return {String}
+     */
+    this.getValue = function()
+    {
+        return __p[&quot;value&quot;];
+    };
+    
+    
+    // Constructor 
+    this.setup(cfg, __p);
+};
+econda.media.Event.prototype = new econda.base.Object();</pre>
+</body>
+</html>

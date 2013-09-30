@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='econda-media-StreamTracker'>/**
+</span> * Tracker object for continuous streams
+ * &lt;p&gt;Use this tracker if you have live streams.&lt;/p&gt;
+ * @ignore
+ * @markdown
+&lt;p&gt;Example:&lt;/p&gt;
+        // enable debug output
+        econda.debug.setEnabled(true);
+    
+        // get tracker object and set some properties in constructor
+        var tracker = new econda.media.StreamTracker({
+            stream: {
+                name: &quot;SatTV Regional&quot;,
+                type: &quot;video&quot;
+            }
+        });
+        
+        // initialize it
+        tracker.init();
+        
+        // track &quot;start playback&quot;
+        tracker.setState(&quot;playing&quot;);
+        
+        // send a custom event
+        tracker.sendEvent({
+            type: &quot;buffering&quot;,
+            value: &quot;6&quot;            // number of seconds the user had to wait
+        });
+        
+        // user clicked &quot;stop video&quot; button
+        tracker.setState(&quot;stopped&quot;);
+
+ * @class econda.media.StreamTracker 
+ * @param {Object/String/econda.media.StreamTracker} cfg
+ */
+econda.media.StreamTracker = function(cfg)
+{
+    var __p = {
+<span id='econda-media-StreamTracker-cfg-stream'>        /**
+</span>         * @cfg {econda.media.Stream} stream
+         * Stream information
+         */
+        stream: null,
+        
+<span id='econda-media-StreamTracker-cfg-state'>        /**
+</span>         * @cfg {String} [state=&quot;uninitialized&quot;]
+         * Current state, one of &quot;uninitialized&quot;, &quot;initialized&quot;, &quot;started&quot;, &quot;paused&quot;, &quot;stopped&quot;
+         */
+        state: 'uninitialized',
+        
+<span id='econda-media-StreamTracker-cfg-bandwidth'>        /**
+</span>         * @cfg {Number} bandwidth Bandwidth in kbit
+         * Bandwidth we use
+         */
+        bandwidth: null,
+        
+<span id='econda-media-StreamTracker-cfg-format'>        /**
+</span>         * @cfg {String} format
+         * Technical format (mpg, h.264, ..)
+         * There are no predefined values, it's free formed text 
+         */
+        format: null
+    };
+    
+<span id='econda-media-StreamTracker-method-init'>    /**
+</span>     * Initialize tracker. 
+     * @method
+     */
+    this.init = function()
+    {
+        return this;
+    };
+    
+<span id='econda-media-StreamTracker-method-setStream'>    /**
+</span>     * Set info about current stream
+     * @method
+     * @param {econda.media.Stream} stream
+     */
+    this.setStream = function(stream)
+    {
+        __p[&quot;stream&quot;] = new econda.media.Stream(stream);
+        return this;
+    };
+    
+<span id='econda-media-StreamTracker-method-getStream'>    /**
+</span>     * Get current stream info
+     * @method
+     * @return {econda.media.Stream}
+     */
+    this.getStream = function()
+    {
+        return __p[&quot;stream&quot;];
+    };
+    
+<span id='econda-media-StreamTracker-method-setState'>    /**
+</span>     * Set current player state
+     * @method
+     * @param {String} state
+     */
+    this.setState = function(state)
+    {
+        econda.debug.log(&quot;Sending state changed event to tracking server. New state: &quot; + state, this);
+
+        // currently not supported by tracking server
+        econda.debug.log(&quot;Request skipped, function currently not supported by tracking server.&quot;);
+        return this;
+    };
+    
+<span id='econda-media-StreamTracker-method-getState'>    /**
+</span>     * Get current state
+     * @method
+     * @return {String}
+     */
+    this.getState = function()
+    {
+        return __p[&quot;state&quot;];
+    };
+    
+<span id='econda-media-StreamTracker-method-setBandwidth'>    /**
+</span>     * Set user bandwidth
+     * @method
+     * @param {Number} kbit
+     */
+    this.setBandwidth = function(kbit)
+    {
+        __p[&quot;bandwidth&quot;] = kbit;
+        return this;
+    };
+    
+<span id='econda-media-StreamTracker-method-getBandwidth'>    /**
+</span>     * Get current bandwidth as set in tracker
+     * @method
+     * @return {Number}
+     */
+    this.getBandwidth = function()
+    {
+        return __p[&quot;bandwidth&quot;];
+    };
+    
+<span id='econda-media-StreamTracker-method-setFormat'>    /**
+</span>     * Set technical video format
+     * @method
+     * @param {String} format
+     */
+    this.setFormat = function(format)
+    {
+        __p[&quot;format&quot;] = format;
+        return this;
+    };
+    
+<span id='econda-media-StreamTracker-method-getFormat'>    /**
+</span>     * Get format identifier as set in tracker object
+     * @method
+     * @return {String}
+     */
+    this.getFormat = function()
+    {
+        return __p[&quot;format&quot;];
+    };
+    
+<span id='econda-media-StreamTracker-method-sendEvent'>    /**
+</span>     * Sends an event to tracking server. Used e.g. to log problems during playback.
+     * &lt;p&gt;Examples:&lt;/p&gt;
+     *     // event typas ar free form text - send event with type &quot;crash&quot;
+     *     tracker.sendEvent(&quot;crash&quot;);
+     *     
+     *     // let's add some more info, e.g. number of seconds the user had to wait
+     *     tracker.sendEvent({
+     *         type: &quot;buffering&quot;,
+     *         value: &quot;4&quot;
+     *     });
+     * @method
+     * @param {econda.media.Event/Object/String} event event data
+     */
+    this.sendEvent = function(event)
+    {
+        // currently not supported by tracking server
+        return this;
+    }
+    
+    return this.setup(cfg, __p);
+};
+econda.media.StreamTracker.prototype = new econda.base.Object();</pre>
+</body>
+</html>

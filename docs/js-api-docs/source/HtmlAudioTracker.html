@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js">if(typeof econda.media.helper == 'undefined') {
+    econda.media.helper = {};
+}
+
+<span id='econda-media-helper-HtmlAudioTracker-method-constructor'><span id='econda-media-helper-HtmlAudioTracker'>/**
+</span></span> * Helper to setup trackig for html5 audio tag based media playback.
+ * 
+ * @markdown
+Example:
+    &lt;!-- Our audio --&gt;
+    &lt;audio id=&quot;audioTagId&quot; 
+           controls=&quot;controls&quot;&gt;
+        &lt;source src=&quot;./media-files/music/music.mp3&quot;/&gt;
+        &lt;p&gt;Your Browser does not support the html audio tag.&lt;/p&gt;
+    &lt;/audio&gt;
+    
+    &lt;!-- setup econda audio tracking --&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        
+        // enable debug output
+        econda.debug.setEnabled(true);
+        
+        // Setup player tracker 
+        var trackingHelper = new econda.media.helper.HtmlAudioTracker({
+            player: document.getElementById(&quot;audioTagId&quot;),
+            tracker: {content: &quot;HTML5 Example audio&quot;}
+        });
+        
+    &lt;/script&gt;
+ * 
+ * @class econda.media.helper.HtmlAudioTracker
+ * @extends econda.base.Object
+ * @constructor Constructor
+ * @param {Object} cfg Configuration options
+ */
+econda.media.helper.HtmlAudioTracker = function(cfg)
+{
+    var cmp = this;
+    
+    cfg = cfg || {};
+    
+<span id='econda-media-helper-HtmlAudioTracker-property-__p'>    /**
+</span>     * Private properties collection
+     * @property {Object} __p
+     * @private
+     */
+    var __p = {
+        
+<span id='econda-media-helper-HtmlAudioTracker-cfg-tracker'>        /**
+</span>         * @cfg {econda.media.MediaTracker/Object} tracker Reference to tracker object or config options for a new tracker object. 
+         */
+        tracker: null,
+        
+<span id='econda-media-helper-HtmlAudioTracker-cfg-player'>        /**
+</span>         * @cfg {Object} player Reference to html audio element
+         */
+        player: null
+    };
+    
+    this.__defaultProperty = &quot;player&quot;;
+    
+<span id='econda-media-helper-HtmlAudioTracker-property-ve'>    /**
+</span>     * Reference to element where we can get duration etc...
+     * audio or source tag.
+     * @private
+     * @property {Object} ve
+     */
+    var ve = null;
+    
+<span id='econda-media-helper-HtmlAudioTracker-property-playerDataLoaded'>    /**
+</span>     * True as soon as we could read infos from player object.
+     * (Duration, etc...)
+     * @private
+     * @property {Boolean} playerDataLoaded
+     */
+    var playerDataLoaded = false;
+    
+<span id='econda-media-helper-HtmlAudioTracker-property-trackerData'>    /**
+</span>     * Data we wrote or have to write to tracker object
+     * @private
+     * @property {Object} trackerData
+     */
+    var trackerData = {};
+    
+<span id='econda-media-helper-HtmlAudioTracker-method-updateTrackerData'>    /**
+</span>     * Helper function to update tracker properties.
+     * We can't do this directly because the tracker might be set
+     * at a later time. You can call this function without parameters
+     * to write all stored data to tracker.
+     * 
+     * @method
+     * @private
+     * @param {String} property Property name to update
+     * @param {Mixed} value Value to assign 
+     */
+    this.updateTrackerData = function(property, value)
+    {
+        if(typeof property != 'undefined') {
+            trackerData[property] = value;
+        }
+        
+        if(typeof __p[&quot;tracker&quot;] != 'undefined') {
+            __p[&quot;tracker&quot;].set(trackerData);
+        }
+        return this;
+    };
+    
+<span id='econda-media-helper-HtmlAudioTracker-method-setTracker'>    /**
+</span>     * Set tracker object or configuration. See constructor of MediaTracker object for details.
+     *  
+     *     // Example:
+     *     ytTracker.setTracer({
+     *       content: &quot;Audio Name&quot;, 
+     *       category: &quot;/Example Data&quot; 
+     *     }
+     *   
+     * @method
+     * @param {econda.media.MediaTracker/Object/String} tracker tracker object, tracker config or content name 
+     */
+    this.setTracker = function(tracker)
+    {
+        __p[&quot;tracker&quot;] = new econda.media.MediaTracker(tracker);
+        
+        // write cached data to tracker object
+        this.updateTrackerData();
+        
+        return this;
+    };
+    
+<span id='econda-media-helper-HtmlAudioTracker-method-getTracker'>    /**
+</span>     * Get tracker object
+     * @method
+     * @return {econda.media.MediaTracker}
+     */
+    this.getTracker = function()
+    {
+        return __p[&quot;tracker&quot;];
+    };
+    
+<span id='econda-media-helper-HtmlAudioTracker-method-setPlayer'>    /**
+</span>     * Set reference to html audio element
+     * @method
+     * @param {Object/String} domNode Html audio tag or element id
+     * @chainable
+     */
+    this.setPlayer = function(domNodeOrId)
+    {
+        var domNode;
+        
+        if(!domNodeOrId) {
+            econda.debug.error(&quot;No dom node given in HtmlAudioTracker.setPlayer().&quot;);
+            return this;
+        }
+        
+        // get dom node if we've got a string (= element id)
+        if(typeof domNodeOrId == &quot;string&quot;) {
+            domNode = document.getElementById(domNode);
+            if(!domNode) {
+                econda.debug.error(&quot;No dom node found with given element id: &quot;+domNodeOrId)
+                return this;
+            }
+        } else {
+            domNode = domNodeOrId;
+        }
+        
+        // check if it's a html audio element
+        if(typeof domNode.tagName == 'undefined' || domNode.tagName.toLowerCase() != 'audio') {
+            econda.debug.error(&quot;Given element is not an html audio tag in setPlayer().&quot;);
+            return this;
+        }
+        
+        __p[&quot;player&quot;] = domNode;
+        ve = domNode;
+        
+        this.addEventListeners();
+        
+        return this;
+    };
+    
+<span id='econda-media-helper-HtmlAudioTracker-method-addEventListeners'>    /**
+</span>     * Add event listeners to assigned audio element
+     * @method
+     * @private
+     */
+    this.addEventListeners = function()
+    {
+        var e = __p[&quot;player&quot;];
+        
+        e.addEventListener(&quot;loadeddata&quot;, cmp.handleLoadedDataEvent);
+        e.addEventListener(&quot;seeking&quot;, cmp.handleSeekingEvent);
+        e.addEventListener(&quot;seeked&quot;, cmp.handleSeekedEvent);
+        e.addEventListener(&quot;play&quot;, cmp.handlePlayEvent);
+        e.addEventListener(&quot;pause&quot;, cmp.handlePauseEvent);
+        e.addEventListener(&quot;ended&quot;, cmp.handleEndedEvent);
+
+        return this;
+    };
+    
+<span id='econda-media-helper-HtmlAudioTracker-method-handleLoadedDataEvent'>    /**
+</span>     * Handles the players loadeddata event
+     * @method
+     * @private
+     * @param {Object} event Event object
+     */
+    this.handleLoadedDataEvent = function(event)
+    {
+        econda.debug.log(&quot;got loadeddata event&quot;);
+        
+        cmp.updateTrackerData(&quot;duration&quot;, ve.duration);
+        playerDataLoaded = true;
+
+        // tracker should have all data now, so initialize it.
+        if(__p[&quot;tracker&quot;]) {
+            __p[&quot;tracker&quot;].init();
+        }
+    };
+    
+<span id='econda-media-helper-HtmlAudioTracker-method-handleSeekingEvent'>    /**
+</span>     * Handle audio &quot;seeking&quot; events
+     * @method
+     * @private
+     * @param {Object} event Event object
+     */
+    this.handleSeekingEvent = function(event)
+    {
+        var t = __p[&quot;tracker&quot;];
+        econda.debug.log(&quot;got seeking event&quot;);
+        
+        if(typeof cuedSeekedEvent != 'undefined') {
+            clearTimeout(cuedSeekedEvent);
+            delete cuedSeekedEvent;
+        }
+        
+        if(t) {
+            t.setState(&quot;paused&quot;, ve.currentTime);
+        }
+    };
+
+<span id='econda-media-helper-HtmlAudioTracker-method-handleSeekedEvent'>    /**
+</span>     * Handle audio &quot;seeked&quot; events
+     * @method
+     * @private
+     * @param {Object} event Event object
+     */
+    this.handleSeekedEvent = function(event)
+    {
+        var t = __p[&quot;tracker&quot;];
+        econda.debug.log(&quot;got seeked event&quot;);
+        if(t) {
+            var pos = t.currentTime;
+            cuedSeekedEvent = setTimeout(function () {
+                t.setState(&quot;playing&quot;, pos);
+            }, 250);
+        }
+    };
+
+<span id='econda-media-helper-HtmlAudioTracker-method-handlePlayEvent'>    /**
+</span>     * Handle audio &quot;play&quot; events
+     * @method
+     * @private
+     * @param {Object} event Event object
+     */
+    this.handlePlayEvent = function(event)
+    {
+        var t = __p[&quot;tracker&quot;];
+        econda.debug.log(&quot;got play event&quot;);
+        
+        if(t) {
+            t.setState(&quot;playing&quot;, ve.currentTime);
+        }
+    };
+
+<span id='econda-media-helper-HtmlAudioTracker-method-handlePauseEvent'>    /**
+</span>     * Handle audio &quot;pause&quot; events
+     * @method
+     * @private
+     * @param {Object} event Event object
+     */
+    this.handlePauseEvent = function(event)
+    {
+        var t = __p[&quot;tracker&quot;];
+        econda.debug.log(&quot;got pause event&quot;);
+        
+        if(t) {
+            t.setState(&quot;paused&quot;, ve.currentTime);
+        }
+    };
+
+<span id='econda-media-helper-HtmlAudioTracker-method-handleEndedEvent'>    /**
+</span>     * Handle audio &quot;ended&quot; events
+     * @method
+     * @private
+     * @param {Object} event Event object
+     */
+    this.handleEndedEvent = function(event)
+    {
+        var t = __p[&quot;tracker&quot;];
+        econda.debug.log(&quot;got ended event&quot;);
+        
+        if(t) {
+            t.setState(&quot;stopped&quot;, ve.currentTime);
+        }
+    };
+    
+<span id='econda-media-helper-HtmlAudioTracker-method-getPlayer'>    /**
+</span>     * Return reference to html audio element
+     * @method
+     */
+    this.getPlayer = function()
+    {
+        return __p[&quot;player&quot;];
+    };
+    
+    return this.setup(cfg, __p);
+};
+econda.media.helper.HtmlAudioTracker.prototype = new econda.base.Object();</pre>
+</body>
+</html>

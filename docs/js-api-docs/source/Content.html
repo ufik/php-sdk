@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='econda-media-Content'>/**
+</span> * Content object
+ * @markdown
+&lt;p&gt;A &quot;content&quot; is what we see, e.g. the name of the video. You can add a category to
+   sort content objects (videos, music) in folders.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+    var myContent = new econda.media.Content({
+        name: &quot;My Skater Video&quot;,
+        category: &quot;/News/Sports&quot;
+    });
+    
+    var tracker = new econda.media.MediaTracker({
+        content: myContent,
+        duration: 120
+    });
+    
+    // or as a shorthand version...
+    var tracker = new econda.media.MediaTracker({
+        content: {
+            name: &quot;My Skater Video&quot;,
+            category: &quot;/News/Sports&quot;
+        }
+        duration: 120
+    });
+
+ * 
+ * @class econda.media.Content
+ * @extends econda.base.Object
+ */
+econda.media.Content = function(cfg) 
+{
+    cfg = cfg || {};
+    
+<span id='econda-media-Content-property-__p'>    /**
+</span>     * Private properties collection
+     * @property {Object} __p
+     * @private
+     */
+    var __p = {
+        
+<span id='econda-media-Content-cfg-name'>        /**
+</span>         * @cfg {String} name
+         * Name of content, may NOT contains slashes
+         */
+        name: null,
+        
+<span id='econda-media-Content-cfg-categories'>        /**
+</span>         * @cfg {Array} categories
+         * Array of econda.media.Category objects
+         */
+        category: []
+    };
+    
+<span id='econda-media-Content-property-__defaultProperty'>    /**
+</span>     * Handle non object config values as value for property...
+     * @property {String} __defaultProperty
+     * @private
+     */
+    this.__defaultProperty = &quot;name&quot;;
+    
+<span id='econda-media-Content-method-setName'>    /**
+</span>     * Set name property of content object
+     * @method
+     * @param {String} name New name value
+     */
+    this.setName = function(name) 
+    {
+        __p[&quot;name&quot;] = name;
+        return this;
+    };
+
+<span id='econda-media-Content-method-getName'>    /**
+</span>     * Get current value of name property
+     * @method
+     * @return {String} The nmae
+     */
+    this.getName = function() 
+    {
+        return __p[&quot;name&quot;];
+    };
+
+<span id='econda-media-Content-method-setCategory'>    /**
+</span>     * Add category
+     * @method
+     * @param {String/econda.media.Category}
+     */
+    this.setCategory = function(category) 
+    {
+        __p[&quot;category&quot;] = new econda.media.Category(category);
+        return this;
+    };
+
+<span id='econda-media-Content-method-getCategory'>    /**
+</span>     * Get associated category object.
+     * @method
+     * @return {econda.media.Category}
+     */
+    this.getCategory = function()
+    {
+        return __p[&quot;category&quot;];
+    };
+    
+<span id='econda-media-Content-method-toString'>    /**
+</span>     * Returns category path + name as string
+     * @method
+     * @return {String} e.g. &quot;/ProductVideos/MyVideo&quot; or &quot;MyVideo&quot; (if there's no category assigned)
+     */
+    this.toString = function()
+    {
+        var cat = this.getCategory();
+        if(cat != null) {
+            ret = cat.toString() + &quot;/&quot; + this.getName();
+        } else {
+            ret = this.getName();
+        }
+        return ret;
+    };
+    
+    // Constructor 
+    return this.setup(cfg, __p);
+};
+econda.media.Content.prototype = new econda.base.Object(&quot;name&quot;);
+</pre>
+</body>
+</html>

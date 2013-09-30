@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='econda-CustomFieldset'>/**
+</span> * Defines a custom fieldset.
+ * @ignore 
+ * @markdown
+&lt;p&gt;A custom fieldset is like a record that you can write to your user defined dimensions.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+    var fs = new econda.CustomFieldset({
+    shortcut: &quot;additionalCustomerFields&quot;,
+    data: [
+        &quot;private&quot;,        // customer group
+        &quot;store&quot;            // first contact was in a local store
+    ]});
+
+&lt;p&gt;Which data you can send depends on your configuration. All fields are
+user defined. Pls. see econda monitor configuration for details.&lt;/p&gt;
+
+ * @class econda.CustomFieldset
+ * @param cfg
+ * @returns {econda.CustomFieldset}
+ */
+econda.CustomFieldset = function(cfg)
+{
+    var __p = {
+<span id='econda-CustomFieldset-cfg-shortcut'>        /**
+</span>         * @cfg {String} shortcut
+         * Name to identify destination dimensions.
+         */
+        shortcut: null,
+        
+<span id='econda-CustomFieldset-cfg-data'>        /**
+</span>         * @cfg {Array} data
+         * Data to write in custom dimensions
+         */
+        data: []
+    };
+    
+<span id='econda-CustomFieldset-method-setShortcut'>    /**
+</span>     * Set name of dimension set as defined in monitor config
+     * @method
+     * @param {String} name
+     */
+    this.setShortcut = function(name)
+    {
+        __p[&quot;shortcut&quot;] = name;
+        return this;
+    };
+    
+<span id='econda-CustomFieldset-method-getShortcut'>    /**
+</span>     * Get name of dimension set
+     * @method
+     * @return {String}
+     */
+    this.getShortcut = function()
+    {
+        return __p[&quot;shortcut&quot;];
+    };
+    
+<span id='econda-CustomFieldset-method-setData'>    /**
+</span>     * Set data, must be an array
+     * @method
+     * @param {Array} arr
+     */
+    this.setData = function(arr)
+    {
+        __p[&quot;data&quot;] = arr;
+        return this;
+    };
+    
+<span id='econda-CustomFieldset-method-getData'>    /**
+</span>     * Get current data
+     * @method
+     * @return {Array}
+     */
+    this.getData = function()
+    {
+        return __p[&quot;data&quot;];
+    };
+    
+    // do setup and be happy
+    return this.setup(cfg, __p);
+};
+econda.CustomFieldset.prototype = new econda.base.Object();</pre>
+</body>
+</html>
