@@ -1,6 +1,6 @@
 {
-	"name": "econda/recommendations",
-	"description": "Client library to access econda recommendation service.",
+	"name": "econda/php-sdk",
+	"description": "Client library to access econda services.",
 	"homepage": "http://www.econda.com",
 	"license": "MIT",
 	"authors": [{

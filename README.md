@@ -14,7 +14,7 @@ The recommended way to install this library is through [Composer](http://getcomp
 curl -sS https://getcomposer.org/installer | php
 
 # Add Guzzle as a dependency
-php composer.phar require econda/recommendations:~0.1
+php composer.phar require econda/php-sdk:~0.1
 ```
 
 After installing, you need to require Composer's autoloader:
