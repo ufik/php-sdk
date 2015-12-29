@@ -1,5 +1,5 @@
 {
-	"name": "econda/php-sdk",
+	"name": "cngroup/econda-php-sdk",
 	"description": "Client library to access econda services.",
 	"homepage": "http://www.econda.com",
 	"license": "MIT",
